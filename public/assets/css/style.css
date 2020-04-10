@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Permanent+Marker&display=swap');
+:root {
+    /* Usely Fonts : */
+    --fontTextTitle: 'Averia Sans Libre', cursive;
+    --fontText: 'Cabin', sans-serif;
+    --fontTextMasterTitle: 'Permanent Marker', cursive;
+    /*  Usely Colors : */
+    --colorDarker : #423B32;
+    --colorText : #FFC375;
+    --colorLight : #FFE4C2;
+    --colorShadow : #80623B;
+    --colorHover : #CCB79B;
+    /* Font Size : */
+    --sizeText : 16pt;
+    --sizeTitle : calc(2 * var(--sizeText));
+}
