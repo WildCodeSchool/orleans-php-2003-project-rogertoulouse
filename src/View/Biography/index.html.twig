@@ -1,14 +1,22 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/biography.css">
+{% endblock %}
 {% block content %}
-    <h1>Biographie</h1>
-    <ul>
-        {% for bio in biography %}
-            {% set year = bio.date|split('-') %}
-            <li><a href="/Biographie/show/{{ bio.id }}">{{ year.0 }} {{ bio.info }}</a></li>
-        {% else %}
-            <li>Nothing to display</li>
-        {% endfor %}
-    </ul>
-    <a href="/Biographie/add">Ajouter</a>
+    <section class="biography container-fluid">
+        <h1>Biographie</h1>
+        <ul>
+            {% for bio in biography %}
+                {% set year = bio.date|split('-') %}
+                {% if bio.art != 0 %}
+                    <li><a href="/Biographie/show/{{ bio.id }}">{{ year.0 }} {{ bio.info }}</a></li>
+                {% else %}
+                    <li><img src="{{ bio.image }}" alt="{{ bio.name }}">
+                        <a href="/Biographie/show/{{ bio.id }}">{{ year.0 }} {{ bio.name }} {{ bio.info }}</a></li>
+                {% endif %}
+            {% else %}
+                <li>Nothing to display</li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}

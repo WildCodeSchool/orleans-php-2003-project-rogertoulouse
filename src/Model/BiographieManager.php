@@ -30,22 +30,26 @@ class BiographieManager extends AbstractManager
 
     /**
      * @param array $biography
+     * @param null $name
+     * @param int $is_art
+     * @param null $image
      * @return int
      */
-    public function insert(array $biography): int
+    public function insert(array $biography, $name = null, $is_art = 0, $image = null ): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`date`, `info`, `is_art`, `image`) VALUES (:date, :info, :is_art, :image)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+            " (`name`, `date`, `info`, `is_art`, `image`) VALUES (:name, :date, :info, :is_art, :image)");
         $statement->bindValue('date', $biography['date'], \PDO::PARAM_STR);
         $statement->bindValue('info', $biography['info'], \PDO::PARAM_STR);
-        if (isset($biography['art'])){
-            $statement->bindValue('is_art', $biography['art'], \PDO::PARAM_INT);
-            $statement->bindValue('image', $biography['image'], \PDO::PARAM_STR);
-        } else {
-            $statement->bindValue('is_art', 0, \PDO::PARAM_INT);
-            $statement->bindValue('image', '', \PDO::PARAM_STR);
+        if (isset($biography['art'])) {
+            $name = $biography['name'];
+            $is_art = $biography['art'];
+            $image = $biography['image'];
         }
-
+        $statement->bindValue('name', $name, \PDO::PARAM_STR);
+        $statement->bindValue('is_art', $is_art, \PDO::PARAM_INT);
+        $statement->bindValue('image', $image, \PDO::PARAM_STR);
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
@@ -68,21 +72,23 @@ class BiographieManager extends AbstractManager
      * @param array $biography
      * @return bool
      */
-    public function update(array $biography):bool
+    public function update(array $biography, $name = null, $is_art = 0, $image = null ):bool
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `date` = :date, `info` = :info, `is_art` = :is_art, `image` = :image WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
+            " SET `name` = :name, `date` = :date, `info` = :info, `is_art` = :is_art, `image` = :image WHERE id=:id");
         $statement->bindValue('id', $biography['id'], \PDO::PARAM_INT);
         $statement->bindValue('date', $biography['date'], \PDO::PARAM_STR);
         $statement->bindValue('info', $biography['info'], \PDO::PARAM_STR);
-        if (isset($biography['art'])){
-            $statement->bindValue('is_art', $biography['art'], \PDO::PARAM_INT);
-            $statement->bindValue('image', $biography['image'], \PDO::PARAM_STR);
-        } else {
-            $statement->bindValue('is_art', 0, \PDO::PARAM_INT);
-            $statement->bindValue('image', null, \PDO::PARAM_STR);
+        if (isset($biography['art'])) {
+            $name = $biography['name'];
+            $is_art = $biography['art'];
+            $image = $biography['image'];
         }
+        $statement->bindValue('name', $name, \PDO::PARAM_STR);
+        $statement->bindValue('is_art', $is_art, \PDO::PARAM_INT);
+        $statement->bindValue('image', $image, \PDO::PARAM_STR);
 
         return $statement->execute();
     }
