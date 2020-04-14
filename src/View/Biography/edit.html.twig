@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% set year = biography.date|split('-') %}
+    <h1>Edit biography {{ year.0 }}</h1>
+    {% include 'Biography/_form.html.twig' %}
+    <a href="/Biographie/show/{{ biography.id }}">Back</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+<form method="post">
+    <label for="id" hidden>id</label>
+    <input type="hidden" value="{{ biography.id }}" name="id" id="id">
+    <label for="date">date</label>
+    <input type="date" value="{{ biography.date }}" name="date" id="date">
+    <label for="info">date</label>
+    <textarea name="info" id="info">{{ biography.info }}</textarea>
+    <label for="art">Tableau ?</label>
+    <input type="checkbox" value="{{ biography.art }}" name="art" id="art">
+    <label for="image">URL image</label>
+    <input type="text" value="{{ biography.image }}" name="image" id="image">
+    <input type="submit" value="Ajouter une entrée">
+</form>

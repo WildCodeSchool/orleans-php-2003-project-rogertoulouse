@@ -1,0 +1,10 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% set year = biography.date|split('-') %}
+    <h1>Biographie : {{ year.0 }}</h1>
+    <p>{{ year.0 }} {{ biography.info }}</p>
+    <a href="/Biographie/edit/{{ biography.id }}">Edit</a>
+    <a href="/Biographie/delete/{{biography.id}}">Supprimer</a>
+    <a href="/Biographie/index">Back</a>
+{% endblock %}
