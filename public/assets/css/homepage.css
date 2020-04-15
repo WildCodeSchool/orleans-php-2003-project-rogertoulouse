@@ -1,0 +1,13 @@
+h5{
+    font-family: var(--font-title);
+    font-size: var(--sizeTitle);
+}
+
+p{
+    font-family: var(--font-text);
+    font-size: var(--font-text);
+}
+
+body{
+    background-color: var(--color-secondary);
+}

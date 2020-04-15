@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cabin:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Permanent+Marker&display=swap');
+@import url('homepage.css');
+
 :root {
     /* Usely Fonts : */
     --font-title: 'Averia Sans Libre', cursive;
@@ -21,5 +23,4 @@
     --padding : 20px;
     --padding-sm : calc(var(--padding) *2);
     --padding-lg : calc(var(--padding) *4);
-
 }
