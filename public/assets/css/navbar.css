@@ -1,0 +1,61 @@
+/* header */
+*{
+    margin: 0;
+}
+.banner{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-image: url("https://www.jpsueur.com/images/stories/Orleans/Toulouse1_2.jpg");
+    background-position: center;
+    background-size: cover;
+    text-shadow: 2px 2px 2px var(--color-main);
+}
+.banner h1 {
+    color: var(--color-light);
+    font-family: var(--font-banner);
+    font-size: var(--sizeBanner);
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.bg-dark {
+    background-color:var(--color-main)!important;
+}
+.navbar{
+    font-family: var(--font-title);
+    color: var(--color-light)!important;
+}
+.navbar-dark .navbar-nav .nav-link a {
+    color: white;!important
+}
+.btn{
+    color: var(--color-text);
+    border-style: none;
+}
+.btn-outline-success {
+    color: var(--color-text);
+    border-color: var(--color-text);
+}
+.btn-outline-success:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-light);
+}
+.navbar-dark .navbar-nav .nav-link {
+    font-size: var(--sizeText);
+    color: var(--color-light);
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--color-secondary);
+}
+.navbar-toggler {
+    color: white;!important
+}
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 228, 194, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");!important
+}
+.form-control:focus {
+    border-color: var(--color-main);
+    box-shadow: var(--color-main);
+}
