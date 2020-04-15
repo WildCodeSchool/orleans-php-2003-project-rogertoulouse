@@ -11,3 +11,13 @@ p{
 body{
     background-color: var(--color-secondary);
 }
+
+img{
+    border-radius: var(--border-radius);
+}
+
+#colImg {
+    background-size: cover;
+    width: 80%;
+    height: 80%;
+}
