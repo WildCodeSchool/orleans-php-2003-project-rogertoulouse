@@ -1,8 +1,13 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
 {% block content %}
+    <section class="container-fluid">
     {% set year = biography.date|split('-') %}
     <h1>Edit biography {{ year.0 }}</h1>
     {% include 'Biography/_form.html.twig' %}
-    <a href="/Biographie/show/{{ biography.id }}">Back</a>
+    <a href="/Biographie/show/{{ biography.id }}" class="btn">Retour</a>
+        </div>
+    </section>
 {% endblock %}

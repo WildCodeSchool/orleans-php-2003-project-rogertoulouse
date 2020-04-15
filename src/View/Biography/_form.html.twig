@@ -5,15 +5,6 @@
     <input type="date" value="{{ biography.date }}" name="date" id="date"><br>
     <label for="info">info</label>
     <textarea name="info" id="info">{{ biography.info }}</textarea><br>
-
-    <input type="radio" id="art" name="art" required="required" value="0" />
-    <label for="art" class=" required">Biographie</label>
-    <input type="radio" id="art" name="art" required="required" value="1" />
-    <label for="art" class=" required">Peinture</label><br>
-
-    <label for="name">Nom de l'Oeuvre</label>
-    <input type="text" value="{{ biography.name }}" name="name" id="name"><br>
-    <label for="image">URL image</label>
-    <input type="text" value="{{ biography.image }}" name="image" id="image"><br>
-    <input type="submit" value="Ajouter une entrée">
+    <div class="groupBtn">
+    <input type="submit" value="{{ btn }} une entrée" class="btn">
 </form>

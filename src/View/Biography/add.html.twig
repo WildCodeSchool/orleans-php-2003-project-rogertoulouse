@@ -1,6 +1,12 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
 {% block content %}
-    <h1>Add a new item</h1>
-    {% include 'Biography/_form.html.twig' %}
+    <section class="container-fluid">
+        <h1>Ajouter une entrée à la Biographie</h1>
+        {% include 'Biography/_form.html.twig' %}
+        <a href="/Biographie/" class="btn">Retour</a>
+        </div>
+    </section>
 {% endblock %}

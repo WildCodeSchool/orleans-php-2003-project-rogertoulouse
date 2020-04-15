@@ -17,8 +17,6 @@ use App\Model\BiographieManager;
  */
 class BiographieController extends AbstractController
 {
-
-
     /**
      * Display item listing
      *
@@ -27,13 +25,16 @@ class BiographieController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-
     public function index()
     {
         $bioManager = new BiographieManager();
-        $biography = $bioManager->selectAll();
-
-        return $this->twig->render('Biography/index.html.twig', ['biography' => $biography]);
+        $biography = $bioManager->selectAllByDate();
+        $result = [];
+        foreach ($biography as $bio){
+            $date = explode('-', $bio['date']);
+            $result[] = $date[0];
+        }
+        return $this->twig->render('Biography/index.html.twig', ['biography' => $biography, 'years' => array_unique($result)]);
     }
 
     /**
@@ -53,7 +54,6 @@ class BiographieController extends AbstractController
         return $this->twig->render('Biography/show.html.twig', ['biography' => $biography]);
     }
 
-
     /**
      * Display item edition page specified by $id
      *
@@ -67,25 +67,16 @@ class BiographieController extends AbstractController
     {
         $bioManager = new BiographieManager();
         $biography = $bioManager->selectOneById($id);
+        $btn = 'Editer';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $biography['date'] = $_POST['date'];
             $biography['info'] = $_POST['info'];
-            if (isset($_POST['art'])) {
-                $biography['name'] = $_POST['name'];
-                $biography['art'] = $_POST['art'];
-                $biography['image'] = $_POST['image'];
-            } else {
-                $biography['name'] = null;
-                $biography['art'] = 0;
-                $biography['image'] = null;
-            }
             $bioManager->update($biography);
         }
 
-        return $this->twig->render('Biography/edit.html.twig', ['biography' => $biography]);
+        return $this->twig->render('Biography/edit.html.twig', ['biography' => $biography, 'btn' => $btn]);
     }
-
 
     /**
      * Display item creation page
@@ -97,27 +88,19 @@ class BiographieController extends AbstractController
      */
     public function add()
     {
-
+        $btn = 'Ajouter';
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $bioManager = new BiographieManager();
             $biography = [
                 'date' => $_POST['date'],
                 'info' => $_POST['info'],
             ];
-            if (isset($_POST['art'])) {
-                $biography = [
-                    'name' => $_POST['name'],
-                    'art' => $_POST['art'],
-                    'image' => $_POST['image'],
-                ];
-            }
             $bioManager->insert($biography);
             header('Location:/Biographie/');
         }
 
-        return $this->twig->render('Biography/add.html.twig');
+        return $this->twig->render('Biography/add.html.twig', ['btn' => $btn]);
     }
-
 
     /**
      * Handle item deletion
@@ -128,6 +111,6 @@ class BiographieController extends AbstractController
     {
         $bioManager = new BiographieManager();
         $bioManager->delete($id);
-        header('Location:/Biography/');
+        header('Location:/Biographie/');
     }
 }

@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Items</h1>
-    <ul>
+    <ul class="card">
         {% for item in items %}
             <li><a href="/item/show/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
         {% else %}

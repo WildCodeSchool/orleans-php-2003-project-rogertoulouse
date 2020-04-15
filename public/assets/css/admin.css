@@ -1,0 +1,56 @@
+h1{
+    font-family: var(--font-title);
+    margin: 0;
+}
+.container-fluid{
+    height: 100vh;
+    text-align: center;
+    background-color: var(--color-secondary);
+    line-height: 1.5;
+}
+form{
+    display: flex;
+    margin: 0 auto 0 auto;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    vertical-align: top;
+    width: 50%;
+}
+label{
+    background-color: var(--color-main);
+    text-transform: uppercase;
+    border-radius: var(--border-radius) var(--border-radius) 0  0;
+    margin-bottom: 0;
+    color: var(--color-text);
+    width: 100%;
+    font-family: var(--font-text);
+    font-weight: bold;
+}
+textarea{
+    border: none;
+    background-color: var(--color-main);
+    color: var(--color-text);
+    width: 100%;
+    min-height: 300px;
+}
+input{
+    border: none;
+    background-color: var(--color-main);
+    color: var(--color-text);
+    width: 100%;
+}
+.groupBtn{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.btn{
+    width: 200px;
+    background-color: var(--color-main);
+    color: var(--color-text);
+}
+.btn:hover{
+    color: var(--color-shadow);
+}

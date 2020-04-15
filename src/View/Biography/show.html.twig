@@ -1,9 +1,21 @@
 {% extends 'layout.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
 {% block content %}
+<section class="container-fluid">
     {% set year = biography.date|split('-') %}
-    <h1>Biographie : {{ year.0 }} {{ biography.name }}</h1>
-    <p>{{ year.0 }} {{ biography.info }}</p>
-    <a href="/Biographie/edit/{{ biography.id }}">Edit</a>
-    <a href="/Biographie/delete/{{biography.id}}">Supprimer</a>
-    <a href="/Biographie/index">Back</a>
+    <h1>Biographie selectionnée</h1>
+    <form method="post">
+        <label for="date">date</label>
+        <input type="date" value="{{ biography.date }}" name="date" id="date" disabled><br>
+        <label for="info">info</label>
+        <textarea name="info" id="info" disabled>{{ biography.info }}</textarea><br>
+        <div class="groupBtn">
+        <a href="/Biographie/edit/{{ biography.id }}" class="btn">Edit</a>
+        <a href="/Biographie/delete/{{biography.id}}" class="btn">Supprimer</a>
+        <a href="/Biographie" class="btn">Retour</a>
+        </div>
+    </form>
+</section>
 {% endblock %}

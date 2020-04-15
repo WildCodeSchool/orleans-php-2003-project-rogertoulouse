@@ -30,26 +30,15 @@ class BiographieManager extends AbstractManager
 
     /**
      * @param array $biography
-     * @param null $name
-     * @param int $is_art
-     * @param null $image
      * @return int
      */
-    public function insert(array $biography, $name = null, $is_art = 0, $image = null ): int
+    public function insert(array $biography): int
     {
         // prepared request
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-            " (`name`, `date`, `info`, `is_art`, `image`) VALUES (:name, :date, :info, :is_art, :image)");
+            " (`date`, `info`) VALUES (:date, :info)");
         $statement->bindValue('date', $biography['date'], \PDO::PARAM_STR);
         $statement->bindValue('info', $biography['info'], \PDO::PARAM_STR);
-        if (isset($biography['art'])) {
-            $name = $biography['name'];
-            $is_art = $biography['art'];
-            $image = $biography['image'];
-        }
-        $statement->bindValue('name', $name, \PDO::PARAM_STR);
-        $statement->bindValue('is_art', $is_art, \PDO::PARAM_INT);
-        $statement->bindValue('image', $image, \PDO::PARAM_STR);
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
         }
@@ -72,24 +61,35 @@ class BiographieManager extends AbstractManager
      * @param array $biography
      * @return bool
      */
-    public function update(array $biography, $name = null, $is_art = 0, $image = null ):bool
+    public function update(array $biography):bool
     {
 
         // prepared request
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
-            " SET `name` = :name, `date` = :date, `info` = :info, `is_art` = :is_art, `image` = :image WHERE id=:id");
+            " SET `date` = :date, `info` = :info WHERE id=:id");
         $statement->bindValue('id', $biography['id'], \PDO::PARAM_INT);
         $statement->bindValue('date', $biography['date'], \PDO::PARAM_STR);
         $statement->bindValue('info', $biography['info'], \PDO::PARAM_STR);
-        if (isset($biography['art'])) {
-            $name = $biography['name'];
-            $is_art = $biography['art'];
-            $image = $biography['image'];
-        }
-        $statement->bindValue('name', $name, \PDO::PARAM_STR);
-        $statement->bindValue('is_art', $is_art, \PDO::PARAM_INT);
-        $statement->bindValue('image', $image, \PDO::PARAM_STR);
 
         return $statement->execute();
+    }
+
+    /**
+     * Get all row from database.
+     *
+     * @return array
+     */
+    public function selectAllDate(): array
+    {
+        return $this->pdo->query('SELECT DISTINCT YEAR(`date`) AS date FROM ' . $this->table)->fetchAll();
+    }
+    /**
+     * Get all row from database.
+     *
+     * @return array
+     */
+    public function selectAllByDate(): array
+    {
+        return $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY `date` ASC')->fetchAll();
     }
 }

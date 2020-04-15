@@ -3,20 +3,27 @@
     <link rel="stylesheet" href="/assets/css/biography.css">
 {% endblock %}
 {% block content %}
-    <section class="biography container-fluid">
+    <section class="container">
         <h1>Biographie</h1>
-        <ul>
-            {% for bio in biography %}
-                {% set year = bio.date|split('-') %}
-                {% if bio.art != 0 %}
-                    <li><a href="/Biographie/show/{{ bio.id }}">{{ year.0 }} {{ bio.info }}</a></li>
-                {% else %}
-                    <li><img src="{{ bio.image }}" alt="{{ bio.name }}">
-                        <a href="/Biographie/show/{{ bio.id }}">{{ year.0 }} {{ bio.name }} {{ bio.info }}</a></li>
-                {% endif %}
-            {% else %}
-                <li>Nothing to display</li>
-            {% endfor %}
-        </ul>
+            <div>
+                {% for year in years %}
+                    <h2>{{ year }}</h2>
+                    {% for bio in biography %}
+                        {% set bioYear = bio.date|split('-') %}
+                        {% if year == bioYear.0 %}
+                            <ul>
+                                <li>
+                                    <h3>{{ bio.name }}</h3>
+                                    <p>{{ bio.info }}</p>
+                                    <a href="/Biographie/show/{{ bio.id }}">show</a>
+                                </li>
+                            </ul>
+                        {% endif %}
+                    {% else %}
+                        <li>Nothing to display</li>
+                    {% endfor %}
+                {% endfor %}
+                <a href="/Biographie/add/">add</a>
+            </div>
     </section>
 {% endblock %}
