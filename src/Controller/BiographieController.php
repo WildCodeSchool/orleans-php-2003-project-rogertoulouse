@@ -31,7 +31,9 @@ class BiographieController extends AbstractController
         $biographies = $biographyManager->selectAllByDate();
         $biographyByYears = [];
         foreach ($biographies as $biography) {
-            $biographyByYears[date_format(date_create($biography['date']), 'Y')][$biography['date']] = ['id' => $biography['id'], 'info' => $biography['info']];
+            $biographyByYears[date_format(date_create($biography['date']), 'Y')][$biography['date']] = [
+                'id' => $biography['id'],
+                'info' => $biography['info']];
         }
         return $this->twig->render('Biography/index.html.twig', [
             'data' => $biographyByYears
