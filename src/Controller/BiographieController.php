@@ -29,7 +29,7 @@ class BiographieController extends AbstractController
     {
         $biographyManager = new BiographieManager();
         $biographies = $biographyManager->selectAllByDate();
-        $result = [];
+        $biographyByYears = [];
         foreach ($biographies as $biography) {
             $biographyByYears[date_format(date_create($biography['date']), 'Y')][$biography['date']] = ['id' => $biography['id'], 'info' => $biography['info']];
         }
