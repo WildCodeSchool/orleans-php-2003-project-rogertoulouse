@@ -1,6 +1,6 @@
 :root{
-    --timeline-item: #00acc1;
-    --timeline-item-inverted: #e57373;
+    --timeline-item: #--color-main;
+    --timeline-item-inverted: #--color-main;
     --timeline-color: #5b5555;
 }
 
@@ -12,34 +12,29 @@
 .timeline {
 
     position: relative;
-    overflow: auto;
+    overflow: initial;
     width: 100%;
     margin-top: 40px;
 }
+
 .timeline hr {
     margin: 0 0 20px 0;
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin: 0 auto;
-    height: 100%;
-    width: 4px;
-    background-color: var(--timeline-color);
-}
-
 .timeline h2 {
-    margin: 0 auto;
-    width: 130px;
-    color: white;
-    background: var(--timeline-color);
-    text-align: center;
     font-size: 30px;
+    text-align: center;
     position: relative;
+    left: calc(50% - 40px);
     z-index: 2;
+    border-radius: 100%;
+    padding-top: 20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, var(--color-shadow) 0%, var(--color-main) 80%);
+    border: 0.1rem solid var(--color-main);
+    color: var(--color-text);
+    text-shadow: 1px 1px 2px var(--color-main);
 
 }
 
@@ -48,22 +43,40 @@
     font-weight: 300;
 }
 
+.timeline p{
+    font-family: var(--font-text);
+    color: var(--color-text);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 40px);
+    width: 20px;
+    margin: 10px 30px 0 30px;
+    height: 100%;
+    background-color: var(--color-main);
+    border: 0.2rem solid var(--color-secondary);
+}
+
 .timeline-items {
     list-style-type: none;
     overflow: hidden;
-    padding-top: 110px;
-    padding-left: 0;
+    padding: 20px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 100px;
-
-    left: -10px;
-    padding: 20px;
-    background-color: white;
-
-    width: 45%;
+    left: 0;
+    padding: 20px 20px 10px 20px;
+    margin-left: 20px;
+    width: calc(50% - 60px);
+    box-shadow: 1px 1px 1px 1px var(--color-shadow);
+    border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
+    color: var(--color-text);
+    background-color: var(--color-main);
 }
 
 .timeline-item h3 {
@@ -91,6 +104,7 @@
     position: absolute;
     right: -1em;
     top: 0;
+    border-top: 1em solid var(--color-main);
 }
 
 .timeline-item::after {
@@ -98,19 +112,22 @@
     background: var(--timeline-color);
     width: 30px;
     height: 30px;
+    margin: 0 25px 0 25px;
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    left: calc(100% + 10.8%);
+    background-color: var(--color-secondary);
+    border: 0.1rem solid var(--color-main);
+    left: calc(100%);
 }
 
 .timeline-item:nth-of-type(2n+1) {
-    background-color: var(--timeline-item);
+    background-color: var(--color-main);
     color: white;
 }
 
 .timeline-item:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--timeline-item);
+    border-top: 1px solid var(--color-main);
 }
 
 .timeline-item:nth-of-type(2n+1) a {
@@ -118,18 +135,18 @@
 }
 
 .timeline-item:nth-of-type(2n+1)::before {
-    border-top: 1em solid var(--timeline-item);
+    border-top: 1em solid var(--color-main);
     border-right: 1em solid transparent;
 }
 
 .timeline-item:nth-of-type(2n) {
-    background-color: var(--timeline-item-inverted);
+    background-color: var(--color-main);
 
     color: white;
 }
 
 .timeline-item:nth-of-type(2n) hr {
-    border-top: 1px solid var(--timeline-item-inverted);
+    border-top: 1px solid var(--color-main);
 }
 
 .timeline-item:nth-of-type(2n) a {
@@ -137,14 +154,20 @@
 }
 
 .timeline-item:nth-of-type(2n)::before {
-    border-top: 1em solid var(--timeline-item-inverted);
+    border-top: 1em solid var(--color-main);
     border-right: 1em solid transparent;
 }
 
 .inverted {
     position: relative;
-    left: 54%;
-    text-align: right;
+    left: calc(50% + 40px);
+    padding: 20px 20px 10px 20px;
+    margin: 0 50px 0 0;
+    width: calc(50% - 60px);
+    box-shadow: 1px 1px 1px 1px var(--color-shadow);
+    border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
+    color: var(--color-text);
+    background-color: var(--color-main);
 }
 
 .inverted::before {
@@ -154,6 +177,7 @@
     position: absolute;
     left: -1em;
     top: 0;
+    border-top: 1em solid var(--color-main);
 }
 
 .inverted::after {
@@ -164,16 +188,18 @@
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    left: calc(-8.78% - 13px);
+    background-color: var(--color-secondary);
+    border: 0.1rem solid var(--color-main);
+    left: calc(0% - 80px);
 }
 
 .inverted:nth-of-type(2n+1) {
-    background-color: var(--timeline-item);
+    background-color: var(--color-main);
     color: white;
 }
 
 .inverted:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--timeline-item);
+    border-top: 1px solid var(--color-main);
 }
 
 .inverted:nth-of-type(2n+1) a {
@@ -181,17 +207,17 @@
 }
 
 .inverted:nth-of-type(2n+1)::before {
-    border-top: 1em solid var(--timeline-item);
+    border-top: 1em solid var(--color-main);
     border-left: 1em solid transparent;
 }
 
 .inverted:nth-of-type(2n) {
-    background-color: var(--timeline-item-inverted);
+    background-color: var(--color-main);
     color: white;
 }
 
 .inverted:nth-of-type(2n) hr {
-    border-top: 1px solid var(--timeline-item-inverted);
+    border-top: 1px solid var(--color-main);
 }
 
 .inverted:nth-of-type(2n) a {
@@ -199,7 +225,7 @@
 }
 
 .inverted:nth-of-type(2n)::before {
-    border-top: 1em solid var(--timeline-item-inverted);
+    border-top: 1em solid var(--color-main);
     border-left: 1em solid transparent;
 }
 
@@ -223,12 +249,12 @@
 }
 
 .centered:nth-of-type(2n+1) {
-    background-color: var(--timeline-item);
+    background-color: var(--color-main);
     color: white;
 }
 
 .centered:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--timeline-item), 5%;
+    border-top: 1px solid var(--color-main), 5%;
 }
 
 .centered:nth-of-type(2n+1) a {
@@ -240,16 +266,16 @@
 
     border-left: 1em solid transparent;
     border-right: 1em solid transparent;
-    border-bottom: 1em solid var(--timeline-item);
+    border-bottom: 1em solid var(--color-main);
 }
 
 .centered:nth-of-type(2n) {
-    background-color: var(--timeline-item-inverted);
+    background-color: var(--color-main);
     color: white;
 }
 
 .centered:nth-of-type(2n) hr {
-    border-top: 1px solid var(--timeline-item-inverted);
+    border-top: 1px solid var(--color-main);
 }
 
 .centered:nth-of-type(2n) a {
@@ -260,5 +286,109 @@
     border-top: 0;
     border-left: 1em solid transparent;
     border-right: 1em solid transparent;
-    border-bottom: 1em solid var(--timeline-item-inverted);
+    border-bottom: 1em solid var(--color-main);
+}
+
+@media (max-width: 1000px) {
+
+    .timeline h2 {
+        font-size: 30px;
+        text-align: center;
+        position: relative;
+        left: calc(0% + 40px);
+        z-index: 2;
+        border-radius: 100%;
+        padding-top: 20px;
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, var(--color-shadow) 0%, var(--color-main) 80%);
+        border: 0.1rem solid var(--color-main);
+        color: var(--color-text);
+        text-shadow: 1px 1px 2px var(--color-main);
+
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: calc(0% + 40px);
+        width: 20px;
+        margin: 10px 30px 0 30px;
+        height: 100%;
+        background-color: var(--color-main);
+        border: 0.2rem solid var(--color-secondary);
+    }
+
+    .timeline-item {
+        position: relative;
+        left: calc(0% + 120px);
+        padding: 20px 20px 10px 20px;
+        margin: 0 50px 0 0;
+        width: calc(100% - 140px);
+        box-shadow: 1px 1px 1px 1px var(--color-shadow);
+        border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
+        color: var(--color-text);
+        background-color: var(--color-main);
+    }
+
+    .timeline-item::before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: -1em;
+        top: 0;
+        border-top: 1em solid var(--color-main);
+    }
+
+    .timeline-item::after {
+        content: '';
+        background: var(--timeline-color);
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -15px;
+        border-radius: 100%;
+        background-color: var(--color-secondary);
+        border: 0.1rem solid var(--color-main);
+        left: calc(0% - 80px);
+    }
+
+    .timeline-item:nth-of-type(2n+1) {
+        background-color: var(--color-main);
+        color: white;
+    }
+
+    .timeline-item:nth-of-type(2n+1) hr {
+        border-top: 1px solid var(--color-main);
+    }
+
+    .timeline-item:nth-of-type(2n+1) a {
+        color: #1759a2;
+    }
+
+    .timeline-item:nth-of-type(2n+1)::before {
+        border-top: 1em solid var(--color-main);
+        border-left: 1em solid transparent;
+    }
+
+    .timeline-item:nth-of-type(2n) {
+        background-color: var(--color-main);
+        color: white;
+    }
+
+    .timeline-item:nth-of-type(2n) hr {
+        border-top: 1px solid var(--color-main);
+    }
+
+    .timeline-item:nth-of-type(2n) a {
+        color: #601010;
+    }
+
+    .timeline-item:nth-of-type(2n)::before {
+        border-top: 1em solid var(--color-main);
+        border-left: 1em solid transparent;
+    }
+
 }
