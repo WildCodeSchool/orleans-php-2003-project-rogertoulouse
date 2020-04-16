@@ -1,23 +1,14 @@
-h5{
+.slide-title{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
 }
 
-p{
+.slide-text{
     font-family: var(--font-text);
     font-size: var(--font-text);
 }
 
-body{
-    background-color: var(--color-secondary);
-}
 
-img{
+.img-home{
     border-radius: var(--border-radius);
-}
-
-#colImg {
-    background-size: cover;
-    width: 80%;
-    height: 80%;
 }
