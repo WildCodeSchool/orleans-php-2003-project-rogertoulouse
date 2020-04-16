@@ -12,7 +12,7 @@ namespace App\Controller;
 use App\Model\HomeManager;
 
 /**
- * Class ItemController
+ * Class HomeController
  *
  */
 class HomeController extends AbstractController
