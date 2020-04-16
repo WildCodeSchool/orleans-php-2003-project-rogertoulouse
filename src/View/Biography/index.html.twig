@@ -1,29 +1,46 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/timelify.css">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/biography.css">
 {% endblock %}
 {% block content %}
     <section class="container">
         <h1>Biographie</h1>
-            <div>
-                {% for year in years %}
+        <div class="headbio d-inline-flex justify-content-center align-items-center w-100">
+            <img class="w-15 p-3" src="assets/images/roger-toulouse.png" alt="Photomontage de l'artiste Roger Toulouse en 1936, 1ère photo donnée à Marguerite Toulouse">
+            <div class="w-60 m-3">
+                <h2>Roger TOULOUSE</h2>
+                <h3>(1918-1994)</h3>
+                <h4>Peintre, sculpteur, illustrateur et poète</h4>
+                <p>Roger Alphonse Robert Toulouse, né le 19 février 1918 à Orléans où il est mort le
+                    11 septembre 1994, est un peintre et sculpteur français, également poète et illustrateur.</p>
+            </div>
+        </div>
+            <div class="timeline">
+                {% set placement = 'left' %}
+                {% for year, biographies in data %}
                     <h2>{{ year }}</h2>
-                    {% for bio in biography %}
-                        {% set bioYear = bio.date|split('-') %}
-                        {% if year == bioYear.0 %}
-                            <ul>
-                                <li>
-                                    <h3>{{ bio.name }}</h3>
-                                    <p>{{ bio.info }}</p>
-                                    <a href="/Biographie/show/{{ bio.id }}">show</a>
+                    {% for date, biography in biographies %}
+                        {% if placement == 'left' %}
+                            <ul class="timeline-items">
+                                <li class="timeline-item">
+                                    <p>{{ biography.info }}</p>
                                 </li>
                             </ul>
+                            {% set placement = 'right' %}
+                        {% elseif placement == 'right' %}
+                            <ul class="timeline-items">
+                                <li class="timeline-item inverted">
+                                    <p>{{ biography.info }}</p>
+                                </li>
+                            </ul>
+                            {% set placement = 'left' %}
                         {% endif %}
                     {% else %}
                         <li>Nothing to display</li>
                     {% endfor %}
                 {% endfor %}
-                <a href="/Biographie/add/">add</a>
             </div>
     </section>
 {% endblock %}
