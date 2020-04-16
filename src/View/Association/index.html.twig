@@ -1,0 +1,98 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Association{% endblock %}
+
+ {% block stylesheet %}
+
+     <link rel="stylesheet" href="/assets/css/association.css">{% endblock %}
+
+{% block content %}
+<div class=".container ">
+    <div class="row">
+
+        <div class="col">
+            <h1>Les amis de Roger Toulouse</h1>
+        </div>
+    </div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="jumbo_container container offset-1">
+        <div class="col offset-1">
+            <h1 class="display-4">Association</h1>
+            <div class="in_jumbo">
+                <p class="lead">orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                    has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                    galley of type and scrambled it to make a type specimen book. It has survived not only five
+                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+                    more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                    Ipsum</p>
+                <img class="img_jumbo" src="https://www.jpsueur.com/images/stories/Orleans/Toulouse1_1.jpg"></div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="jumbotron2 jumbotron-fluid">
+    <div class="jumbo_container container offset-1">
+        <div class="part2 col offset-1">
+            <h2 class="display-3 ">Nous joindre</h2>
+            <div class="row justify-content-between">
+                <div class="card col-3" style="width: 18rem;">
+            <div class="in_jumbo">
+                <div class="card-body">
+                    <h5 class="card-title">Contactez-nous</h5>
+                    <p class="card-text"><i class="fas fa-phone-alt"> </i> 02 38 54 00 00</p>
+                    <p class="card-text"><i class="fas fa-at"> </i> 2, impasse Notre-Dame du chemin, 45000, Orléans
+                    </p>
+                    <p class="card-text"><i class="fas fa-envelope"></i> svv-pousse-cornet-sarl@wanadoo.fr</p>
+
+                </div>
+            </div>
+        </div>
+                <div class="card col-2" style="width: 18rem;">
+                    <img src="http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG" class="card-img-top"
+                         alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                            card's content.</p>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<div class=".container-fluid">
+    <div class="row">
+        <div class="formulaire col-4 offset-4">
+            <form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                           placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Example select</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button>Envoyer !</button>
+            </form>
+        </div>
+    </div>
+
+
+    {% endblock %}
+
+    {% block javascript %}
+    <script src='https://kit.fontawesome.com/4c4be71c0f.js' crossorigin="anonymous"></script>
+    {% endblock %}
+

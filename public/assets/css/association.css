@@ -1,0 +1,87 @@
+h1{
+    text-align: center;
+    font-family: var(--font-title);
+    height: 100px;
+    background-color: var(--color-main);
+    margin: 0px;
+    color: var(--color-light);
+}
+.part2 h2{
+    background-color: var(--color-shadow);
+
+}
+
+body{
+    background: var(--color-secondary);
+    
+}
+.fa, .far, .fas {
+    font-family: var(--font-text);
+}
+.card{
+    font-family: var(--font-text);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--color-shadow);
+    color: var(--color-main);
+    background-clip: border-box;
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: var(--padding)
+}
+
+.formulaire{
+    background: var(--color-main);
+    border-radius: .25rem
+    font-family: var(--font-text);
+    color: var(--color-light);
+
+}
+.jumbotron{
+background-color: var(--color-main);
+    height: 465px;
+    color: var(--color-light);
+    font-family: var(--sizeText);
+    margin: 0px;
+}
+.in_jumbo{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    width: 100%;
+    height: auto;
+}
+.jumbotron2{
+    background-color: var(--color-shadow);
+    height: 465px;
+    color: var(--color-light);
+    font-family: var(--sizeText);
+}
+p.lead{
+    width: 100%;
+}
+.jumbo_container{
+    margin: 0px;
+    width: 100%;
+
+}
+.img_jumbo{
+    width: 290px;
+}
+form{
+    padding: 10px;
+}
+.img
+{
+    background: url("http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG");
+    border-radius: 5px;
+}
