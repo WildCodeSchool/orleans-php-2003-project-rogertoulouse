@@ -12,7 +12,7 @@ namespace App\Model;
 /**
  *
  */
-class BiographieManager extends AbstractManager
+class BiographyManager extends AbstractManager
 {
     /**
      *

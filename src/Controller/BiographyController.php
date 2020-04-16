@@ -9,13 +9,13 @@
 
 namespace App\Controller;
 
-use App\Model\BiographieManager;
+use App\Model\BiographyManager;
 
 /**
  * Class BiographieController
  *
  */
-class BiographieController extends AbstractController
+class BiographyController extends AbstractController
 {
     /**
      * Display item listing
@@ -27,7 +27,7 @@ class BiographieController extends AbstractController
      */
     public function index()
     {
-        $biographyManager = new BiographieManager();
+        $biographyManager = new BiographyManager();
         $biographies = $biographyManager->selectAllByDate();
         $biographyByYears = [];
         foreach ($biographies as $biography) {
