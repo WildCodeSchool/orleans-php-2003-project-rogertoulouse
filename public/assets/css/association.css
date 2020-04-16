@@ -6,14 +6,30 @@ h1{
     margin: 0px;
     color: var(--color-light);
 }
+.part1 h2{
+    background-color: var(--color-main);
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--color-light);
+}
 .part2 h2{
-    background-color: var(--color-shadow);
-
+    background-color: var(--color-secondary);
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--color-main);
+    height: 100px;
 }
 
 body{
     background: var(--color-secondary);
     
+}
+.part2_0{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: stretch;
 }
 .fa, .far, .fas {
     font-family: var(--font-text);
@@ -27,7 +43,7 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: var(--color-shadow);
+    background-color: var(--color-secondary);
     color: var(--color-main);
     background-clip: border-box;
     border: 0px solid rgba(0,0,0,.125);
@@ -37,10 +53,17 @@ body{
 
 .formulaire{
     background: var(--color-main);
-    border-radius: .25rem
+    border-radius: .25rem;
     font-family: var(--font-text);
     color: var(--color-light);
-
+    margin-bottom: 10px;
+    padding: 20px;
+    text-align: center;
+}
+form label{
+    text-align: center;
+    font-family: var(--font-text);
+    color: var(--color-light);
 }
 .jumbotron{
 background-color: var(--color-main);
@@ -49,6 +72,12 @@ background-color: var(--color-main);
     font-family: var(--sizeText);
     margin: 0px;
 }
+.card-img, .card-img-top {
+
+    height: 187px;
+    width: auto;
+border-radius: 5px;}
+
 .in_jumbo{
 
     display: flex;
@@ -61,8 +90,8 @@ background-color: var(--color-main);
     height: auto;
 }
 .jumbotron2{
-    background-color: var(--color-shadow);
-    height: 465px;
+    background-color: var(--color-secondary);
+    height: 100%;
     color: var(--color-light);
     font-family: var(--sizeText);
 }
@@ -84,4 +113,7 @@ form{
 {
     background: url("http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG");
     border-radius: 5px;
+}
+form{
+    margin-bottom: 10px;
 }

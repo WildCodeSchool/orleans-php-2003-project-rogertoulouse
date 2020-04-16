@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Controller;
-
 
 class AssociationController extends AbstractController
 {
@@ -19,5 +17,4 @@ class AssociationController extends AbstractController
     {
         return $this->twig->render('Association/index.html.twig');
     }
-
 }
