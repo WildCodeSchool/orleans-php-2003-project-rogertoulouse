@@ -1,7 +1,0 @@
-/vendor/
-/temp/*
-.phpcs-cache
-*.cache
-db.php
-.idea
-!/node_modules/
