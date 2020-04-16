@@ -5,3 +5,4 @@
 db.php
 .idea
 !/node_modules/
+composer.lock
