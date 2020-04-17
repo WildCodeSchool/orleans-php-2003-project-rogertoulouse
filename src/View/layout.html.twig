@@ -8,7 +8,6 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
     {% block stylesheet %}{% endblock %}
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
@@ -16,61 +15,13 @@
 <body>
 
 {% block content %}{% endblock %}
-<footer class="page-footer font-small indigo">
-    <div class="container">
-        <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/Home">Accueil</a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/Biography">Biographie</a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/Artworks">Oeuvres</a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="/Association">Contact</a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#">CGU</a>
-                </h6>
-            </div>
-            <div class="col-md-2 mb-3">
-                <h6 class="text-uppercase font-weight-bold">
-                    <a href="#">Plan du site</a>
-                </h6>
-            </div>
-        </div>
-        <hr class="rgba-white-light" style="margin: 0 15%;">
-    </div>
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://wildcodeschool.com/"> WildCodeSchool.com</a>
-        <span> by</span>
-        <a href="https://github.com/Philippe-Naveilhan"> Philippe NAVEILHAN</a>
-        <span>, </span>
-        <a href="https://github.com/Philippe-Naveilhan"> Julien MOULIN</a>
-        <span>, </span>
-        <a href="https://github.com/Philippe-Naveilhan"> Mathias TISSERAND</a>
-        <span> et</span>
-        <a href="https://github.com/Philippe-Naveilhan"> Benoit CHOCOT</a>
-        <span>.</span>
-    </div>
-</footer>
-<!-- Footer -->
-{% block javascript %}{% endblock %}
+
+{% include '_footer.html.twig' %}
 <script src="https://kit.fontawesome.com/52db8645cb.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% block javascript %}{% endblock %}
 </body>
 </html>
 
