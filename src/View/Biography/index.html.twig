@@ -20,27 +20,15 @@
             <div class="timeline">
                 {% for year, biographies in data %}
                     <h2>{{ year }}</h2>
-                    {% if loop.index0 is odd %}
-                        {% for biography in biographies %}
-                            <ul class="timeline-items">
-                                <li class="timeline-item inverted">
-                                    <p>{{ biography.info }}</p>
-                                </li>
-                            </ul>
-                        {% else %}
-                            <li>Nothing to display</li>
-                        {% endfor %}
-                    {% else %}
-                        {% for biography in biographies %}
-                            <ul class="timeline-items">
-                                <li class="timeline-item">
-                                    <p>{{ biography.info }}</p>
-                                </li>
-                            </ul>
-                        {% else %}
-                            <li>Nothing to display</li>
-                        {% endfor %}
-                    {% endif %}
+                    {% for biography in biographies %}
+                        <ul class="timeline-items">
+                            <li class="timeline-item {{ loop.parent.loop.index0 is odd ? 'inverted'}}">
+                                <p>{{ biography.info }}</p>
+                            </li>
+                        </ul>
+                    {% endfor %}
+                {% else %}
+                    <li>Nothing to display</li>
                 {% endfor %}
             </div>
     </section>
