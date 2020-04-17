@@ -23,8 +23,8 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $ArtworkManager = new ArtworkManager();
-        $listSeeArtworks = $ArtworkManager->selectAllArtworks();
+        $artworkManager = new ArtworkManager();
+        $listSeeArtworks = $artworkManager->selectAllArtworks();
         return $this->twig->render('Home/index.html.twig', ['Artworks' => $listSeeArtworks]);
     }
 }
