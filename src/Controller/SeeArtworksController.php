@@ -4,12 +4,12 @@ namespace App\Controller;
 
 use App\Model\SeeArtworksManager;
 
-class SeeArtwoksController extends AbstractController
+class SeeArtworksController extends AbstractController
 {
-    public function index()
+    public function select()
     {
         $seeArtworks = new SeeArtworksManager();
-        $listSeeArtworks = $seeArtworks->selectAll();
+        $listSeeArtworks = $seeArtworks->selectAllArtworks();
         return $this->twig->render('Home/see_artworks.html.twig', ['seeArtworks' => $listSeeArtworks]);
     }
 }
