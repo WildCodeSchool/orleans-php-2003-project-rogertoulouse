@@ -11,8 +11,10 @@ class SeeArtworksManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function selectAllArtworks(){
-        $result = $this->pdo->query('SELECT * FROM '.$this->table.' JOIN works_category c ON '.$this->table.'.category_id=c.ID')->fetchAll();
+    public function selectAllArtworks()
+    {
+        $result = $this->pdo->query('SELECT * FROM '.$this->table.
+        ' JOIN works_category c ON '.$this->table.'.category_id=c.ID')->fetchAll();
         return $result;
     }
 }

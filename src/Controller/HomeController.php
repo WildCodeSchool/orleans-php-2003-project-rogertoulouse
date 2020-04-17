@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-class HomeController extends AbstractController
+class HomeController extends SeeArtworksController
 {
 
     /**
@@ -21,7 +21,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        select();
+        parent::select();
         return $this->twig->render('Home/index.html.twig');
     }
 }
