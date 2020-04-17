@@ -21,25 +21,27 @@
                 {% set placement = 'left' %}
                 {% for year, biographies in data %}
                     <h2>{{ year }}</h2>
-                    {% for date, biography in biographies %}
-                        {% if placement == 'left' %}
+                    {% if loop.index0 is even %}
+                        {% for biography in biographies %}
                             <ul class="timeline-items">
                                 <li class="timeline-item">
                                     <p>{{ biography.info }}</p>
                                 </li>
                             </ul>
-                            {% set placement = 'right' %}
-                        {% elseif placement == 'right' %}
+                        {% else %}
+                            <li>Nothing to display</li>
+                        {% endfor %}
+                    {% elseif loop.index0 is odd %}
+                        {% for biography in biographies %}
                             <ul class="timeline-items">
                                 <li class="timeline-item inverted">
                                     <p>{{ biography.info }}</p>
                                 </li>
                             </ul>
-                            {% set placement = 'left' %}
-                        {% endif %}
-                    {% else %}
-                        <li>Nothing to display</li>
-                    {% endfor %}
+                        {% else %}
+                            <li>Nothing to display</li>
+                        {% endfor %}
+                    {% endif %}
                 {% endfor %}
             </div>
     </section>

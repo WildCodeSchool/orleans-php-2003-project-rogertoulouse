@@ -8,17 +8,17 @@
     text-align: center;
     margin: 50px 0 50px 0;
     padding: 10px 0 20px 0;
-    background-color: var(--color-main) !important;
+    background-color: var(--color-main);
     color: var(--color-light);
     font-family: var(--font-title);
 }
 .headbio{
-    background-color: var(--color-main) !important;
+    background-color: var(--color-main);
     font-family: var(--font-title);
     color: var(--color-light);
 }
 .headbio p{
-    background-color: var(--color-main) !important;
+    background-color: var(--color-main);
     font-family: var(--font-text);
     color: var(--color-light);
 }
@@ -30,7 +30,7 @@
 
 @media (max-width: 1000px) {
     .headbio{
-        background-color: var(--color-main) !important;
+        background-color: var(--color-main);
         font-family: var(--font-title);
         color: var(--color-light);
         flex-direction: column;
