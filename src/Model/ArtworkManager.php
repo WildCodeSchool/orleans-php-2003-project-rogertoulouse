@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class SeeArtworksManager extends AbstractManager
+class ArtworkManager extends AbstractManager
 {
     const TABLE = 'artworks';
 
@@ -13,8 +13,7 @@ class SeeArtworksManager extends AbstractManager
 
     public function selectAllArtworks()
     {
-        $result = $this->pdo->query('SELECT * FROM '.$this->table.
-        ' JOIN works_category c ON '.$this->table.'.category_id=c.ID')->fetchAll();
+        $result = $this->pdo->query('SELECT * FROM '.$this->table)->fetchAll();
         return $result;
     }
 }

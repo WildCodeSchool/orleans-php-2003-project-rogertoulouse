@@ -8,7 +8,9 @@
 
 namespace App\Controller;
 
-class HomeController extends SeeArtworksController
+use App\Model\ArtworkManager;
+
+class HomeController extends AbstractController
 {
 
     /**
@@ -21,7 +23,8 @@ class HomeController extends SeeArtworksController
      */
     public function index()
     {
-        parent::select();
-        return $this->twig->render('Home/index.html.twig');
+        $ArtworkManager = new ArtworkManager();
+        $listSeeArtworks = $ArtworkManager->selectAllArtworks();
+        return $this->twig->render('Home/index.html.twig', ['Artworks' => $listSeeArtworks]);
     }
 }
