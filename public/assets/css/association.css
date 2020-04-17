@@ -1,28 +1,17 @@
-h1{
-    text-align: center;
-    font-family: var(--font-title);
-    height: 100px;
-    background-color: var(--color-main);
-    margin: 0px;
-    color: var(--color-light);
-}
-.part1 h2{
-    background-color: var(--color-main);
-    text-align: center;
-    font-family: var(--font-title);
-    color: var(--color-light);
-}
+
 .part2 h2{
     background-color: var(--color-secondary);
     text-align: center;
     font-family: var(--font-title);
     color: var(--color-main);
     height: 100px;
+
 }
+
 
 body{
     background: var(--color-secondary);
-    
+    font-size: var(--sizeText);
 }
 .part2_0{
     display: flex;
@@ -34,22 +23,7 @@ body{
 .fa, .far, .fas {
     font-family: var(--font-text);
 }
-.card{
-    font-family: var(--font-text);
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: var(--color-secondary);
-    color: var(--color-main);
-    background-clip: border-box;
-    border: 0px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    margin: var(--padding)
-}
+
 
 .formulaire{
     background: var(--color-main);
@@ -65,55 +39,42 @@ form label{
     font-family: var(--font-text);
     color: var(--color-light);
 }
-.jumbotron{
-background-color: var(--color-main);
-    height: 465px;
-    color: var(--color-light);
-    font-family: var(--sizeText);
-    margin: 0px;
-}
-.card-img, .card-img-top {
 
-    height: 187px;
-    width: auto;
-border-radius: 5px;}
 
-.in_jumbo{
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: stretch;
-    width: 100%;
-    height: auto;
-}
 .jumbotron2{
     background-color: var(--color-secondary);
     height: 100%;
     color: var(--color-light);
     font-family: var(--sizeText);
 }
+.card2{
+    font-family: var(--font-text);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: var(--color-secondary);
+    color: var(--color-main);
+    background-clip: border-box;
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    margin: var(--padding)
+}
 p.lead{
     width: 100%;
 }
-.jumbo_container{
-    margin: 0px;
-    width: 100%;
 
-}
 .img_jumbo{
     width: 290px;
 }
 form{
     padding: 10px;
 }
-.img
-{
-    background: url("http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG");
-    border-radius: 5px;
-}
+
 form{
     margin-bottom: 10px;
 }
+
