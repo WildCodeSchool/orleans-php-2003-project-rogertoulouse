@@ -25,3 +25,7 @@
     --padding-lg : calc(var(--padding) *4);
 }
 
+body{
+    background: var(--color-secondary);
+    font-size: var(--sizeText);
+}

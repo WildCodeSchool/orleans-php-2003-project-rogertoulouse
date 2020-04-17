@@ -1,5 +1,5 @@
 
-.part2 h2{
+.row h2{
     background-color: var(--color-secondary);
     text-align: center;
     font-family: var(--font-title);
@@ -7,23 +7,22 @@
     height: 100px;
 
 }
-
-
-body{
-    background: var(--color-secondary);
-    font-size: var(--sizeText);
-}
-.part2_0{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    align-content: stretch;
-}
-.fa, .far, .fas {
+p i {
     font-family: var(--font-text);
+    color: var(--color-main);
+}
+.card{
+    background-color: var(--color-secondary);
+    border-style: none;
+
+}
+.card-body{
+    color: var(--color-main);
 }
 
+.card-body p{
+    color: var(--color-main);
+}
 
 .formulaire{
     background: var(--color-main);
@@ -41,35 +40,18 @@ form label{
 }
 
 
-.jumbotron2{
+.jumbotron{
     background-color: var(--color-secondary);
     height: 100%;
     color: var(--color-light);
     font-family: var(--sizeText);
 }
-.card2{
-    font-family: var(--font-text);
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: var(--color-secondary);
-    color: var(--color-main);
-    background-clip: border-box;
-    border: 0px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    margin: var(--padding)
-}
+
 p.lead{
     width: 100%;
 }
 
-.img_jumbo{
-    width: 290px;
-}
+
 form{
     padding: 10px;
 }
