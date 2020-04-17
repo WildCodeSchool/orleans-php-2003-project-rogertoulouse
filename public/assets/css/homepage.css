@@ -1,0 +1,14 @@
+.slide-title{
+    font-family: var(--font-title);
+    font-size: var(--sizeTitle);
+}
+
+.slide-text{
+    font-family: var(--font-text);
+    font-size: var(--font-text);
+}
+
+
+.d-block{
+    border-radius: var(--border-radius);
+}
