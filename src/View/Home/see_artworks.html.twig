@@ -8,11 +8,15 @@
         </a>
         {% endif %}
         <div class="card-body">
-            <h5 class="card-title">
+            <h3 class="card-title">
                 {{ artwork.name }}
-            </h5>
+            </h3>
             <p class="card-text">
                 {{ artwork.description|length>250 ? artwork.description|slice(0,250) ~ '…' : artwork.description }}
+            </p>
+            <p class="card-text more_info">
+                {{ artwork.more_info }}
+                {{  artwork.size }}
             </p>
             <div class="card-text link">
                 <div>
