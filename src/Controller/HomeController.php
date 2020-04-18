@@ -10,6 +10,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArtworkManager;
 use App\Model\HomeManager;
 
 /**
@@ -30,6 +31,10 @@ class HomeController extends AbstractController
     {
         $carouselManager = new HomeManager();
         $carousel = $carouselManager->selectAll();
-        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel]);
+
+        $artworkManager = new ArtworkManager();
+        $listSeeArtworks = $artworkManager->selectAllArtworks();
+
+        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks'=> $listSeeArtworks]);
     }
 }
