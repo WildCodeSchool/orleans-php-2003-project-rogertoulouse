@@ -27,7 +27,7 @@ class ArtworkManager extends AbstractManager
         for ($cat=1; $cat<5; $cat++) {
             $temp=[];
             $numb=count($result);
-            for($a=0; $a<$numb; $a++) {
+            for ($a=0; $a<$numb; $a++) {
                 $artwork=$result[$a];
                 if ($artwork['ID']==$cat) {
                     $temp[]=$artwork;
