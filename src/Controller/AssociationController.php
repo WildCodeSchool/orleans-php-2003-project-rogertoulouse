@@ -19,7 +19,6 @@ class AssociationController extends AbstractController
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             $data = $_POST;
             if (empty($data['email'])) {
                 $errors[] = 'Email est requis';
