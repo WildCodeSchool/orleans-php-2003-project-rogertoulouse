@@ -10,7 +10,7 @@
 
 namespace App\Controller;
 
-use App\Model\HomeManager;
+use App\Model\CarouselManager;
 
 /**
  * Class HomeController
@@ -28,7 +28,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $carouselManager = new HomeManager();
+        $carouselManager = new CarouselManager();
         $carousel = $carouselManager->selectAll();
         return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel]);
     }
