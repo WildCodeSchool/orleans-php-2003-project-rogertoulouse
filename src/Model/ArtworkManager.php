@@ -15,6 +15,7 @@ class ArtworkManager extends AbstractManager
     {
         $result = $this->pdo->query('SELECT * FROM '.$this->table.' a 
         JOIN works_category c ON a.category_id=c.ID')->fetchAll();
+        shuffle($result);
         return $result;
     }
 

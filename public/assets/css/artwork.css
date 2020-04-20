@@ -1,18 +1,30 @@
 .card-deck{
     margin-right: 0;
     margin-left: 0;
-    align-items: flex-start;
+    justify-content: space-around;
+/*    align-items: flex-start; */
     padding-bottom: 32px;
 }
 .card{
     background-color: var(--color-light);
     color: var(--color-main);
+    min-width: 250px;
+    max-width: 350px;
+    margin-top: 32px;
 }
 .card-body{
     text-align: center;
 }
 .card-text{
     text-align: left;
+}
+.card-title{
+    font-weight: 800;
+    font-size: 2em;
+}
+.artworks .card-title{
+    font-weight: 600;
+    font-size: 1.3em;
 }
 .card .link a {
     border-style: solid;
@@ -27,7 +39,7 @@
     line-height: 24pt;
 }
 .card .link a:hover {
-      color: var(--color-light);
+    color: var(--color-light);
     background-color: var(--color-main);
     transition: 150ms;
   }
@@ -42,4 +54,11 @@
 .more_info{
     font-size: 10pt;
     font-weight: bold;
+}
+
+@media only screen and (max-width:580px) {
+    .card {
+        max-width: 100%;
+        margin: 0;
+    }
 }
