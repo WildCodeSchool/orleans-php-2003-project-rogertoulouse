@@ -19,6 +19,14 @@ class ArtworkManager extends AbstractManager
         return $result;
     }
 
+    public function selectAllArtworksByCat($cat)
+    {
+        $result = $this->pdo->query('SELECT * FROM '.$this->table.' a 
+        JOIN works_category c ON a.category_id=c.ID WHERE c.ID='.$cat.'')->fetchAll();
+        shuffle($result);
+        return $result;
+    }
+
     public function selectOneArtworksByCat()
     {
         $result = $this->pdo->query('SELECT * FROM '.$this->table.' a 

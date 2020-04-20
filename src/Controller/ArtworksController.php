@@ -32,4 +32,10 @@ class ArtworksController extends AbstractController
         $listSeeArtworks = $artworkManager->selectAllArtworks();
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
     }
+    public function select($cat)
+    {
+        $artworkManager = new ArtworkManager();
+        $listSeeArtworks = $artworkManager->selectAllArtworksByCat($cat);
+        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
+    }
 }
