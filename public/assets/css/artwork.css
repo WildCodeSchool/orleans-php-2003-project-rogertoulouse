@@ -55,10 +55,34 @@
     font-size: 10pt;
     font-weight: bold;
 }
+.sort-artworks{
+    padding-top: 32px;
+}
+.bloc_sort_link{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sort-artworks a{
+    margin-top: 8pt;
+    padding: 4pt;
+    border-style: none;
+    border-radius: 2pt;
+    background-color: var(--color-light);
+    color: var(--color-main);
+}
+.sort-artworks a:hover{
+    text-decoration: none;
+    border-radius: 2pt;
+    background-color: var(--color-main);
+    color :var(--color-light);
+    transition: 300ms;
+}
 
 @media only screen and (max-width:580px) {
     .card {
         max-width: 100%;
-        margin: 0;
+        margin-right: 0;
+        margin-left: 0;
     }
 }

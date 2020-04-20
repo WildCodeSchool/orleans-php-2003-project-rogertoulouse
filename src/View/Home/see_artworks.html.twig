@@ -4,7 +4,7 @@
     <div class="card">
         {% if card is even %}
         <a href="/Artworks/single/{{ artwork.id }}">
-            <img src="/assets/images/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
+            <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
         </a>
         {% endif %}
         <div class="card-body">
@@ -20,7 +20,7 @@
             </p>
             <div class="card-text link">
                 <div>
-                    <a href="/artworks/category/{{ artwork.category }}">
+                    <a href="/artworks/select/{{ artwork.ID }}">
                             {{ artwork.category|upper }}
                     </a>
                 </div>
@@ -33,7 +33,7 @@
         </div>
         {% if card is odd %}
             <a href="/Artworks/single/{{ artwork.id }}">
-                <img src="/assets/images/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
+                <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
             </a>
         {% endif %}
     </div>
