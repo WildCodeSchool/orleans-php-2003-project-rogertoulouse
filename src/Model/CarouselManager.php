@@ -12,7 +12,7 @@ namespace App\Model;
 /**
  *
  */
-class HomeManager extends AbstractManager
+class CarouselManager extends AbstractManager
 {
     /**
      *
