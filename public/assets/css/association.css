@@ -54,9 +54,16 @@ p.lead{
 
 form{
     padding: 10px;
-}
-
-form{
     margin-bottom: 10px;
 }
 
+address{
+    text-align: center;
+    font-size: var(--sizeTitle);
+    font-family: var(--font-title);
+
+}
+ h2{
+     ;
+
+ }

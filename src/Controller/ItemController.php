@@ -101,7 +101,6 @@ class ItemController extends AbstractController
     }
 
 
-
     /**
      * Handle item deletion
      *

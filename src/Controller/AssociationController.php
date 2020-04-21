@@ -19,7 +19,7 @@ class AssociationController extends AbstractController
     {
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $data = $_POST;
+            $data = array_map('trim', $_POST);
             if (empty($data['email'])) {
                 $errors[] = 'Email est requis';
             }
@@ -33,10 +33,7 @@ class AssociationController extends AbstractController
             if (empty($data['message'])) {
                 $errors[] = 'message est requis';
             }
-            if (!empty($errors)) {
-                var_dump($errors);
-            }
-            $data = array_map('trim', $_POST);
+
         }
         return $this->twig->render('Association/index.html.twig', ['error' => $errors,]);
     }
