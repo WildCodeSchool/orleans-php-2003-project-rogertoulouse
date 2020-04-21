@@ -34,16 +34,18 @@ class HomeController extends AbstractController
 
         $artworkManager = new ArtworkManager();
         $listArtworks = $artworkManager->selectAllByCat();
-
+        $artworksByCategory = [];
         foreach ($listArtworks as $artwork) {
             $category = $artwork['category'];
             $artworksByCategory[$category][] = $artwork;
         }
-        foreach ($artworksByCategory as $categories=>$artwork) {
+        $listByCategory = [];
+        foreach ($artworksByCategory as $categories => $artwork) {
             $i=count($artwork)-1;
-            $listArtworkByCategory[]=$artwork[rand(0,$i)];
+            $listByCategory[] = $artwork[rand(0, $i)];
         }
-        shuffle($listArtworkByCategory);
-        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks' => $listArtworkByCategory]);
+
+        shuffle($listByCategory);
+        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks' => $listByCategory]);
     }
 }
