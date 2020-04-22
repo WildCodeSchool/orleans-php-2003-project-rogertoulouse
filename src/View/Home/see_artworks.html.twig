@@ -1,0 +1,34 @@
+<div class="card-deck">
+    {% for artwork in artworks %}
+    <div class="card">
+        <div>
+            <a href="/Artworks/single/{{ artwork.id }}">
+                <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="card-title">
+                {{ artwork.name }}
+            </div>
+            <div class="card-text">
+                {{ artwork.description }}
+            </div>
+            <div class="card-info">
+                {{ artwork.size }} <br> {{ artwork.more_info }}
+            </div>
+            <div class="card-text link">
+                <div>
+                    <a href="/artworks/select/{{ artwork.ID }}">
+                            {{ artwork.category|upper }}
+                    </a>
+                </div>
+                <div>
+                    <a href="/biography#{{ artwork.date|date("Y") }}">
+                        {{ artwork.date|date("Y") }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
