@@ -1,57 +1,57 @@
-.slide-title{
+.carousel-homepage .slide-title{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
     color: var(--color-light);
 }
 
-.slide-text{
+.carousel-homepage .slide-text{
     font-family: var(--font-text);
     font-size: var(--font-text);
     color: var(--color-light);
 }
 
-.d-block{
+.carousel-homepage .d-block{
     border-radius: var(--border-radius);
 }
 
-.card-header{
+.news .card-header{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
     color: var(--color-text);
     background-color: var(--color-main);
 }
 
-.card-title{
+.news .card-title{
     font-family: var(--font-text);
     font-size: var(--sizeText);
 }
 
-.card-text{
+.news .card-text{
     font-family: var(--font-text);
 }
 
-.card-btn{
+.news .card-btn{
     font-family: var(--font-text);
     background-color: var(--color-main);
     color: var(--color-light);
     border: none;
 }
 
-.card-btn:hover{
+.news .card-btn:hover{
     background-color: var(--color-main);
     color: var(--color-secondary);
 }
 
-.card-body{
+.news .card-body{
     background-color: var(--color-secondary);
 }
 
-.card{
+.news .card{
     border: none;
     padding: 0;
     margin-top: var(--padding-sm);
 }
 
-.card-one{
+.news .card-one{
     border-radius: var(--border-radius);
 }
