@@ -13,33 +13,24 @@ class ArtworkManager extends AbstractManager
 
     public function selectAllArtworks()
     {
-        $result = $this->pdo->query('SELECT * FROM '.$this->table.' a 
-        JOIN works_category c ON a.category_id=c.ID')->fetchAll();
-        shuffle($result);
-        return $result;
-    }
-
-    public function selectAllByCategory()
-    {
         $listArtwork = $this->pdo->query('SELECT * FROM '.$this->table.' a 
         JOIN works_category c ON a.category_id=c.ID')->fetchAll();
-
+        shuffle($listArtwork);
         return $listArtwork;
     }
 
-    public function selectAllArtworksByCat($cat)
+    public function selectArtworksByCategory($idCategory)
     {
-        $result = $this->pdo->query('SELECT * FROM '.$this->table.' a 
-        JOIN works_category c ON a.category_id=c.ID WHERE c.ID='.$cat.'')->fetchAll();
-        shuffle($result);
-        return $result;
+        $artworksByCategory = $this->pdo->query('SELECT * FROM '.$this->table.' a 
+        JOIN works_category c ON a.category_id=c.ID WHERE c.ID='.$idCategory.'')->fetchAll();
+        shuffle($artworksByCategory);
+        return $artworksByCategory;
     }
 
     public function selectAllByOrder($direction)
     {
-        $listArtwork = $this->pdo->query('SELECT * FROM '.$this->table.' a 
+        $listArtworks = $this->pdo->query('SELECT * FROM '.$this->table.' a 
         JOIN works_category c ON a.category_id=c.ID ORDER BY a.date '.$direction.'')->fetchAll();
-
-        return $listArtwork;
+        return $listArtworks;
     }
 }
