@@ -37,7 +37,7 @@ class BiographyController extends AbstractController
                 $dataByYears[$year][] = $biography;
             }
         }
-        ksort ($dataByYears);
+        ksort($dataByYears);
         return $this->twig->render('Biography/index.html.twig', [
             'data' => $dataByYears
         ]);
