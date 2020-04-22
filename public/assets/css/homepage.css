@@ -48,4 +48,10 @@
 
 .card{
     border: none;
+    padding: 0;
+    margin-top: var(--padding-sm);
+}
+
+.card-one{
+    border-radius: var(--border-radius);
 }
