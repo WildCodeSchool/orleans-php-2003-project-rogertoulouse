@@ -18,6 +18,7 @@ class BiographyManager extends AbstractManager
      *
      */
     const TABLE = 'biography';
+    const ART_TABLE = 'artworks';
 
     /**
      *  Initializes this class.
@@ -32,8 +33,14 @@ class BiographyManager extends AbstractManager
      *
      * @return array
      */
-    public function selectAllByDate(): array
+    public function selectAllBioByDate(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY `date` ASC')->fetchAll();
+    }
+
+    public function selectAllArtByDate()
+    {
+        return $this->pdo->query('SELECT * FROM ' . self::ART_TABLE . ' a 
+        JOIN works_category c ON a.category_id=c.ID ORDER BY `date` ASC')->fetchAll();
     }
 }

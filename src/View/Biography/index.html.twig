@@ -19,11 +19,13 @@
         </div>
             <div class="timeline">
                 {% for year, biographies in data %}
-                    <h2>{{ year }}</h2>
+                    <h2 id="{{ year }}">{{ year }}</h2>
                     {% for biography in biographies %}
                         <ul class="timeline-items">
-                            <li class="timeline-item {{ loop.parent.loop.index0 is odd ? 'inverted'}}">
-                                <p>{{ biography.info }}</p>
+                            <li class="timeline-item {{ biography.name is not empty ? 'centered' : loop.parent.loop.index0 is odd ? 'inverted'}}">
+                                <img class="picture" src="assets/upload/{{ biography.image }}" alt="{{ biography.name is not empty ? biography.category ~ ' : ' ~ biography.name }}">
+                                <p class="info">{{ biography.name }}{{ biography.info }}</p>
+                                <p class="description">{{ biography.description }}</p>
                             </li>
                         </ul>
                     {% endfor %}

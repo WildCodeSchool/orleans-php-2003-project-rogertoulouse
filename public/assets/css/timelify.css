@@ -13,8 +13,8 @@
 
     position: relative;
     overflow: initial;
-    width: 100%;
-    margin-top: 40px;
+    width: 80%;
+    margin: 40px auto auto auto;
 }
 
 .timeline hr {
@@ -46,18 +46,18 @@
 .timeline p{
     font-family: var(--font-text);
     color: var(--color-text);
+    padding: 0 20px 20px 20px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 40px;
     left: calc(50% - 40px);
     width: 20px;
-    margin: 10px 30px 0 30px;
+    margin: 10px 30px 50px 30px;
     height: 100%;
-    background-color: var(--color-main);
-    border: 0.2rem solid var(--color-secondary);
+    background-color: var(--color-light);
 }
 
 .timeline-items {
@@ -109,14 +109,13 @@
 
 .timeline-item::after {
     content: '';
-    background: var(--timeline-color);
     width: 30px;
     height: 30px;
     margin: 0 25px 0 25px;
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-main);
     border: 0.1rem solid var(--color-main);
     left: calc(100%);
 }
@@ -188,7 +187,7 @@
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    background-color: var(--color-secondary);
+    background-color: var(--color-main);
     border: 0.1rem solid var(--color-main);
     left: calc(0% - 80px);
 }
@@ -232,7 +231,11 @@
 .centered {
     position: relative;
     text-align: justify;
-    width: 100%;
+    padding: 0;
+    left: 25%;
+    margin-bottom: 25px;
+    width: calc((25% - 60px) + 80px + (25% - 60px));
+    border-radius: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius);
 }
 
 .centered::before {
@@ -240,8 +243,8 @@
     width: 0;
     height: 0;
     position: absolute;
-    left: calc(50% - 4px);
-    top: -12px;
+    left: calc(50% - 15px);
+    top: -16px;
 }
 
 .centered::after {
@@ -288,7 +291,21 @@
     border-right: 1em solid transparent;
     border-bottom: 1em solid var(--color-main);
 }
-
+.centered .info{
+    font-size: calc(var(--sizeTitle) / 1.5);
+    margin: 0;
+}
+.info{
+    margin: 0;
+    font-size: calc(var(--sizeTitle) / 1.5);
+}
+.picture{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 0 -250px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
 @media (max-width: 1000px) {
 
     .timeline h2 {
