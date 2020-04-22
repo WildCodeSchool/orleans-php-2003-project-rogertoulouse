@@ -36,12 +36,13 @@ class HomeController extends AbstractController
         $artworks = $artworkManager->selectAllByCat();
 
         $artworksByCategories = [];
+        $randomArtworks = [];
         foreach ($artworks as $artwork) {
             $category = $artwork['category'];
             $artworksByCategories[$category][] = $artwork;
         }
         foreach ($artworksByCategories as $category => $artworksByCategory) {
-            $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];;
+            $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];
         }
         shuffle($randomArtworks);
         return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks' => $randomArtworks]);
