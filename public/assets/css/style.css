@@ -4,8 +4,6 @@
 @import url('homepage.css');
 @import url('footer.css');
 @import url('artwork.css');
-@import url('timelify.css');
-@import url('biography.css');
 :root {
     /* Usely Fonts : */
     --font-title: 'Averia Sans Libre', cursive;

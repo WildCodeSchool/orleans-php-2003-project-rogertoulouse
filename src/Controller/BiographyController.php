@@ -9,6 +9,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArtworkManager;
 use App\Model\BiographyManager;
 
 /**
@@ -28,8 +29,9 @@ class BiographyController extends AbstractController
     public function index()
     {
         $biographyManager = new BiographyManager();
+        $artworkManager = new ArtworkManager();
         $dataByDates[] = $biographyManager->selectAllBioByDate();
-        $dataByDates[] = $biographyManager->selectAllArtByDate();
+        $dataByDates[] = $artworkManager->selectAllArtByDate();
         $dataByYears = [];
         foreach ($dataByDates as $biographies) {
             foreach ($biographies as $biography) {
