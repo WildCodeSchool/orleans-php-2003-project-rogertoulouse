@@ -33,7 +33,6 @@ class AssociationController extends AbstractController
             if (empty($data['message'])) {
                 $errors[] = 'message est requis';
             }
-
         }
         return $this->twig->render('Association/index.html.twig', ['error' => $errors,]);
     }
