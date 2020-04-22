@@ -1,0 +1,60 @@
+.card-deck{
+    margin-right: 0;
+    margin-left: 0;
+    align-items: inherit;
+    padding-bottom: 32px;
+}
+.card:nth-child(even){
+    flex-direction: column-reverse;
+}
+
+.card{
+    background-color: var(--color-light);
+    color: var(--color-main);
+}
+.card-body{
+    text-align: center;
+}
+.card-text{
+    margin-top: 24px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-align: left;
+}
+.card-info{
+    font-size: 10pt;
+    font-weight: 600;
+}
+.card-title{
+    font-weight: 800;
+    font-size: 24pt;
+}
+.card .link a {
+    border-style: solid;
+    border-color: var(--color-main);
+    border-width: 1px;
+    border-radius: 2px;
+    font-size: 3vmin);
+    color: var(--color-main);
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    margin: 5px 0 5px 0;
+    line-height: 24pt;
+}
+.card .link a:hover {
+      color: var(--color-light);
+    background-color: var(--color-main);
+    transition: 150ms;
+  }
+.card .link{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card .link div{
+    margin: auto;
+}
