@@ -5,7 +5,7 @@
         <div class="carousel-inner">
             {% for slide in carousel %}
                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                    <img src="/assets/images/{{ slide.img }}" class="d-block w-100 img-home"
+                    <img src="/assets/upload/{{ slide.img }}" class="d-block w-100 img-home"
                          alt="{{ slide.alt }}">
                     <div class="carousel-caption d-none d-md-block">
                         <p class="slide-title">{{ slide.title }}</p>
@@ -23,4 +23,7 @@
             </a>
         </div>
     </div>
+
+    {% include 'Home/see_artworks.html.twig' %}
+
 {% endblock %}
