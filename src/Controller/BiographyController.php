@@ -9,7 +9,6 @@
 
 namespace App\Controller;
 
-use App\Model\ArtworkManager;
 use App\Model\BiographyManager;
 
 /**
