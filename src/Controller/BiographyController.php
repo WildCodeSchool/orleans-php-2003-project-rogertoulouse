@@ -28,18 +28,14 @@ class BiographyController extends AbstractController
     public function index()
     {
         $biographyManager = new BiographyManager();
-        $biographies = $biographyManager->selectAllBioByDate();
-        $artworks = $biographyManager->selectAllArtByDate();
-
-
+        $dataByDates[] = $biographyManager->selectAllBioByDate();
+        $dataByDates[] = $biographyManager->selectAllArtByDate();
         $dataByYears = [];
-        foreach ($biographies as $biography) {
-            $year = date_format(date_create($biography['date']), 'Y');
-            $dataByYears[$year][] = $biography;
-        }
-        foreach ($artworks as $artwork) {
-            $year = date_format(date_create($artwork['date']), 'Y');
-            $dataByYears[$year][] = $artwork;
+        foreach ($dataByDates as $biographies) {
+            foreach ($biographies as $biography) {
+                $year = date_format(date_create($biography['date']), 'Y');
+                $dataByYears[$year][] = $biography;
+            }
         }
         return $this->twig->render('Biography/index.html.twig', [
             'data' => $dataByYears
