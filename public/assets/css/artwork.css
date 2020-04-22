@@ -1,21 +1,27 @@
-.card-deck{
+.artwork .card-deck{
     margin-right: 0;
     margin-left: 0;
     align-items: inherit;
+    justify-content: space-around;
     padding-bottom: 32px;
 }
-.card:nth-child(even){
+.artwork .card:nth-child(even){
     flex-direction: column-reverse;
 }
 
-.card{
+.artwork .card{
     background-color: var(--color-light);
     color: var(--color-main);
+    min-width: 250px;
+    max-width: 350px;
+    margin-top: 32px;
 }
-.card-body{
-    text-align: center;
+.artwork .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.card-text{
+.artwork .card-text{
     margin-top: 24px;
     margin-bottom: 32px;
     overflow: hidden;
@@ -25,15 +31,19 @@
     -webkit-box-orient: vertical;
     text-align: left;
 }
-.card-info{
+.artwork .card-info{
     font-size: 10pt;
     font-weight: 600;
 }
-.card-title{
+.artwork .card-title{
     font-weight: 800;
     font-size: 24pt;
 }
-.card .link a {
+.artworks .card-title{
+    font-weight: 600;
+    font-size: 1.3em;
+}
+.artwork .card .link a {
     border-style: solid;
     border-color: var(--color-main);
     border-width: 1px;
@@ -45,16 +55,51 @@
     margin: 5px 0 5px 0;
     line-height: 24pt;
 }
-.card .link a:hover {
+.artwork .card .link a:hover {
     color: var(--color-light);
     background-color: var(--color-main);
     transition: 150ms;
 }
-.card .link{
+.artwork .card .link{
     display: flex;
     flex-wrap: wrap;
 }
 
-.card .link div{
+.artwork .card .link div{
     margin: auto;
+}
+.artwork .more_info{
+    font-size: 10pt;
+    font-weight: bold;
+}
+.sort-artworks{
+    padding-top: 32px;
+}
+.bloc_sort_link{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sort-artworks a{
+    margin-top: 8pt;
+    padding: 4pt;
+    border-style: none;
+    border-radius: 2pt;
+    background-color: var(--color-light);
+    color: var(--color-main);
+}
+.sort-artworks a:hover{
+    text-decoration: none;
+    border-radius: 2pt;
+    background-color: var(--color-main);
+    color :var(--color-light);
+    transition: 300ms;
+}
+
+@media only screen and (max-width:580px) {
+    .artwork  .card {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
 }

@@ -1,27 +1,24 @@
-<div class="card-deck artworks">
-    {% set card = 0 %}
-    {% for artwork in artworks %}
-    <div class="card">
-        {% if card is even %}
-        <a href="/Artworks/single/{{ artwork.id }}">
-            <img src="/assets/images/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
-        </a>
-        {% endif %}
-        <div class="card-body">
-            <p class="card-title">
-                {{ artwork.name }}
-            </p>
-            <p class="card-text more_info">
-                {{ artwork.more_info }}
-                {{  artwork.size }}
-            </p>
-        </div>
-        {% if card is odd %}
-            <a href="/Artworks/single/{{ artwork.id }}">
-                <img src="/assets/images/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
-            </a>
-        {% endif %}
+<div class="artwork">
+    <div class="card-deck artworks">
+        {% for artwork in artworks %}
+            <div class="card">
+                <div>
+                    <a href="/Artworks/single/{{ artwork.id }}">
+                        <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        {{ artwork.name }}<br/>{{ artwork.date|date("Y") }}
+                    </div>
+                    <div class="card-text">
+                        {{ artwork.description }}
+                    </div>
+                    <div class="card-info">
+                        {{ artwork.size }} <br> {{ artwork.more_info }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    {%  set card=card+1 %}
-    {% endfor %}
 </div>
