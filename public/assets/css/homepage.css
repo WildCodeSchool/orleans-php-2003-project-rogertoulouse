@@ -1,11 +1,13 @@
 .slide-title{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
+    color: var(--color-light);
 }
 
 .slide-text{
     font-family: var(--font-text);
     font-size: var(--font-text);
+    color: var(--color-light);
 }
 
 .d-block{
@@ -15,6 +17,8 @@
 .card-header{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
+    color: var(--color-text);
+    background-color: var(--color-main);
 }
 
 .card-title{
@@ -28,4 +32,20 @@
 
 .card-btn{
     font-family: var(--font-text);
+    background-color: var(--color-main);
+    color: var(--color-light);
+    border: none;
+}
+
+.card-btn:hover{
+    background-color: var(--color-main);
+    color: var(--color-secondary);
+}
+
+.card-body{
+    background-color: var(--color-secondary);
+}
+
+.card{
+    border: none;
 }
