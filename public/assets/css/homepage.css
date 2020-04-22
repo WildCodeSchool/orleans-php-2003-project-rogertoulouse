@@ -8,7 +8,24 @@
     font-size: var(--font-text);
 }
 
-
 .d-block{
     border-radius: var(--border-radius);
+}
+
+.card-header{
+    font-family: var(--font-title);
+    font-size: var(--sizeTitle);
+}
+
+.card-title{
+    font-family: var(--font-text);
+    font-size: var(--sizeText);
+}
+
+.card-text{
+    font-family: var(--font-text);
+}
+
+.card-btn{
+    font-family: var(--font-text);
 }
