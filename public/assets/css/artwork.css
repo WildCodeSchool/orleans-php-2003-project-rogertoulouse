@@ -1,30 +1,37 @@
 .card-deck{
     margin-right: 0;
     margin-left: 0;
-    justify-content: space-around;
-/*    align-items: flex-start; */
+    align-items: inherit;
     padding-bottom: 32px;
 }
+.card:nth-child(even){
+    flex-direction: column-reverse;
+}
+
 .card{
     background-color: var(--color-light);
     color: var(--color-main);
-    min-width: 250px;
-    max-width: 350px;
-    margin-top: 32px;
 }
 .card-body{
     text-align: center;
 }
 .card-text{
+    margin-top: 24px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     text-align: left;
+}
+.card-info{
+    font-size: 10pt;
+    font-weight: 600;
 }
 .card-title{
     font-weight: 800;
-    font-size: 2em;
-}
-.artworks .card-title{
-    font-weight: 600;
-    font-size: 1.3em;
+    font-size: 24pt;
 }
 .card .link a {
     border-style: solid;
@@ -42,7 +49,7 @@
     color: var(--color-light);
     background-color: var(--color-main);
     transition: 150ms;
-  }
+}
 .card .link{
     display: flex;
     flex-wrap: wrap;
@@ -50,39 +57,4 @@
 
 .card .link div{
     margin: auto;
-}
-.more_info{
-    font-size: 10pt;
-    font-weight: bold;
-}
-.sort-artworks{
-    padding-top: 32px;
-}
-.bloc_sort_link{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-.sort-artworks a{
-    margin-top: 8pt;
-    padding: 4pt;
-    border-style: none;
-    border-radius: 2pt;
-    background-color: var(--color-light);
-    color: var(--color-main);
-}
-.sort-artworks a:hover{
-    text-decoration: none;
-    border-radius: 2pt;
-    background-color: var(--color-main);
-    color :var(--color-light);
-    transition: 300ms;
-}
-
-@media only screen and (max-width:580px) {
-    .card {
-        max-width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-    }
 }

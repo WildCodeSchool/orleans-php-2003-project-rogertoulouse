@@ -1,23 +1,21 @@
 <div class="card-deck">
-    {% set card = 0 %}
     {% for artwork in artworks %}
     <div class="card">
-        {% if card is even %}
-        <a href="/Artworks/single/{{ artwork.id }}">
-            <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
-        </a>
-        {% endif %}
+        <div>
+            <a href="/Artworks/single/{{ artwork.id }}">
+                <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
+            </a>
+        </div>
         <div class="card-body">
-            <h3 class="card-title">
+            <div class="card-title">
                 {{ artwork.name }}
-            </h3>
-            <p class="card-text">
-                {{ artwork.description|length>250 ? artwork.description|slice(0,250) ~ '…' : artwork.description }}
-            </p>
-            <p class="card-text more_info">
-                {{ artwork.more_info }}
-                {{  artwork.size }}
-            </p>
+            </div>
+            <div class="card-text">
+                {{ artwork.description }}
+            </div>
+            <div class="card-info">
+                {{ artwork.size }} <br> {{ artwork.more_info }}
+            </div>
             <div class="card-text link">
                 <div>
                     <a href="/artworks/select/{{ artwork.ID }}">
@@ -25,18 +23,12 @@
                     </a>
                 </div>
                 <div>
-                    <a href="/artworks/period/{{ artwork.date|date("Y") }}">
+                    <a href="/biography#{{ artwork.date|date("Y") }}">
                         {{ artwork.date|date("Y") }}
                     </a>
                 </div>
             </div>
         </div>
-        {% if card is odd %}
-            <a href="/Artworks/single/{{ artwork.id }}">
-                <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.image }}">
-            </a>
-        {% endif %}
     </div>
-    {%  set card=card+1 %}
     {% endfor %}
 </div>

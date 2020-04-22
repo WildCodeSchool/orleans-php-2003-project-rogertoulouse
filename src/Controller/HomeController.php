@@ -7,7 +7,6 @@
  * Time: 16:07
  * PHP version 7
  */
-
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
@@ -33,7 +32,18 @@ class HomeController extends AbstractController
         $carousel = $carouselManager->selectAll();
 
         $artworkManager = new ArtworkManager();
-        $listSeeArtworks = $artworkManager->selectOneArtworksByCat();
-        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks'=> $listSeeArtworks]);
+        $artworks = $artworkManager->selectAllByCategory();
+
+        $artworksByCategories = [];
+        $randomArtworks = [];
+        foreach ($artworks as $artwork) {
+            $category = $artwork['category'];
+            $artworksByCategories[$category][] = $artwork;
+        }
+        foreach ($artworksByCategories as $category => $artworksByCategory) {
+            $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];
+        }
+        shuffle($randomArtworks);
+        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks' => $randomArtworks]);
     }
 }
