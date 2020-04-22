@@ -26,10 +26,10 @@
     position: relative;
     left: calc(50% - 40px);
     z-index: 2;
+    height: 40px;
     padding-top: 3px;
     border-radius: var(--border-radius);
     width: 80px;
-    height: 40px;
     background-color: var(--color-main);
     color: var(--color-light);
 
@@ -295,6 +295,15 @@
     font-size: calc(var(--sizeTitle) / 1.5);
     margin: 20px 0 10px 0;
 }
+.centered .info::first-letter{
+    font-size: calc(var(--sizeTitle) / 1.5);
+}
+.centered p::first-letter{
+    font-size: calc(var(--sizeTitle)/2);
+}
+.info::first-letter{
+    font-size: calc(var(--sizeTitle)/2);
+}
 .centered p{
     padding-bottom: 20px;
     padding-right: 10px;
@@ -317,13 +326,12 @@
         position: relative;
         left: calc(0% + 40px);
         z-index: 2;
-        border-radius: 100%;
-        padding-top: 20px;
+        height: 40px;
+        padding-top: 3px;
+        border-radius: var(--border-radius);
         width: 80px;
-        height: 80px;
-        background: radial-gradient(circle, var(--color-shadow) 0%, var(--color-main) 80%);
-        border: 0.1rem solid var(--timeline-item);
-        color: var(--color-text);
+        background-color: var(--color-main);
+        color: var(--color-light);
         text-shadow: 1px 1px 2px var(--color-main);
 
     }
