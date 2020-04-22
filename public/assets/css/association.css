@@ -1,16 +1,4 @@
 
-.row h2{
-    background-color: var(--color-secondary);
-    text-align: center;
-    font-family: var(--font-title);
-    color: var(--color-main);
-    height: 100px;
-
-}
-p i {
-    font-family: var(--font-text);
-    color: var(--color-main);
-}
 .card{
     background-color: var(--color-secondary);
     border-style: none;
@@ -19,12 +7,10 @@ p i {
 .card-body{
     color: var(--color-main);
 }
-
 .card-body p{
     color: var(--color-main);
 }
-
-.formulaire{
+.form{
     background: var(--color-main);
     border-radius: .25rem;
     font-family: var(--font-text);
@@ -39,31 +25,52 @@ form label{
     color: var(--color-light);
 }
 
-
-.jumbotron{
-    background-color: var(--color-secondary);
-    height: 100%;
-    color: var(--color-light);
-    font-family: var(--sizeText);
-}
-
 p.lead{
     width: 100%;
 }
-
 
 form{
     padding: 10px;
     margin-bottom: 10px;
 }
 
-address{
+address h2{
     text-align: center;
     font-size: var(--sizeTitle);
     font-family: var(--font-title);
+}
+.contact_title{
+    font-family: var(--font-title);
+    text-align: center;
+    font-size: var(--sizeTitle);
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 
 }
- h2{
-     ;
+.contact_title p{
+    font-size: var(--sizeText);
+}
 
- }
+@media screen and (max-width: 670px){
+.main_container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+}
+    .justify-content-around {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: stretch
+}
+}

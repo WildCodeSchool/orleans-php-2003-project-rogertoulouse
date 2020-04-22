@@ -7,39 +7,43 @@
      <link rel="stylesheet" href="/assets/css/association.css">{% endblock %}
 
 {% block content %}
-
-<div class="container">
-    <div class="row">
-        <address class="col">Nous joindre </address>
-        <div class="row justify-content-between">
-            <div class="card col-3 ">
-                    <div class="card-body">
-                        <h2 class=" contact_title card-title">Contactez-nous</h2>
-                        <p class="card-text"><i class="fas fa-phone-alt"> </i> 02 38 54 00 00</p>
-                        <p class="card-text"><i class="fas fa-envelope"> </i> 2, impasse Notre-Dame du chemin,
-                            45000,
-                            Orléans
-                        </p>
-                        <p class="card-text"><i class="fas fa-at"></i> svv-pousse-cornet-sarl@wanadoo.fr</p>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="contact_title">Nous Joindre</h2>
             </div>
-
-            <div class="formulaire col-3  ">
+        </div>
+    </div>
+    <div class="main_container container-fluid">
+        <div class=" row justify-content-around">
+            <div class="card col-3 ">
+                <address class="row card-title">
+                    <h3 class="contact_title">Contactez-nous</h3>
+                    <p class="card-text"><i class="fas fa-phone-alt"> </i> 02 38 54 00 00</p>
+                    <p class="card-text"><i class="fas fa-envelope"> </i> 2, impasse Notre-Dame du chemin,
+                        45000,
+                        Orléans
+                    </p>
+                    <p class="div_body card-text"><i class="fas fa-at"></i> 02 38 54 00 00 </p>
+                </address>
+            </div>
+            <div class="form col-3">
                 <form method="POST" action="">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email</label>
+                        <label for="email">Email</label>
                         <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
                                placeholder="name@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Objet</label>
-                        <input type="text" name="object" class="form-control" placeholder="Demande de renseignements "
+                        <label for="object">Objet</label>
+                        <input type="text" name="object" class="form-control" id="message"
+                               placeholder="Demande de renseignements "
                                required>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Message</label>
-                        <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"
+                        <label for="message">Message</label>
+                        <textarea class="form-control" name="message" id="message" rows="3"
                                   required
                                   placeholder="Quand aura lieu la prochaine exposition sur l'artiste "></textarea>
                     </div>
@@ -52,9 +56,11 @@
                 <img class="card-img-top" src="http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG"
                      alt="Card image cap">
                 <div class="card-body">
-                    <h2 class="card-title">Terres de Loire</h2>
+                    <h3 class="card-title">Terres de Loire</h3>
                     <p class="card-text">Description de l'oeuvre.</p>
                     <a href="#" class="btn btn-primary">Voir l'oeuvre !</a>
                 </div>
             </div>
-            {% endblock %}
+        </div>
+    </div>
+{% endblock %}
