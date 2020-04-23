@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArtworkManager;
 use App\Model\AssociationManager;
 
 class AssociationController extends AbstractController
@@ -17,7 +18,7 @@ class AssociationController extends AbstractController
      */
     public function index()
     {
-
+        $artworks = [];
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
@@ -34,6 +35,8 @@ class AssociationController extends AbstractController
                 $errors[] = 'Un message est requis';
             }
         }
-        return $this->twig->render('Association/index.html.twig', ['error' => $errors]);
+        $artworksManager = new ArtworkManager();
+        $artworks = $artworksManager->selectOneById(8);
+        return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'artworks' => $artworks]);
     }
 }

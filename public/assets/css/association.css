@@ -1,16 +1,21 @@
 
-.card{
+.card {
     background-color: var(--color-secondary);
     border-style: none;
+}
+
+.card-body {
+    color: var(--color-main);
+}
+
+.card-body p {
+    color: var(--color-main);
+    font-size: var(--sizeText);
+    font-family: var(--font-text);
 
 }
-.card-body{
-    color: var(--color-main);
-}
-.card-body p{
-    color: var(--color-main);
-}
-.form{
+
+.form {
     background: var(--color-main);
     border-radius: .25rem;
     font-family: var(--font-text);
@@ -19,58 +24,74 @@
     padding: 20px;
     text-align: center;
 }
-form label{
+
+form label {
     text-align: center;
     font-family: var(--font-text);
     color: var(--color-light);
 }
 
-p.lead{
+p.lead {
     width: 100%;
 }
 
-form{
+form {
     padding: 10px;
     margin-bottom: 10px;
 }
 
-address h2{
-    text-align: center;
-    font-size: var(--sizeTitle);
-    font-family: var(--font-title);
-}
-.contact_title{
-    font-family: var(--font-title);
-    text-align: center;
-    font-size: var(--sizeTitle);
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: stretch;
-
-}
-.contact_title p{
-    font-size: var(--sizeText);
-}
-
-@media screen and (max-width: 670px){
-.main_container{
+address {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
     align-content: stretch;
+
 }
-    .justify-content-around {
+
+.in-contact-title {
+    font-family: var(--font-title);
+    font-size: var(--sizeTitle);
+}
+
+.contact_title {
+    font-family: var(--font-title);
+    font-size: var(--sizeTitle);
+    text-align: center;
+    height: 100px;
+}
+
+address p {
+    font-size: var(--sizeText);
+    font-family: var(--font-text);
+    font-weight: normal;
+    text-align: right;
+}
+
+.contact_title p {
+    font-size: var(--sizeText);
+}
+
+.title_card {
+    font-size: var(--sizeTitle);
+    font-family: var(--font-title);
+}
+
+.main_container {
+    margin-bottom: var(--padding);
+}
+@media screen and (max-width: 770px) {
+    .card-title {
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
-        align-content: stretch
-}
+        align-content: center;
+    }
+
+    .main_container {
+        padding: var(--padding);
+    }
 }

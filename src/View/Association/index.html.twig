@@ -14,11 +14,11 @@
             </div>
         </div>
     </div>
-    <div class="main_container container-fluid">
+    <div class="main_container ">
         <div class=" row justify-content-around">
-            <div class="card col-3 ">
+            <div class="card col-md-3 ">
                 <address class="row card-title">
-                    <h3 class="contact_title">Contactez-nous</h3>
+                    <h3 class="in-contact-title">Contactez-nous</h3>
                     <p class="card-text"><i class="fas fa-phone-alt"> </i> 02 38 54 00 00</p>
                     <p class="card-text"><i class="fas fa-envelope"> </i> 2, impasse Notre-Dame du chemin,
                         45000,
@@ -27,7 +27,7 @@
                     <p class="div_body card-text"><i class="fas fa-at"></i> 02 38 54 00 00 </p>
                 </address>
             </div>
-            <div class="form col-3">
+            <div class="form col-md-3">
                 <form method="POST" action="">
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -52,13 +52,12 @@
 
 
             </div>
-            <div class="card col-3 ">
-                <img class="card-img-top" src="http://terresdeloire.com/images/NOUVEAUSITE/2018/Toulouse/alerte.JPG"
-                     alt="Card image cap">
+            <div class="card col-md-3">
+                <img class="card-img-top" src="/assets/upload/{{ artworks.image }}" alt="œuvre de l'artiste">
                 <div class="card-body">
-                    <h3 class="card-title">Terres de Loire</h3>
-                    <p class="card-text">Description de l'oeuvre.</p>
-                    <a href="#" class="btn btn-primary">Voir l'oeuvre !</a>
+                    <h3 class="title_card card-title">{{ artworks.name }}</h3>
+                    <p class="card-text">{{ artworks.more_info }}</p>
+                    <a href="#" class="btn btn-primary">Voir l'œuvre !</a>
                 </div>
             </div>
         </div>
