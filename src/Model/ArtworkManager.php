@@ -27,7 +27,7 @@ class ArtworkManager extends AbstractManager
         return $artworksByCategory;
     }
 
-    public function selectAllByOrder($direction)
+    public function selectAllByDate($direction='ASC')
     {
         $listArtworks = $this->pdo->query('SELECT * FROM '.$this->table.' a 
         JOIN works_category c ON a.category_id=c.ID ORDER BY a.date '.$direction.'')->fetchAll();

@@ -41,7 +41,7 @@ class ArtworksController extends AbstractController
     public function time($direction)
     {
         $artworkManager = new ArtworkManager();
-        $listSeeArtworks = $artworkManager->selectAllByOrder($direction);
+        $listSeeArtworks = $artworkManager->selectAllByDate($direction);
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
     }
 }
