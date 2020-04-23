@@ -18,4 +18,10 @@ class ArtworkManager extends AbstractManager
 
         return $listArtwork;
     }
+
+    public function selectAllArtByDate()
+    {
+        return $this->pdo->query('SELECT * FROM ' . $this->table . ' a 
+        JOIN works_category c ON a.category_id=c.ID ORDER BY `date` ASC')->fetchAll();
+    }
 }

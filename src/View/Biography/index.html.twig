@@ -1,35 +1,11 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
     <link rel="stylesheet" href="/assets/css/timelify.css">
-    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/biography.css">
 {% endblock %}
 {% block content %}
-    <section class="container">
-        <h1>Biographie</h1>
-        <div class="headbio d-inline-flex justify-content-center align-items-center w-100">
-            <img class="w-15 p-3" src="/assets/images/roger-toulouse.png" alt="Photomontage de l'artiste Roger Toulouse en 1936, 1ère photo donnée à Marguerite Toulouse">
-            <div class="w-60 m-3">
-                <h2>Roger TOULOUSE</h2>
-                <h3>(1918-1994)</h3>
-                <h4>Peintre, sculpteur, illustrateur et poète</h4>
-                <p>Roger Alphonse Robert Toulouse, né le 19 février 1918 à Orléans où il est mort le
-                    11 septembre 1994, est un peintre et sculpteur français, également poète et illustrateur.</p>
-            </div>
-        </div>
-            <div class="timeline">
-                {% for year, biographies in data %}
-                    <h2>{{ year }}</h2>
-                    {% for biography in biographies %}
-                        <ul class="timeline-items">
-                            <li class="timeline-item {{ loop.parent.loop.index0 is odd ? 'inverted'}}">
-                                <p>{{ biography.info }}</p>
-                            </li>
-                        </ul>
-                    {% endfor %}
-                {% else %}
-                    <li>Nothing to display</li>
-                {% endfor %}
-            </div>
+    <section class="container biography">
+        {% include '/Biography/_header.html.twig' %}
+        {% include '/Biography/_timeline.html.twig' %}
     </section>
 {% endblock %}
