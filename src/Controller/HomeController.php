@@ -11,7 +11,6 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
-use App\Model\CarouselManager;
 
 /**
  * Class HomeController
@@ -29,7 +28,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $carouselManager = new CarouselManager();
+        $carouselManager = new ArtworkManager();
         $carousel = $carouselManager->selectAll();
 
         $artworkManager = new ArtworkManager();

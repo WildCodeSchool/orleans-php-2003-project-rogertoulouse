@@ -18,4 +18,9 @@ class ArtworkManager extends AbstractManager
 
         return $listArtwork;
     }
+    public function selectAll(): array
+    {
+        $listSlide = $this->pdo->query('SELECT * FROM ' . $this->table . ' WHERE carousel = 1')->fetchAll();
+        return $listSlide;
+    }
 }
