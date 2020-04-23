@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
+use App\Model\CategoryManager;
 
 /**
  * Class ArtworksController
@@ -29,19 +30,31 @@ class ArtworksController extends AbstractController
     public function index()
     {
         $artworkManager = new ArtworkManager();
-        $listSeeArtworks = $artworkManager->selectAllArtworks();
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
+        $artworks = $artworkManager->selectAllArtworks();
+        shuffle($artworks);
+
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+
+        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $artworks, 'categories'=>$categories]);
     }
+
     public function select($idCategory)
     {
         $artworkManager = new ArtworkManager();
-        $listSeeArtworks = $artworkManager->selectArtworksByCategory($idCategory);
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
+        $seeArtworks = $artworkManager->selectArtworksByCategory($idCategory);
+        shuffle($seeArtworks);
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
     }
+
     public function time($direction)
     {
         $artworkManager = new ArtworkManager();
-        $listSeeArtworks = $artworkManager->selectAllByDate($direction);
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $listSeeArtworks]);
+        $seeArtworks = $artworkManager->selectAllByDate($direction);
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
     }
 }

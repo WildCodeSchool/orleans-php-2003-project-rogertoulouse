@@ -12,6 +12,8 @@
 .artwork .card{
     background-color: var(--color-light);
     color: var(--color-main);
+    margin-right: 5px;
+    margin-left: 5px;
     min-width: 250px;
     max-width: 350px;
     margin-top: 32px;
