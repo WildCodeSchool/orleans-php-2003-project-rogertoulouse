@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Association{% endblock %}
+
+ {% block stylesheet %}
+
+     <link rel="stylesheet" href="/assets/css/association.css">
+ {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="contact_title">Nous Joindre</h2>
+            </div>
+        </div>
+    </div>
+    <div class="main_container ">
+        <div class=" row justify-content-around">
+            <div class="form col-md-3">
+                <form method="POST" action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
+                               placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="object">Objet</label>
+                        <input type="text" name="object" class="form-control" id="message"
+                               placeholder="Demande de renseignements "
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" name="message" id="message" rows="3"
+                                  required
+                                  placeholder="Quand aura lieu la prochaine exposition sur l'artiste "></textarea>
+                    </div>
+                    <button>Envoyer !</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
