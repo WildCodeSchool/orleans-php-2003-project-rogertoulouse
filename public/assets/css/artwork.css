@@ -95,11 +95,3 @@
     color :var(--color-light);
     transition: 300ms;
 }
-
-@media only screen and (max-width:580px) {
-    .artwork  .card {
-        max-width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-    }
-}
