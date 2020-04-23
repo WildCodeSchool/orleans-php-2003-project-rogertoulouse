@@ -32,7 +32,7 @@ class BiographyManager extends AbstractManager
      *
      * @return array
      */
-    public function selectAllByDate(): array
+    public function selectAllBioByDate(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY `date` ASC')->fetchAll();
     }
