@@ -17,7 +17,7 @@ class CarouselManager extends AbstractManager
     /**
      *
      */
-    const TABLE = 'carousel';
+    const TABLE = 'artworks';
 
     /**
      *  Initializes this class.
@@ -25,5 +25,11 @@ class CarouselManager extends AbstractManager
     public function __construct()
     {
         parent::__construct(self::TABLE);
+    }
+
+    public function selectAll(): array
+    {
+        $listSlide = $this->pdo->query('SELECT * FROM ' . $this->table . ' WHERE carousel = 1')->fetchAll();
+        return $listSlide;
     }
 }
