@@ -41,4 +41,3 @@ class AssociationController extends AbstractController
         return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'artworks' => $artworks]);
     }
 }
-
