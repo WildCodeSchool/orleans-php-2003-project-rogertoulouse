@@ -1,20 +1,4 @@
 
-.card {
-    background-color: var(--color-secondary);
-    border-style: none;
-}
-
-.card-body {
-    color: var(--color-main);
-}
-
-.card-body p {
-    color: var(--color-main);
-    font-size: var(--sizeText);
-    font-family: var(--font-text);
-
-}
-
 .form {
     background: var(--color-main);
     border-radius: .25rem;
@@ -31,67 +15,14 @@ form label {
     color: var(--color-light);
 }
 
-p.lead {
-    width: 100%;
-}
 
 form {
     padding: 10px;
     margin-bottom: 10px;
 }
-
-address {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: stretch;
-    align-content: stretch;
-
-}
-
-.in-contact-title {
-    font-family: var(--font-title);
-    font-size: var(--sizeTitle);
-}
-
 .contact_title {
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
     text-align: center;
     height: 100px;
-}
-
-address p {
-    font-size: var(--sizeText);
-    font-family: var(--font-text);
-    font-weight: normal;
-    text-align: right;
-}
-
-.contact_title p {
-    font-size: var(--sizeText);
-}
-
-.title_card {
-    font-size: var(--sizeTitle);
-    font-family: var(--font-title);
-}
-
-.main_container {
-    margin-bottom: var(--padding);
-}
-@media screen and (max-width: 770px) {
-    .card-title {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: center;
-    }
-
-    .main_container {
-        padding: var(--padding);
-    }
 }

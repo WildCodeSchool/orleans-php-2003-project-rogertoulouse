@@ -34,10 +34,6 @@ class AssociationController extends AbstractController
                 $errors[] = 'Un message est requis';
             }
         }
-        $artworksManager = new ArtworkManager();
-        $artworks = $artworksManager->selectAll();
-        $randArtworks = rand(0, count($artworks)-1);
-        $artworks = $artworks[$randArtworks];
-        return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'artworks' => $artworks]);
+        return $this->twig->render('Association/index.html.twig', ['errors' => $errors]);
     }
 }
