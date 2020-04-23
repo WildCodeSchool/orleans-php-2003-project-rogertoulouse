@@ -1,6 +1,5 @@
 :root{
-    --timeline-item: #--color-main;
-    --timeline-item-inverted: #--color-main;
+    --timeline-item: var(--color-light);
     --timeline-color: #5b5555;
 }
 
@@ -10,11 +9,10 @@
 
 
 .timeline {
-
+    margin-top: 40px;
+    margin-bottom: 40px;
     position: relative;
     overflow: initial;
-    width: 100%;
-    margin-top: 40px;
 }
 
 .timeline hr {
@@ -27,14 +25,12 @@
     position: relative;
     left: calc(50% - 40px);
     z-index: 2;
-    border-radius: 100%;
-    padding-top: 20px;
+    height: 40px;
+    padding-top: 3px;
+    border-radius: var(--border-radius);
     width: 80px;
-    height: 80px;
-    background: radial-gradient(circle, var(--color-shadow) 0%, var(--color-main) 80%);
-    border: 0.1rem solid var(--color-main);
-    color: var(--color-text);
-    text-shadow: 1px 1px 2px var(--color-main);
+    background-color: var(--color-main);
+    color: var(--color-light);
 
 }
 
@@ -45,19 +41,19 @@
 
 .timeline p{
     font-family: var(--font-text);
-    color: var(--color-text);
+    color: var(--color-main);
+    padding: 0 0 0 10px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 60px;
     left: calc(50% - 40px);
     width: 20px;
-    margin: 10px 30px 0 30px;
+    margin: -20px 30px 50px 30px;
     height: 100%;
     background-color: var(--color-main);
-    border: 0.2rem solid var(--color-secondary);
 }
 
 .timeline-items {
@@ -70,13 +66,11 @@
 .timeline-item {
     position: relative;
     left: 0;
-    padding: 20px 20px 10px 20px;
+    padding: 0 20px 5px 20px;
     margin-left: 20px;
+    margin-bottom: 5px;
     width: calc(50% - 60px);
-    box-shadow: 1px 1px 1px 1px var(--color-shadow);
     border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
-    color: var(--color-text);
-    background-color: var(--color-main);
 }
 
 .timeline-item h3 {
@@ -109,25 +103,24 @@
 
 .timeline-item::after {
     content: '';
-    background: var(--timeline-color);
     width: 30px;
     height: 30px;
     margin: 0 25px 0 25px;
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    background-color: var(--color-secondary);
-    border: 0.1rem solid var(--color-main);
+    background-color: var(--color-main);
+    border: 0.1rem solid var(--timeline-item);
     left: calc(100%);
 }
 
 .timeline-item:nth-of-type(2n+1) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
     color: white;
 }
 
 .timeline-item:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--color-main);
+    border-top: 1px solid var(--timeline-item);
 }
 
 .timeline-item:nth-of-type(2n+1) a {
@@ -135,18 +128,18 @@
 }
 
 .timeline-item:nth-of-type(2n+1)::before {
-    border-top: 1em solid var(--color-main);
+    border-top: 1em solid var(--timeline-item);
     border-right: 1em solid transparent;
 }
 
 .timeline-item:nth-of-type(2n) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
 
     color: white;
 }
 
 .timeline-item:nth-of-type(2n) hr {
-    border-top: 1px solid var(--color-main);
+    border-top: 1px solid var(--timeline-item);
 }
 
 .timeline-item:nth-of-type(2n) a {
@@ -154,20 +147,18 @@
 }
 
 .timeline-item:nth-of-type(2n)::before {
-    border-top: 1em solid var(--color-main);
+    border-top: 1em solid var(--timeline-item);
     border-right: 1em solid transparent;
 }
 
 .inverted {
     position: relative;
     left: calc(50% + 40px);
-    padding: 20px 20px 10px 20px;
-    margin: 0 50px 0 0;
+    padding: 0 20px 5px 20px;
+    margin: 0 50px 5px 0;
     width: calc(50% - 60px);
-    box-shadow: 1px 1px 1px 1px var(--color-shadow);
-    border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
+    border-radius: var(--border-radius) var(--border-radius)  var(--border-radius) var(--border-radius);
     color: var(--color-text);
-    background-color: var(--color-main);
 }
 
 .inverted::before {
@@ -177,29 +168,28 @@
     position: absolute;
     left: -1em;
     top: 0;
-    border-top: 1em solid var(--color-main);
+    border-top: 1em solid var(--timeline-item);
 }
 
 .inverted::after {
     content: '';
-    background: var(--timeline-color);
     width: 30px;
     height: 30px;
     position: absolute;
     top: -15px;
     border-radius: 100%;
-    background-color: var(--color-secondary);
-    border: 0.1rem solid var(--color-main);
+    background-color: var(--color-main);
+    border: 0.1rem solid var(--timeline-item);
     left: calc(0% - 80px);
 }
 
 .inverted:nth-of-type(2n+1) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
     color: white;
 }
 
 .inverted:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--color-main);
+    border-top: 1px solid var(--timeline-item);
 }
 
 .inverted:nth-of-type(2n+1) a {
@@ -207,17 +197,17 @@
 }
 
 .inverted:nth-of-type(2n+1)::before {
-    border-top: 1em solid var(--color-main);
+    border-top: 1em solid var(--timeline-item);
     border-left: 1em solid transparent;
 }
 
 .inverted:nth-of-type(2n) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
     color: white;
 }
 
 .inverted:nth-of-type(2n) hr {
-    border-top: 1px solid var(--color-main);
+    border-top: 1px solid var(--timeline-item);
 }
 
 .inverted:nth-of-type(2n) a {
@@ -225,14 +215,19 @@
 }
 
 .inverted:nth-of-type(2n)::before {
-    border-top: 1em solid var(--color-main);
+    border-top: 1em solid var(--timeline-item);
     border-left: 1em solid transparent;
 }
 
 .centered {
     position: relative;
     text-align: justify;
-    width: 100%;
+    padding: 0;
+    left: 25%;
+    margin-bottom: 25px;
+    margin-top: 35px;
+    width: calc((25% - 60px) + 80px + (25% - 60px));
+    border-radius: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius);
 }
 
 .centered::before {
@@ -240,21 +235,28 @@
     width: 0;
     height: 0;
     position: absolute;
-    left: calc(50% - 4px);
-    top: -12px;
+    left: calc(50% - 15px);
+    top: -16px;
 }
 
 .centered::after {
-    display: none;
+    content: '';
+    width: 30px;
+    height: 30px;
+    top: -50px;
+    border-radius: 100%;
+    background-color: var(--color-main);
+    border: 0.1rem solid var(--timeline-item);
+    left: calc(50% - 40px);
 }
 
 .centered:nth-of-type(2n+1) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
     color: white;
 }
 
 .centered:nth-of-type(2n+1) hr {
-    border-top: 1px solid var(--color-main), 5%;
+    border-top: 1px solid var(--timeline-item), 5%;
 }
 
 .centered:nth-of-type(2n+1) a {
@@ -266,16 +268,16 @@
 
     border-left: 1em solid transparent;
     border-right: 1em solid transparent;
-    border-bottom: 1em solid var(--color-main);
+    border-bottom: 1em solid var(--timeline-item);
 }
 
 .centered:nth-of-type(2n) {
-    background-color: var(--color-main);
+    background-color: var(--timeline-item);
     color: white;
 }
 
 .centered:nth-of-type(2n) hr {
-    border-top: 1px solid var(--color-main);
+    border-top: 1px solid var(--timeline-item);
 }
 
 .centered:nth-of-type(2n) a {
@@ -286,9 +288,35 @@
     border-top: 0;
     border-left: 1em solid transparent;
     border-right: 1em solid transparent;
-    border-bottom: 1em solid var(--color-main);
+    border-bottom: 1em solid var(--timeline-item);
 }
-
+.centered .info{
+    font-size: calc(var(--sizeTitle) / 1.5);
+    margin: 20px 0 10px 0;
+}
+.centered .info::first-letter{
+    font-size: calc(var(--sizeTitle) / 1.5);
+}
+.centered p::first-letter{
+    font-size: calc(var(--sizeTitle)/2);
+}
+.info::first-letter{
+    font-size: calc(var(--sizeTitle)/2);
+}
+.centered p{
+    padding-bottom: 20px;
+    padding-right: 10px;
+}
+.info{
+    margin: 0;
+}
+.picture{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
 @media (max-width: 1000px) {
 
     .timeline h2 {
@@ -297,13 +325,12 @@
         position: relative;
         left: calc(0% + 40px);
         z-index: 2;
-        border-radius: 100%;
-        padding-top: 20px;
+        height: 40px;
+        padding-top: 3px;
+        border-radius: var(--border-radius);
         width: 80px;
-        height: 80px;
-        background: radial-gradient(circle, var(--color-shadow) 0%, var(--color-main) 80%);
-        border: 0.1rem solid var(--color-main);
-        color: var(--color-text);
+        background-color: var(--color-main);
+        color: var(--color-light);
         text-shadow: 1px 1px 2px var(--color-main);
 
     }
@@ -317,19 +344,19 @@
         margin: 10px 30px 0 30px;
         height: 100%;
         background-color: var(--color-main);
-        border: 0.2rem solid var(--color-secondary);
+        border: 0.1rem solid var(--timeline-item);
     }
 
     .timeline-item {
         position: relative;
         left: calc(0% + 120px);
         padding: 20px 20px 10px 20px;
-        margin: 0 50px 0 0;
+        margin: 10px 50px 10px 0;
         width: calc(100% - 140px);
         box-shadow: 1px 1px 1px 1px var(--color-shadow);
-        border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
-        color: var(--color-text);
-        background-color: var(--color-main);
+        border-radius: var(--border-radius) var(--border-radius) var(--border-radius) var(--border-radius);
+        color: var(--color-main);
+        background-color: var(--timeline-item);
     }
 
     .timeline-item::before {
@@ -339,7 +366,7 @@
         position: absolute;
         left: -1em;
         top: 0;
-        border-top: 1em solid var(--color-main);
+        border-top: 1em solid var(--timeline-item);
     }
 
     .timeline-item::after {
@@ -350,18 +377,18 @@
         position: absolute;
         top: -15px;
         border-radius: 100%;
-        background-color: var(--color-secondary);
-        border: 0.1rem solid var(--color-main);
+        background-color: var(--color-main);
+        border: 0.1rem solid var(--timeline-item);
         left: calc(0% - 80px);
     }
 
     .timeline-item:nth-of-type(2n+1) {
-        background-color: var(--color-main);
+        background-color: var(--timeline-item);
         color: white;
     }
 
     .timeline-item:nth-of-type(2n+1) hr {
-        border-top: 1px solid var(--color-main);
+        border-top: 1px solid var(--timeline-item);
     }
 
     .timeline-item:nth-of-type(2n+1) a {
@@ -369,17 +396,17 @@
     }
 
     .timeline-item:nth-of-type(2n+1)::before {
-        border-top: 1em solid var(--color-main);
+        border-top: 1em solid var(--timeline-item);
         border-left: 1em solid transparent;
     }
 
     .timeline-item:nth-of-type(2n) {
-        background-color: var(--color-main);
+        background-color: var(--timeline-item);
         color: white;
     }
 
     .timeline-item:nth-of-type(2n) hr {
-        border-top: 1px solid var(--color-main);
+        border-top: 1px solid var(--timeline-item);
     }
 
     .timeline-item:nth-of-type(2n) a {
@@ -387,7 +414,79 @@
     }
 
     .timeline-item:nth-of-type(2n)::before {
-        border-top: 1em solid var(--color-main);
+        border-top: 1em solid var(--timeline-item);
+        border-left: 1em solid transparent;
+    }
+
+    .centered {
+        position: relative;
+        left: calc(0% + 120px);
+        padding: 20px 20px 10px 20px;
+        margin: 0 50px 0 0;
+        width: calc(100% - 140px);
+        box-shadow: 1px 1px 1px 1px var(--color-shadow);
+        border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
+        color: var(--color-main);
+        background-color: var(--timeline-item);
+    }
+
+    .centered::before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: -1em;
+        top: 0;
+        border-top: 1em solid var(--timeline-item);
+    }
+
+    .centered::after {
+        content: '';
+        background: var(--timeline-color);
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: -15px;
+        border-radius: 100%;
+        background-color: var(--color-main);
+        border: 0.1rem solid var(--timeline-item);
+        left: calc(0% - 80px);
+    }
+
+    .centered:nth-of-type(2n+1) {
+        background-color: var(--timeline-item);
+        color: white;
+    }
+
+    .centered:nth-of-type(2n+1) hr {
+        border-top: 1px solid var(--timeline-item);
+    }
+
+    .centered:nth-of-type(2n+1) a {
+        color: #1759a2;
+    }
+
+    .centered:nth-of-type(2n+1)::before {
+        border-top: 1em solid var(--timeline-item);
+        border-left: 1em solid transparent;
+        border-bottom: none;
+    }
+
+    .centered:nth-of-type(2n) {
+        background-color: var(--timeline-item);
+        color: white;
+    }
+
+    .centered:nth-of-type(2n) hr {
+        border-top: 1px solid var(--timeline-item);
+    }
+
+    .centered:nth-of-type(2n) a {
+        color: #601010;
+    }
+
+    .centered:nth-of-type(2n)::before {
+        border-top: 1em solid var(--timeline-item);
         border-left: 1em solid transparent;
     }
 

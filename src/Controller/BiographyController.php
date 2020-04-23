@@ -9,6 +9,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArtworkManager;
 use App\Model\BiographyManager;
 
 /**
@@ -28,14 +29,19 @@ class BiographyController extends AbstractController
     public function index()
     {
         $biographyManager = new BiographyManager();
-        $biographies = $biographyManager->selectAllByDate();
-        $biographyByYears = [];
-        foreach ($biographies as $biography) {
-            $year = date_format(date_create($biography['date']), 'Y');
-            $biographyByYears[$year][] = $biography;
+        $artworkManager = new ArtworkManager();
+        $dataByDates[] = $biographyManager->selectAllBioByDate();
+        $dataByDates[] = $artworkManager->selectAllArtByDate();
+        $dataByYears = [];
+        foreach ($dataByDates as $biographies) {
+            foreach ($biographies as $biography) {
+                $year = date_format(date_create($biography['date']), 'Y');
+                $dataByYears[$year][] = $biography;
+            }
         }
+        ksort($dataByYears);
         return $this->twig->render('Biography/index.html.twig', [
-            'data' => $biographyByYears
+            'data' => $dataByYears
         ]);
     }
 }
