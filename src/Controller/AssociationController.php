@@ -18,7 +18,7 @@ class AssociationController extends AbstractController
      */
     public function index()
     {
-        $artworks = [];
+
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
@@ -36,7 +36,9 @@ class AssociationController extends AbstractController
             }
         }
         $artworksManager = new ArtworkManager();
-        $artworks = $artworksManager->selectOneById(8);
+        $artworks = $artworksManager->selectAll();
+        $randArtworks = rand ( 0, count( $artworks)-1);
+        $artworks = $artworks[$randArtworks];
         return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'artworks' => $artworks]);
     }
 }
