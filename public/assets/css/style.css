@@ -29,9 +29,14 @@
     --padding-lg : calc(var(--padding) *4);
 }
 
-*{
-    margin: 0;
-}
 body {
     background-color: var(--color-secondary);
+}.container{
+     font-family: var(--font-text);
+ }
+.container h1{
+    font-size: calc(var(--sizeTitle)*2);
+    font-family: var(--font-title);
+    text-align: center;
+    color: var(--color-main);
 }
