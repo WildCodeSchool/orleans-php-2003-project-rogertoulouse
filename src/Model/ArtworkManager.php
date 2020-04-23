@@ -23,7 +23,7 @@ class ArtworkManager extends AbstractManager
     {
         $listSlide = $this->pdo->query('SELECT * FROM ' . $this->table . ' WHERE carousel = true')->fetchAll();
         return $listSlide;
-    } 
+    }
 
     public function selectAllArtByDate()
     {
