@@ -28,7 +28,6 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectAllByCategory();
         $carousel = $artworkManager->selectAll();
