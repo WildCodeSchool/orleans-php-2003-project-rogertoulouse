@@ -26,7 +26,7 @@ class AssociationController extends AbstractController
                 $errors[] = 'L\'email est requis';
             }
             if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-                $errors[] = "Le format d'email est invalid";
+                $errors[] = "Le format d'email est invalide";
             }
             if (empty($data['object'])) {
                 $errors[] = 'L\'objet est requis';
