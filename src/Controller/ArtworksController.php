@@ -13,6 +13,7 @@ namespace App\Controller;
 use App\Model\ArtworkManager;
 use App\Model\CategoryManager;
 
+
 /**
  * Class ArtworksController
  *
@@ -27,6 +28,9 @@ class ArtworksController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
+
+
+
     public function index()
     {
         $artworkManager = new ArtworkManager();
@@ -39,8 +43,9 @@ class ArtworksController extends AbstractController
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $artworks, 'categories'=>$categories]);
     }
 
-    public function select($idCategory)
+    public function select()
     {
+        $idCategory=$_GET['cat'];
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworksByCategory($idCategory);
         shuffle($seeArtworks);

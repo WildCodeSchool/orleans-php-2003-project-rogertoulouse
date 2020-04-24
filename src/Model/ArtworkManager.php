@@ -22,7 +22,7 @@ class ArtworkManager extends AbstractManager
     public function selectArtworksByCategory($idCategory)
     {
         $artworksByCategory = $this->pdo->query('SELECT * FROM '.$this->table.' a 
-        JOIN works_category c ON a.category_id=c.id WHERE c.ID='.$idCategory.'')->fetchAll();
+        JOIN works_category c ON a.category_id=c.id WHERE c.id LIKE '.$idCategory.'')->fetchAll();
         shuffle($artworksByCategory);
         return $artworksByCategory;
     }
