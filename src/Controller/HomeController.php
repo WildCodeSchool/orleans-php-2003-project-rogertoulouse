@@ -11,7 +11,6 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
-use App\Model\CarouselManager;
 
 /**
  * Class HomeController
@@ -29,12 +28,9 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        $carouselManager = new CarouselManager();
-        $carousel = $carouselManager->selectAll();
-
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectAllByCategory();
-
+        $carousel = $artworkManager->selectCarousel();
         $artworksByCategories = [];
         $randomArtworks = [];
         foreach ($artworks as $artwork) {
@@ -45,6 +41,6 @@ class HomeController extends AbstractController
             $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];
         }
         shuffle($randomArtworks);
-        return $this->twig->render('Home/index.html.twig', ['carousel' => $carousel, 'artworks' => $randomArtworks]);
+        return $this->twig->render('Home/index.html.twig', ['artworks' => $randomArtworks, 'carousel' => $carousel]);
     }
 }

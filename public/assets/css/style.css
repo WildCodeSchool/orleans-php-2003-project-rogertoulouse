@@ -28,7 +28,6 @@
     --padding-sm : calc(var(--padding) *2);
     --padding-lg : calc(var(--padding) *4);
 }
-
 body {
     background-color: var(--color-secondary);
 }.container{
