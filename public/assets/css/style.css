@@ -28,6 +28,10 @@
     --padding-sm : calc(var(--padding) *2);
     --padding-lg : calc(var(--padding) *4);
 }
+html{
+    position: relative;
+    min-height: calc(100% - 180px);
+}
 body {
     background-color: var(--color-secondary);
 }.container{
@@ -38,4 +42,35 @@ body {
     font-family: var(--font-title);
     text-align: center;
     color: var(--color-main);
+}
+.link a {
+    border-style: solid;
+    border-color: var(--color-main);
+    border-width: 1px;
+    border-radius: 2px;
+    font-size: 3vmin);
+    color: var(--color-main);
+    background-color: var(--color-light);
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    margin: 5px 0 5px 0;
+    line-height: 24pt;
+}
+.link a:hover {
+    color: var(--color-light);
+    background-color: var(--color-main);
+    transition: 150ms;
+}
+.link .active {
+    color: var(--color-light);
+    background-color: var(--color-main);
+    transition: 150ms;
+}
+.link{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link div{
+    margin: auto;
 }
