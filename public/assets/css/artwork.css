@@ -82,12 +82,32 @@
     padding-top: 32px;
 }
 .bloc_sort_link{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.bloc-sort-artworks{
+    display: flex;
+    justify-content: space-around;
+    border-width: 1px;
+    border-color: var(--color-main);
+    border-style: solid;
+    position: relative;
+    margin: 15px;
+    padding: 15px;
+}
+.sort-artworks-title{
+    position: absolute;
+    padding-left:15px;
+    padding-right:15px;
+    text-align: center;
+    margin: auto;
+    top : -13px;
+
+    background-color: var(--color-secondary);
+}
 .sort-artworks a{
-    margin-top: 8pt;
     padding: 4pt;
     border-style: solid;
     border-width: 1px;

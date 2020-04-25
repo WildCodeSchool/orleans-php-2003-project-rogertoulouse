@@ -1,9 +1,10 @@
 <div class="sort-artworks">
     <div class="bloc-sort-artworks">
+        <div class="sort-artworks-title">Selection</div>
         <div class="bloc_sort_link">
-            <a href="/artworks/select/?cat=c.id">INTEGRALITE DES OEUVRES</a>
+            <a href="/artworks">INTEGRALITE DES OEUVRES</a>
             {% for category in categories %}
-            <a href="/artworks/select/?cat={{ category.id }}">{{ category.category|upper}}</a>
+            <a href="/artworks/index/?cat={{ category.id }}">{{ category.category|upper}}</a>
             {% endfor %}
         </div>
     </div>

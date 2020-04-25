@@ -30,33 +30,17 @@ class ArtworksController extends AbstractController
 
     public function index()
     {
+        if (isset($_GET['cat'])) {
+            $category=$_GET['cat'];
+        } else {
+            $category='c.id';
+        }
         $artworkManager = new ArtworkManager();
-        $artworks = $artworkManager->selectAllArtworks();
-        shuffle($artworks);
+        $seeArtworks = $artworkManager->selectArtworks($category);
 
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
 
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $artworks, 'categories'=>$categories]);
-    }
-
-    public function select()
-    {
-        $idCategory=$_GET['cat'];
-        $artworkManager = new ArtworkManager();
-        $seeArtworks = $artworkManager->selectArtworksByCategory($idCategory);
-        shuffle($seeArtworks);
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
-    }
-
-    public function time($direction)
-    {
-        $artworkManager = new ArtworkManager();
-        $seeArtworks = $artworkManager->selectAllByDate($direction);
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
     }
 }
