@@ -6,14 +6,14 @@
                     {{ artwork.name }}<br/>{{ artwork.date|date("Y") }}
                 </div>
                     <div>
-                        <a href="/Artworks/single/{{ artwork.id }}">
+                        <a href="/Artworks/single/{{ artwork.idArtwork }}">
                             <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
                         </a>
                     </div>
                     <div class="card-body">
 
                         <div class="card-text">
-                            {{ artwork.description }}
+                            <img src="/assets/images/{{ artwork.category }}.svg"><br>{{ artwork.description }}
                         </div>
                         <div class="card-info">
                             {{ artwork.size }} <br> {{ artwork.more_info|nl2br }}

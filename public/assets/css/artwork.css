@@ -124,12 +124,16 @@
     color :var(--color-light);
     transition: 300ms;
 }
+/*
 
+Page single - une oeuvre seule.
+
+*/
 .bloc_details{
+    display: flex;
+    flex-direction: row;
     max-width: 900px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
     background-color: var(--color-light);
 }
 .title_details h2{
@@ -143,5 +147,8 @@
 .descr_detail{
     min-width: 350px;
     margin: 15px;
+}
+.descr_detail img {
+    padding-right: 15px;
 }
 

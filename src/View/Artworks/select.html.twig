@@ -4,7 +4,12 @@
         <div class="bloc_sort_link">
             <a href="/artworks">INTEGRALITE DES OEUVRES</a>
             {% for category in categories %}
-            <a href="/artworks/index/?cat={{ category.id }}">{{ category.category|upper}}</a>
+                <div>
+                <img src="/assets/images/{{ category.category }}.svg">
+                    <a href="/artworks/index/?cat={{ category.id }}">
+                        {{ category.category|upper}}
+                    </a>
+                </div>
             {% endfor %}
         </div>
     </div>

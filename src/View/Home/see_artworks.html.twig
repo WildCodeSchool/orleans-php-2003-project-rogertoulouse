@@ -3,7 +3,7 @@
     {% for artwork in artworks %}
     <div class="card">
         <div>
-            <a href="/Artworks/single/{{ artwork.id }}">
+            <a href="/Artworks/single/{{ artwork.idArtwork }}">
                 <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
             </a>
         </div>

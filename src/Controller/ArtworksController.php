@@ -30,7 +30,7 @@ class ArtworksController extends AbstractController
 
     public function index()
     {
-        $category = $_GET['cat'] ?? null;
+        $category = $_GET['cat'] ?? 'c.id';
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworks($category);
 
@@ -38,5 +38,16 @@ class ArtworksController extends AbstractController
         $categories = $categoryManager->selectAllCategories();
 
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
+    }
+
+    public function single($idArtwork)
+    {
+
+        $artworkManager = new ArtworkManager();
+        $seeArtworks = $artworkManager->selectArtworks(null, $idArtwork);
+
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+        return $this->twig->render('Artworks/single.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
     }
 }
