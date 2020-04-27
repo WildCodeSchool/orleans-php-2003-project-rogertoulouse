@@ -11,10 +11,11 @@ class ArtworkManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function selectArtworks($categorie)
+    public function selectArtworks($categoryArtwork=null):array
     {
-        $artworks = $this->pdo->query('SELECT * FROM '.$this->table.' a 
-        JOIN works_category c ON a.category_id=c.id where c.id='.$categorie.'')->fetchAll();
+        $statement='SELECT * FROM ' . $this->table . ' a JOIN works_category c 
+        ON a.category_id=c.id' . ($categoryArtwork !=null ? ' WHERE c.id=' . $categoryArtwork : '' );
+        $artworks = $this->pdo->query($statement)->fetchAll();
         shuffle($artworks);
         return $artworks;
     }

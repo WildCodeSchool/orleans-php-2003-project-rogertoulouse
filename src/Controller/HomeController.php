@@ -29,7 +29,7 @@ class HomeController extends AbstractController
     {
         $artworkManager = new ArtworkManager();
 
-        $artworks = $artworkManager->selectArtworks('c.id');
+        $artworks = $artworkManager->selectArtworks();
         $carousel = $artworkManager->selectCarousel();
       
         $artworksByCategories = [];

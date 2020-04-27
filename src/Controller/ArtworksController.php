@@ -30,11 +30,7 @@ class ArtworksController extends AbstractController
 
     public function index()
     {
-        if (isset($_GET['cat'])) {
-            $category=$_GET['cat'];
-        } else {
-            $category='c.id';
-        }
+        $category = $_GET['cat'] ?? 'c.id';
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworks($category);
 

@@ -123,3 +123,23 @@
     color :var(--color-light);
     transition: 300ms;
 }
+
+.bloc_details{
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color-light);
+}
+.title_details h2{
+    margin : 5px;
+}
+.title_details{
+    background-color: var(--color-main);
+    color: var(--color-light);
+    margin: 15px;
+}
+.descr_detail{
+    min-width: 350px;
+    margin: 15px;
+}
