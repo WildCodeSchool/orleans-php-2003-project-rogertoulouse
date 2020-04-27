@@ -20,7 +20,9 @@
     background-color:var(--color-main)
 }
 .navbar{
+    z-index: 3;
     font-family: var(--font-title);
+    margin-bottom: 40px;
 }
 .navbar-dark .navbar-nav .nav-link {
     font-size: var(--sizeText);

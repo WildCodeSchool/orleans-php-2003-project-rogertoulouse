@@ -12,9 +12,9 @@
 
 .news .card-header{
     font-family: var(--font-title);
-    font-size: var(--sizeTitle);
-    color: var(--color-text);
-    background-color: var(--color-main);
+    font-size: calc(var(--sizeTitle)*2);
+    color: var(--color-main);
+    background-color: var(--color-secondary);
 }
 
 .news .card-title{

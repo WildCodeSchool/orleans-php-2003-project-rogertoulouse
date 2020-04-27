@@ -6,7 +6,7 @@
 @import url('artwork.css');
 :root {
     /* Usely Fonts : */
-    --font-title: 'Averia Sans Libre', cursive;
+    --font-title: 'Cabin', sans-serif;
     --font-text: 'Cabin', sans-serif;
     --font-banner: 'Permanent Marker', cursive;
     /*  Usely Colors : */
@@ -34,11 +34,14 @@ html{
 }
 body {
     background-color: var(--color-secondary);
-}.container{
+}
+.container{
      font-family: var(--font-text);
+    max-width: 1140px;
  }
-.container h1{
+.title{
     font-size: calc(var(--sizeTitle)*2);
+    margin-bottom: 30px;
     font-family: var(--font-title);
     text-align: center;
     color: var(--color-main);
