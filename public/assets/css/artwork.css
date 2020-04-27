@@ -33,28 +33,3 @@
     font-weight: 800;
     font-size: 24pt;
 }
-.card .link a {
-    border-style: solid;
-    border-color: var(--color-main);
-    border-width: 1px;
-    border-radius: 2px;
-    font-size: 3vmin);
-    color: var(--color-main);
-    text-decoration: none;
-    padding: 5px 10px 5px 10px;
-    margin: 5px 0 5px 0;
-    line-height: 24pt;
-}
-.card .link a:hover {
-      color: var(--color-light);
-    background-color: var(--color-main);
-    transition: 150ms;
-  }
-.card .link{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card .link div{
-    margin: auto;
-}
