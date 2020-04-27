@@ -11,7 +11,7 @@ class ArtworkManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function selectArtworks($categoryArtwork=null):array
+    public function selectArtworks($categoryArtwork = null):array
     {
         $statement='SELECT * FROM ' . $this->table . ' a JOIN works_category c 
         ON a.category_id=c.id' . ($categoryArtwork !=null ? ' WHERE c.id=' . $categoryArtwork : '' );
