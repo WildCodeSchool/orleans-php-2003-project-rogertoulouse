@@ -51,7 +51,7 @@ body {
     border-color: var(--color-main);
     border-width: 1px;
     border-radius: 2px;
-    font-size: 2vmin;
+    font-size: calc(var(--sizeText) / 1.5);
     color: var(--color-main);
     background-color: var(--color-light);
     text-decoration: none;

@@ -37,8 +37,8 @@ class AdminController extends AbstractController
     }
     public function biography()
     {
-        $manageBiography = new BiographyManager();
-        $dataByDates[] = $manageBiography->selectAllBioByDate();
+        $biographyManager = new BiographyManager();
+        $dataByDates[] = $biographyManager->selectAllBioByDate();
         $dataByYears = [];
         foreach ($dataByDates as $biographies) {
             foreach ($biographies as $biography) {

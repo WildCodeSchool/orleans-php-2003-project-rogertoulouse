@@ -9,6 +9,7 @@
                 <th scope="col">Biographie</th>
             </tr>
             </thead>
+            <tbody>
             {% for year, biographies in data %}
                 {% for biography in biographies %}
                     <tr class="d-inline-table">
@@ -18,6 +19,7 @@
                     </tr>
                 {% endfor %}
             {% endfor %}
+            </tbody>
         </table>
     </section>
 {% endblock %}
