@@ -43,6 +43,9 @@ body {
     text-align: center;
     color: var(--color-main);
 }
+h3{
+    color: var(--color-main);
+}
 .link a {
     border-style: solid;
     border-color: var(--color-main);

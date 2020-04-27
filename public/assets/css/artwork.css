@@ -15,6 +15,8 @@
     min-width: 250px;
     max-width: 350px;
     margin-top: 32px;
+    margin-inline-start: 25px;
+    margin-inline-end: 25px;
 }
 .artwork .card-body{
     padding: 0px;
@@ -36,16 +38,20 @@
     font-weight: 600;
 }
 .artwork .card-title{
+    text-align: center;
     padding : 24px 10px 32px 10px;
-    background-color: var(--color-main);
-    color: var(--color-light);
+    background-color: var(--color-light);
+    color: var(--color-main);
     font-weight: 800;
-    font-size: 24pt;
+    font-size: 24px;
 }
-
+.artwork .card-title img{
+    height: 50px;
+    padding-bottom: 15px;
+}
 .artworks .card-title{
     font-weight: 600;
-    font-size: 1.3em;
+    font-size: 24px;
 }
 .artwork .card .link a {
     border-style: solid;
@@ -68,6 +74,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+.descr_detail a{
+    color: var(--color-main);
+}
+.descr_detail a:hover{
+    color: black;
+    text-decoration: none;
+    transition: 300ms;
+ }
 
 .artwork .card .link div{
     margin: auto;
@@ -79,10 +93,26 @@
     font-size: 10pt;
     font-weight: bold;
 }
+    /*
+    barre de tri des oeuvres
+    */
+.sort_img_label{
+    height: 79px;
+    text-align: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-main);
+}
+.sort_img_label img{
+    height: 50px;
+    padding-bottom: 8px;
+}
+
 .sort-artworks{
     padding-top: 32px;
 }
 .bloc_sort_link{
+    align-items: flex-end;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -91,9 +121,10 @@
 .bloc-sort-artworks{
     display: flex;
     justify-content: space-around;
-    border-width: 1px;
+    border-width: 0;
+    border-bottom-width: 1px;
     border-color: var(--color-main);
-    border-style: solid;
+    border-bottom-style: solid;
     position: relative;
     margin: 15px;
     padding: 15px;
@@ -131,24 +162,52 @@ Page single - une oeuvre seule.
 */
 .bloc_details{
     display: flex;
-    flex-direction: row;
-    max-width: 900px;
-    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: var(--color-light);
 }
 .title_details h2{
     margin : 5px;
 }
+.title_details img{
+    width: 100%;
+}
 .title_details{
+    min-width: 350px;
     background-color: var(--color-main);
     color: var(--color-light);
     margin: 15px;
 }
+.logo_theme{
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-main);
+}
 .descr_detail{
+    overflow: hidden;
     min-width: 350px;
+    max-width:500px;
     margin: 15px;
+}
+.descr_detail div{
+    margin-bottom: 24px;
 }
 .descr_detail img {
     padding-right: 15px;
 }
-
+.sort_img_label img{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.sort_img_label a{
+    border-radius: 0;
+    border-style: none;
+}
+.sort_img_label a:hover{
+     border-radius: 0;
+     border-style: none;
+}
+info{
+    font-size: 14px;
+    font-weight: 700;
+}

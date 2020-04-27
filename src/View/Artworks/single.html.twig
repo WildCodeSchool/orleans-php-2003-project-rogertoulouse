@@ -9,9 +9,16 @@
             <img src="/assets/upload/{{ artwork.image }}" Alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
         </div>
         <div class="descr_detail">
-            <h3><img src="/assets/images/{{ artwork.category }}.svg">{{ artwork.category|title }}<br><img src="/assets/images/calendar.svg">{{ artwork.date|date("Y") }}</h3>
-            <p>{{ artwork.more_info }}</p>
-            <p>{{ artwork.description }}</p>
+            <div class="logo_theme">
+                <img src="/assets/images/{{ artwork.category }}.svg">{{ artwork.category|title }}<br>
+                <img src="/assets/images/calendar.svg"><a href="../../biography#{{ artwork.date|date("Y") }}"> {{ artwork.date|date("Y") }}</a>
+            </div>
+            <div>
+                <info>{{ artwork.more_info }}</info>
+            </div>
+            <div>
+                {{ artwork.description }}
+            </div>
         </div>
     </div>
     {% endfor %}

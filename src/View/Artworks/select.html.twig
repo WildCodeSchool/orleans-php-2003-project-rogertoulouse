@@ -1,11 +1,13 @@
 <div class="sort-artworks">
     <div class="bloc-sort-artworks">
-        <div class="sort-artworks-title">Selection</div>
+        <div class="sort-artworks-title"></div>
         <div class="bloc_sort_link">
-            <a href="/artworks">INTEGRALITE DES OEUVRES</a>
+            <div class="sort_img_label">
+                <img src="/assets/images/illustration.svg"><img src="/assets/images/peinture.svg"><img src="/assets/images/sculpture.svg"><img src="/assets/images/écriture.svg"><br>
+                <a href="/artworks">INTEGRALITE DES OEUVRES</a></div>
             {% for category in categories %}
-                <div>
-                <img src="/assets/images/{{ category.category }}.svg">
+                <div class="sort_img_label">
+                <img src="/assets/images/{{ category.category }}.svg"><br>
                     <a href="/artworks/index/?cat={{ category.id }}">
                         {{ category.category|upper}}
                     </a>
