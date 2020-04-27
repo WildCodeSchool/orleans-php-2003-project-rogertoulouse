@@ -31,7 +31,7 @@ class BiographyController extends AbstractController
         $biographyManager = new BiographyManager();
         $artworkManager = new ArtworkManager();
         $dataByDates[] = $biographyManager->selectAllBioByDate();
-        $dataByDates[] = $artworkManager->selectAllArtByDate();
+        $dataByDates[] = $artworkManager->selectArtworks();
         $dataByYears = [];
         foreach ($dataByDates as $biographies) {
             foreach ($biographies as $biography) {
