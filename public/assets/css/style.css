@@ -44,11 +44,14 @@ body {
     color: var(--color-main);
 }
 .link a {
+    min-width: 40px;
+    min-height: 40px;
+    text-align: center;
     border-style: solid;
     border-color: var(--color-main);
     border-width: 1px;
     border-radius: 2px;
-    font-size: 3vmin);
+    font-size: calc(var(--sizeText) / 1.5);
     color: var(--color-main);
     background-color: var(--color-light);
     text-decoration: none;
