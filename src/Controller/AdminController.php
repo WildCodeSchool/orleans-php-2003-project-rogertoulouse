@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
+use App\Model\BiographyManager;
 
 /**
  * Class AdminController
@@ -36,7 +37,19 @@ class AdminController extends AbstractController
     }
     public function biography()
     {
-        return $this->twig->render('/Admin/Pages/biography.html.twig', ['active' => 'biography']);
+        $biographyManager = new BiographyManager();
+        $dataByDates[] = $biographyManager->selectAllBioByDate();
+        $dataByYears = [];
+        foreach ($dataByDates as $biographies) {
+            foreach ($biographies as $biography) {
+                $year = date_format(date_create($biography['date']), 'Y');
+                $dataByYears[$year][] = $biography;
+            }
+        }
+        ksort($dataByYears);
+        return $this->twig->render('/Admin/Pages/biography.html.twig', [
+            'active' => 'biography',
+            'data' => $dataByYears]);
     }
     public function artworks()
     {
