@@ -32,4 +32,3 @@ class AssociationAdminController extends AbstractController
             'active' => 'association']);
     }
 }
-

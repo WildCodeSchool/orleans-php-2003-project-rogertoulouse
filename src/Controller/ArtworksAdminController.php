@@ -32,4 +32,3 @@ class ArtworksAdminController extends AbstractController
             'active' => 'artworks']);
     }
 }
-

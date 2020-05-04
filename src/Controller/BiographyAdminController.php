@@ -43,4 +43,3 @@ class BiographyAdminController extends AbstractController
             'data' => $dataByYears]);
     }
 }
-

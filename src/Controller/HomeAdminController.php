@@ -32,4 +32,3 @@ class HomeAdminController extends AbstractController
             'active' => 'home']);
     }
 }
-
