@@ -3,10 +3,10 @@
     <h1>News</h1>
     <ul>
         {% for new in news %}
-            <li>{{ new.id }} . {{ new.title }}</a></li>
+            <li><a href="/admin/home/show/{{ new.id }}">{{ new.id }}. {{ new.title }}</a></li>
         {% else %}
             <li>Nothing to display</li>
         {% endfor %}
     </ul>
-    <a href="/admin/home/edit">Modifier</a>
+    <a href="/admin/home/add">Ajouter</a>
 {% endblock %}

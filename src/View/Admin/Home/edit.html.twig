@@ -1,9 +1,7 @@
 {% extends 'Admin/layout.html.twig' %}
 
 {% block admin %}
-        <h1>Edit news {{ news.title }}</h1>
-        {% include 'Admin/home/_form.html.twig' %}
-        <a href="/home/show/{{ news.id }}">Back</a>
+    <h1>Edit news {{ news.title }}</h1>
+    {% include 'Admin/Home/_form.html.twig' %}
+    <a href="/admin/home/show/{{ news.id }}">Back</a>
 {% endblock %}
-
-

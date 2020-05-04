@@ -1,7 +1,8 @@
-{% extends 'Admin/index.html.twig' %}
 
-{% block admin %}
-    <h1>News {{ news.title }}</h1>
-    <p>{{ news.id }}. {{ news.title }} </p>
-    <a href="/home/edit/{{ news.id }}">Edit</a>
+{% block content %}
+    <h1>Item {{ item.title }}</h1>
+    <p>{{ item.id }}. {{ item.title }}</p>
+    <a href="/item/edit/{{ item.id }}">Edit</a>
+    <a href="/item/delete/{{item.id}}">Supprimer</a>
+    <a href="/item/index">Back</a>
 {% endblock %}
