@@ -10,7 +10,6 @@
 
 namespace App\Controller;
 
-use App\Model\ArtworkManager;
 use App\Model\NewsManager;
 
 /**
@@ -37,7 +36,7 @@ class AdminController extends AbstractController
         $newsManager = new NewsManager();
         $news = $newsManager->selectNews();
 
-        return $this->twig->render('Admin/Home/index.html.twig', ['news' => $news]);
+        return $this->twig->render('/Admin/Home/index.html.twig', ['news' => $news]);
     }
 
 
@@ -55,7 +54,7 @@ class AdminController extends AbstractController
         $newManager = new NewsManager();
         $new = $newManager->selectOneById($id);
 
-        return $this->twig->render('Admin/Home/show.html.twig', ['new' => $new]);
+        return $this->twig->render('/Admin/Home/show.html.twig', ['new' => $new]);
     }
 
 
@@ -78,7 +77,7 @@ class AdminController extends AbstractController
             $newManager->update($new);
         }
 
-        return $this->twig->render('Admin/Home/edit.html.twig', ['new' => $new]);
+        return $this->twig->render('/Admin/Home/edit.html.twig', ['new' => $new]);
     }
 
 
@@ -90,7 +89,7 @@ class AdminController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function add()
+    public function addItem()
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -102,7 +101,7 @@ class AdminController extends AbstractController
             header('Location:/Admin/Home/show/' . $id);
         }
 
-        return $this->twig->render('Admin/Home/add.html.twig');
+        return $this->twig->render('/Admin/Home/add.html.twig');
     }
 
 
@@ -117,6 +116,7 @@ class AdminController extends AbstractController
         $newManager->delete($id);
         header('Location:/Admin/Home/index');
     }
+
     public function biography()
     {
         return $this->twig->render('/Admin/Biography/biography.html.twig', ['active' => 'biography']);
