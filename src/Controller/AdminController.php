@@ -32,18 +32,18 @@ class AdminController extends AbstractController
     }
     public function home()
     {
-        return $this->twig->render('/Admin/Pages/home.html.twig', ['active' => 'home']);
+        return $this->twig->render('/Admin/Home/home.html.twig', ['active' => 'home']);
     }
     public function biography()
     {
-        return $this->twig->render('/Admin/Pages/biography.html.twig', ['active' => 'biography']);
+        return $this->twig->render('/Admin/Biography/biography.html.twig', ['active' => 'biography']);
     }
     public function artworks()
     {
-        return $this->twig->render('/Admin/Pages/artworks.html.twig', ['active' => 'artworks']);
+        return $this->twig->render('/Admin/Artworks/artworks.html.twig', ['active' => 'artworks']);
     }
     public function association()
     {
-        return $this->twig->render('/Admin/Pages/association.html.twig', ['active' => 'association']);
+        return $this->twig->render('/Admin/Association/association.html.twig', ['active' => 'association']);
     }
 }

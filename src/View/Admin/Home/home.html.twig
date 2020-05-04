@@ -1,0 +1,10 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    News
+    <form method="post">
+        <input type="hidden" value="{{ news.id }}" name="id">
+        <input type="text" value="{{ news.title }}" name="title">
+        <input type="submit" value="Valider">
+    </form>
+
+{% endblock %}

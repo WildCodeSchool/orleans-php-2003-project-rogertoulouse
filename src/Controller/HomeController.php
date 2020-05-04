@@ -10,6 +10,7 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
+use App\Model\NewsManager;
 
 /**
  * Class HomeController
@@ -28,9 +29,10 @@ class HomeController extends AbstractController
     public function index()
     {
         $artworkManager = new ArtworkManager();
-
+        $newsManager = new NewsManager();
         $artworks = $artworkManager->selectArtworks();
         $carousel = $artworkManager->selectCarousel();
+        $news = $newsManager->selectNews();
       
         $artworksByCategories = [];
         $randomArtworks = [];
@@ -42,6 +44,8 @@ class HomeController extends AbstractController
             $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];
         }
         shuffle($randomArtworks);
-        return $this->twig->render('Home/index.html.twig', ['artworks' => $randomArtworks, 'carousel' => $carousel]);
+        return $this->twig->render('Home/index.html.twig', ['artworks' => $randomArtworks,
+            'carousel' => $carousel,
+            'news' => $news]);
     }
 }
