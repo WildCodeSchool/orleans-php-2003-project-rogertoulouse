@@ -11,6 +11,7 @@
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
+use App\Model\NewsManager;
 
 /**
  * Class AdminController
@@ -45,5 +46,25 @@ class AdminController extends AbstractController
     public function association()
     {
         return $this->twig->render('/Admin/Association/association.html.twig', ['active' => 'association']);
+    }
+
+    public function edit($id): string
+    {
+        $newsManager = new NewsManager();
+        $news = $newsManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $news['title'] = $_POST['title'];
+            $newsManager->update($news);
+        }
+
+        return $this->twig->render('admin/home/edit.html.twig', ['news' => $news]);
+    }
+    public function show($id): int
+    {
+        $newsManager = new NewsManager();
+        $news = $newsManager->selectOneById($id);
+
+        return $this->twig->render('admin/home/show.html.twig', ['news' => $news]);
     }
 }

@@ -1,10 +1,12 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
-    News
-    <form method="post">
-        <input type="hidden" value="{{ news.id }}" name="id">
-        <input type="text" value="{{ news.title }}" name="title">
-        <input type="submit" value="Valider">
-    </form>
-
+    <h1>News</h1>
+    <ul>
+        {% for new in news %}
+            <li>{{ new.id }} . {{ new.title }}</a></li>
+        {% else %}
+            <li>Nothing to display</li>
+        {% endfor %}
+    </ul>
+    <a href="/admin/home/edit">Modifier</a>
 {% endblock %}

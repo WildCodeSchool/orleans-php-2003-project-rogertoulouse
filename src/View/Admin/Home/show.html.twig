@@ -1,0 +1,7 @@
+{% extends 'Admin/index.html.twig' %}
+
+{% block admin %}
+    <h1>News {{ news.title }}</h1>
+    <p>{{ news.id }}. {{ news.title }} </p>
+    <a href="/home/edit/{{ news.id }}">Edit</a>
+{% endblock %}

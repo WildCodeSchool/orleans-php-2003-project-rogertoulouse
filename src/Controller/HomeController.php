@@ -7,6 +7,7 @@
  * Time: 16:07
  * PHP version 7
  */
+
 namespace App\Controller;
 
 use App\Model\ArtworkManager;
@@ -33,7 +34,7 @@ class HomeController extends AbstractController
         $artworks = $artworkManager->selectArtworks();
         $carousel = $artworkManager->selectCarousel();
         $news = $newsManager->selectNews();
-      
+
         $artworksByCategories = [];
         $randomArtworks = [];
         foreach ($artworks as $artwork) {
