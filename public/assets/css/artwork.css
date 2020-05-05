@@ -14,12 +14,12 @@
     flex-direction: column;
     background-color: var(--color-light);
     color: var(--color-main);
-    min-width: 250px;
-    max-width: 350px;
+    width: 350px;
     margin-top: 32px;
     margin-inline-start: 25px;
     margin-inline-end: 25px;
 }
+
 .artwork .card-body{
     padding: 0px;
     display: flex;
