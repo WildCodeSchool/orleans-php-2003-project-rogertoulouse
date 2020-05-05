@@ -10,7 +10,10 @@
 
 namespace App\Controller;
 
-use App\Model\NewsManager;
+use App\Model\ArtworkManager;
+use App\Model\BiographyManager;
+use App\Model\ItemManager;
+use Cassandra\Index;
 
 /**
  * Class AdminController
@@ -29,25 +32,5 @@ class AdminController extends AbstractController
     public function index()
     {
         return $this->twig->render('/Admin/index.html.twig');
-    }
-
-    public function home()
-    {
-        return $this->twig->render('/Admin/Home/index.html.twig', ['active' => 'home']);
-    }
-
-    public function biography()
-    {
-        return $this->twig->render('/Admin/Biography/biography.html.twig', ['active' => 'biography']);
-    }
-
-    public function artworks()
-    {
-        return $this->twig->render('/Admin/Artworks/artworks.html.twig', ['active' => 'artworks']);
-    }
-
-    public function association()
-    {
-        return $this->twig->render('/Admin/Association/association.html.twig', ['active' => 'association']);
     }
 }
