@@ -51,7 +51,7 @@ h3{
     border-color: var(--color-main);
     border-width: 1px;
     border-radius: 2px;
-    font-size: 3vmin);
+    font-size: 1vmin;
     color: var(--color-main);
     background-color: var(--color-light);
     text-decoration: none;

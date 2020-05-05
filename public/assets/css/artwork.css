@@ -1,3 +1,15 @@
+.artworks_errors{
+    width: 100%;
+    margin-top:32px;
+    text-align: center;
+    background-color: var(--color-main);
+    color:var(--color-light);
+    font-weight: 700;
+}
+.error_picture {
+    width: 100%;
+    text-align: center;
+}
 .artwork .card-deck{
     display: flex;
     flex-wrap: wrap;
