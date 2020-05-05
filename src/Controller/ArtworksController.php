@@ -51,10 +51,12 @@ class ArtworksController extends AbstractController
 
     public function single($idArtwork):string
     {
-
+        $idArtwork=intval($idArtwork);
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworks(null, $idArtwork);
-
+        if (count($seeArtworks)!==1) {
+            header('location: /Artworks');
+        }
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
         return $this->twig->render('Artworks/single.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
