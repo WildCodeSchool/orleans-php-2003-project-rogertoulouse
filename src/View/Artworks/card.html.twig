@@ -1,0 +1,32 @@
+<div class="card_artwork">
+    <div>
+        <a href="/Artworks/single/{{ artwork.idArtwork }}">
+            <img src="/assets/upload/{{ artwork.image }}" class="card-img-top" alt="{{ artwork.category ~ ' : ' ~ artwork.name }}">
+        </a>
+    </div>
+    <div class="card-body">
+        <div clas="blabla">
+            <div class="card-title">
+                <img src="/assets/images/{{ artwork.category }}.svg"><br>{{ artwork.name }}
+            </div>
+            <div class="card-text">
+                {{ artwork.description }}
+            </div>
+            <div class="card-info">
+                {{ artwork.size }} <br> {{ artwork.more_info }}
+            </div>
+        </div>
+        <div class="card-text link">
+            <div>
+                <a href="/artworks/index/?cat={{ artwork.id }}">
+                    {{ artwork.category|upper }}
+                </a>
+            </div>
+            <div>
+                <a href="/biography#{{ artwork.date|date("Y") }}">
+                    {{ artwork.date|date("Y") }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

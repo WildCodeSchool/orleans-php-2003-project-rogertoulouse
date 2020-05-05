@@ -42,7 +42,6 @@ class ArtworksController extends AbstractController
 
     public function single($idArtwork)
     {
-
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworks(null, $idArtwork);
 

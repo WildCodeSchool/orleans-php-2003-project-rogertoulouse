@@ -5,11 +5,13 @@
     justify-content: space-around;
     padding-bottom: 32px;
 }
-.artwork .card:nth-child(even){
+.artwork .card_artwork:nth-child(even){
     flex-direction: column-reverse;
 }
 
-.artwork .card{
+.artwork .card_artwork{
+    display: flex;
+    flex-direction: column;
     background-color: var(--color-light);
     color: var(--color-main);
     min-width: 250px;
@@ -53,24 +55,24 @@
     font-weight: 600;
     font-size: 24px;
 }
-.artwork .card .link a {
+.artwork .card_artwork .link a {
     border-style: solid;
     border-color: var(--color-main);
     border-width: 1px;
     border-radius: 2px;
-    font-size: 3vmin);
+    font-size: 1rem;
     color: var(--color-main);
     text-decoration: none;
     padding: 5px 10px 5px 10px;
     margin: 5px 0 5px 0;
     line-height: 24pt;
 }
-.artwork .card .link a:hover {
+.artwork .card_artwork .link a:hover {
     color: var(--color-light);
     background-color: var(--color-main);
     transition: 150ms;
 }
-.artwork .card .link{
+.artwork .card_artwork .link{
     display: flex;
     flex-wrap: wrap;
 }
@@ -83,7 +85,7 @@
     transition: 300ms;
  }
 
-.artwork .card .link div{
+.artwork .card_artwork .link div{
     margin: auto;
 }
 .artwork .card-info{
@@ -207,7 +209,7 @@ Page single - une oeuvre seule.
      border-radius: 0;
      border-style: none;
 }
-info{
+.info{
     font-size: 14px;
     font-weight: 700;
 }
