@@ -1,0 +1,7 @@
+.homeadmin input {
+    height: 50px;
+}
+
+.homeadmin .form-group {
+    justify-content: space-around;
+}

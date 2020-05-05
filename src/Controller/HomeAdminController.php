@@ -82,6 +82,9 @@ class HomeAdminController extends AbstractController
             $newsManager = new NewsManager();
             $new = [
                 'title' => $_POST['title'],
+                'desc' => $_POST['desc'],
+                'button' => $_POST['button'],
+                'button_link' => $_POST['button_link'],
             ];
             $id = $newsManager->insert($new);
             header('Location:/HomeAdmin/show/' . $id);

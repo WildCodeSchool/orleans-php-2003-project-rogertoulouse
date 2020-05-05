@@ -1,23 +1,27 @@
-<form method="post">
+<form method="post" class="homeadmin d-flex text-center">
     <div class="form-group">
         <input type="hidden" value="{{ new.id }}" name="id">
     </div>
-    <div class="form-group">
+    <div class="form-group ">
         <label for="title">Titre</label>
-        <input type="text" value="{{ new.title }}" name="title" id="title"><br>
+        <input placeholder="ex: Expositions" type="text" value="{{ new.title }}" name="title" id="title"><br>
     </div>
-    <div class="form-group">
+    <div class="form-group ">
         <label for="desc">Description de l'actu</label>
-        <input type="text" value="{{ new.desc }}" name="desc" id="desc"><br>
+        <input placeholder="ex : Les prochaines expositions seront ...." type="text" value="{{ new.desc }}"
+               name="desc" id="desc"><br>
     </div>
-    <div class="form-group">
-        <label for="button">Description du bouton</label>
-        <input type="text" value="{{ new.button }}" name="button" id="button"><br>
+    <div class="form-group ">
+        <label for="button">Description du bouton de redirection</label>
+        <input placeholder="ex : Voir les prochaines expos" type="text" value="{{ new.button }}" name="button"
+               id="button"><br>
     </div>
-    <div class="form-group">
+    <div class="form-group ">
         <label for="button_link">Lien du bouton</label>
-        <input type="text" value="{{ new.button_link }}" name="button_link" id="button_link"><br>
+        <input placeholder="ex : http://www.orleans-metropole.fr/" type="text" value="{{ new.button_link }}"
+               name="button_link" id="button_link"><br>
     </div>
-    <input type="submit" value="Valider">
+    <div class="form-group ">
+        <input type="submit" value="Valider" class="">
+    </div>
 </form>
-
