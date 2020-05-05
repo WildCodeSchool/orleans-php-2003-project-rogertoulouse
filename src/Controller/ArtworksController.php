@@ -28,11 +28,22 @@ class ArtworksController extends AbstractController
      * @throws \Twig\Error\SyntaxError
      */
 
-    public function index()
+    public function index():string
     {
         $category = $_GET['cat'] ?? 'null';
+        $category = intval($category);
+        $listIdCategories=[1,2,3,4];
+        if (!is_int($category))
+        {
+            $category ='';
+        }
+        if (!in_array($category,$listIdCategories))
+        {
+            $category ='';
+        }
+
         $artworkManager = new ArtworkManager();
-        $seeArtworks = $artworkManager->selectArtworks($category);
+        $seeArtworks = $artworkManager->selectArtworks($category, null);
 
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
@@ -40,7 +51,7 @@ class ArtworksController extends AbstractController
         return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
     }
 
-    public function single($idArtwork)
+    public function single($idArtwork):string
     {
         $artworkManager = new ArtworkManager();
         $seeArtworks = $artworkManager->selectArtworks(null, $idArtwork);

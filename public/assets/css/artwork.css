@@ -101,18 +101,13 @@
 .sort_img_label{
     height: 79px;
     text-align: center;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--color-main);
+    border-style: none;
 }
 .sort_img_label img{
     height: 50px;
     padding-bottom: 8px;
 }
 
-.sort-artworks{
-    padding-top: 32px;
-}
 .bloc_sort_link{
     align-items: flex-end;
     width: 100%;

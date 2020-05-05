@@ -14,7 +14,8 @@ class ArtworkManager extends AbstractManager
     public function selectArtworks($categoryArtwork = null, $idArtwork = null):array
     {
         $statement='SELECT *, a.id as idArtwork FROM ' . $this->table . ' a JOIN works_category c 
-        ON a.category_id=c.id' . ($categoryArtwork !=null ? ' WHERE c.id=' . $categoryArtwork : '' )
+        ON a.category_id=c.id'
+            . ($categoryArtwork !=null ? ' WHERE c.id=' . $categoryArtwork : '' )
             . ($idArtwork !=null ? ' WHERE a.id=' . $idArtwork : '' );
         $artworks = $this->pdo->query($statement)->fetchAll();
         return $artworks;
