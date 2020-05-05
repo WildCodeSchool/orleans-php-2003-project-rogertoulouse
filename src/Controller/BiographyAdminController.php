@@ -79,7 +79,6 @@ class BiographyAdminController extends AbstractController
      */
     public function add()
     {
-        $this->errors = array();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['year'] != '') {
                 $startDate = strtotime('01-01-1916');
@@ -101,7 +100,8 @@ class BiographyAdminController extends AbstractController
             if ($_POST['biography'] == '') {
                 $this->errors['biography'][] = 'La biography ne doit pas être vide.';
             }
-            if (empty($this->errors)) {
+            if (!empty($this->errors)) {
+                var_dump($this->errors);
                 $this->modifier = 'new';
                 return $this->twig->render('/BiographyAdmin/index.html.twig', [
                     'active' => $this->active,
