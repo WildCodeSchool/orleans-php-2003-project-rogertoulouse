@@ -98,7 +98,7 @@ class BiographyAdminController extends AbstractController
                 $this->errors['year'][] = 'L\'année ne doit pas être vide.';
             }
             if ($_POST['biography'] == '') {
-                $this->errors['biography'][] = 'La biography ne doit pas être vide.';
+                $this->errors['biography'][] = 'La biographie ne doit pas être vide.';
             }
             if (!empty($this->errors)) {
                 $this->modifier = 'new';
