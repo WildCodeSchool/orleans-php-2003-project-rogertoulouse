@@ -33,12 +33,10 @@ class ArtworksController extends AbstractController
         $category = $_GET['cat'] ?? 'null';
         $category = intval($category);
         $listIdCategories=[1,2,3,4];
-        if (!is_int($category))
-        {
+        if (!is_int($category)) {
             $category ='';
         }
-        if (!in_array($category,$listIdCategories))
-        {
+        if (!in_array($category, $listIdCategories)) {
             $category ='';
         }
 
