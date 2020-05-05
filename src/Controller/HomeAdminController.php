@@ -10,16 +10,13 @@
 
 namespace App\Controller;
 
-use App\Model\ArtworkManager;
 use App\Model\BiographyManager;
-use App\Model\ItemManager;
-use Cassandra\Index;
 
 /**
  * Class AdminController
  *
  */
-class AdminController extends AbstractController
+class HomeAdminController extends AbstractController
 {
     /**
      * Display home page
@@ -31,6 +28,7 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('/Admin/index.html.twig');
+        return $this->twig->render('/HomeAdmin/index.html.twig', [
+            'active' => 'home']);
     }
 }
