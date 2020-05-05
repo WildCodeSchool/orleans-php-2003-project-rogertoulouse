@@ -20,6 +20,7 @@ class ArtworkManager extends AbstractManager
         $statement =$this->pdo->prepare($query);
         $statement->execute();
         $artworks = $statement->fetchAll();
+
         return $artworks;
     }
 
