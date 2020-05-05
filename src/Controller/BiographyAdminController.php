@@ -90,9 +90,6 @@ class BiographyAdminController extends AbstractController
                     $this->errors['year'][] = 'L\'année n\'est pas valide.';
                 }
                 if ($userDate <= $startDate || $userDate >= $nowDate) {
-                    var_dump($startDate);
-                    var_dump($nowDate);
-                    var_dump($userDate);
                     $this->errors['year'][] = 'L\'année doit être comprise entre ' .
                         date('Y', $startDate) .
                         ' et ' .
