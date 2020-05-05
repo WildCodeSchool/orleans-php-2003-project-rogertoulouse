@@ -18,7 +18,7 @@
     /* Font Size : */
     --sizeText : 16pt;
     --sizeTitle : calc(2 * var(--sizeText));
-    --sizeBanner : 10vmin;
+    --sizeBanner : 8vmin;
     /* Border Radius */
     --border-radius : 8px;
     --border-radius-sm : calc(var(--border-radius) * 2);
