@@ -2,7 +2,7 @@
 
 {% block content %}
     {% include 'Artworks/select.html.twig' %}
-    {% for artwork in artworks %}
+    {% include 'Artworks/_errors.html.twig' %}
     <div class="bloc_details">
         <div class="title_details">
             <H2>{{ artwork.name }}</H2>
@@ -10,8 +10,13 @@
         </div>
         <div class="descr_detail">
             <div class="logo_theme">
-                <img src="/assets/images/{{ artwork.category }}.svg">{{ artwork.category|title }}<br>
-                <img src="/assets/images/calendar.svg"><a href="../../biography#{{ artwork.date|date("Y") }}"> {{ artwork.date|date("Y") }}</a>
+                <div>
+                    <img src="/assets/images/{{ artwork.category }}.svg">{{ artwork.category|title }}
+                </div>
+                <div>
+                    <img src="/assets/images/calendar.svg">
+                    <a href="../../biography#{{ artwork.date|date("Y") }}"> {{ artwork.date|date("Y") }}</a>
+                </div>
             </div>
             <div>
                 <info>{{ artwork.more_info }}</info>
@@ -21,5 +26,4 @@
             </div>
         </div>
     </div>
-    {% endfor %}
 {% endblock %}

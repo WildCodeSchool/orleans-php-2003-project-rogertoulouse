@@ -30,35 +30,46 @@ class ArtworksController extends AbstractController
 
     public function index():string
     {
-        $category = $_GET['cat'] ?? 'null';
-        $category = intval($category);
-        $listIdCategories=[1,2,3,4];
-        if (!is_int($category)) {
-            $category ='';
-        }
-        if (!in_array($category, $listIdCategories)) {
-            $category ='';
-        }
-
-        $artworkManager = new ArtworkManager();
-        $seeArtworks = $artworkManager->selectArtworks($category, null);
-
+        $category = $_GET['cat'] ?? null;
+        $errors = [];
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
 
-        return $this->twig->render('Artworks/index.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
+        if (isset($category)) {
+            $category = intval($category);
+            $idsCategories=array_column($categories, 'id');
+
+            if (!in_array($category, $idsCategories)) {
+                $errors[] ='La recherche sur cette catégorie d\'oeuvre n\'est pas possible.';
+            }
+        }
+
+        $artworkManager = new ArtworkManager();
+        $artworks = $artworkManager->selectArtworks($category);
+
+        return $this->twig->render('Artworks/index.html.twig', [
+            'artworks'=> $artworks,
+            'categories'=>$categories,
+            'errors'=>$errors,
+            ]);
     }
 
-    public function single($idArtwork):string
+    public function single(int $idArtwork):string
     {
-        $idArtwork=intval($idArtwork);
+        $errors = [];
+
         $artworkManager = new ArtworkManager();
-        $seeArtworks = $artworkManager->selectArtworks(null, $idArtwork);
-        if (count($seeArtworks)!==1) {
-            header('location: /Artworks');
-        }
+        $artwork = $artworkManager->selectArtwork($idArtwork);
+
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
-        return $this->twig->render('Artworks/single.html.twig', ['artworks'=> $seeArtworks, 'categories'=>$categories]);
+        if (empty($artwork)) {
+            $errors[] = 'La recherche liée à cette référence n\'a retourné aucun résultat.';
+        }
+        return $this->twig->render('Artworks/single.html.twig', [
+            'artwork' => $artwork,
+            'categories' => $categories,
+            'errors'=>$errors,
+        ]);
     }
 }
