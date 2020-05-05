@@ -81,7 +81,6 @@ class BiographyAdminController extends AbstractController
     {
         $this->errors = array();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $biographyManager = new BiographyManager();
             if ($_POST['year'] != '') {
                 $startDate = strtotime('01-01-1916');
                 $nowDate = strtotime(date('m-d-Y'));
@@ -102,18 +101,18 @@ class BiographyAdminController extends AbstractController
             if ($_POST['biography'] == '') {
                 $this->errors['biography'][] = 'La biography ne doit pas être vide.';
             }
-            if (isset($this->errors)) {
+            if (empty($this->errors)) {
                 $this->modifier = 'new';
                 return $this->twig->render('/BiographyAdmin/index.html.twig', [
                     'active' => $this->active,
                     'data' => $this->dataByYears,
                     'form' => $this->modifier,
                     'errors' => $this->errors]);
-            } else {
-                $date = new DateTime($_POST['year'] . '-01-01');
-                $biographyManager->insert($date->format('Y-m-d'), htmlentities($_POST['biography']));
-                header('Location:/BiographyAdmin/Index');
             }
+            $biographyManager = new BiographyManager();
+            $date = new DateTime($_POST['year'] . '-01-01');
+            $biographyManager->insert($date->format('Y-m-d'), htmlentities($_POST['biography']));
+            header('Location:/BiographyAdmin/Index');
         }
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
             'active' => $this->active,
