@@ -1,7 +1,34 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
     <table>
-
-    </table>
+        <tr>
+            <td>Image</td>
+            <td>Titre</td>
+            <td>Type</td>
+            <td>Année</td>
+            <td>Description</td>
+            <td>Infos+</td>
+            <td>Action</td>
+        </tr>
     {% for artwork in artworks %}
+        <tr>
+            <td>{{ artwork.id }}</td>
+            <td>{{ artwork.image }}</td>
+            <td>{{ artwork.name }}</td>
+            <td>{{ artwork.category }}</td>
+            <td>{{ artwork.date|date("Y") }}</td>
+            <td>{{ artwork.description }}</td>
+            <td>{{ artwork.more_info }}+</td>
+            <td>{{ artwork.size }}+</td>
+            <td>
+                <div>
+                    <a href="">MODIFIER</a>
+                </div>
+                <div>
+                    <a href="">SUPPRIMER</a>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
