@@ -1,0 +1,91 @@
+DIV.resp-table{
+    width: 100%;
+    display: table;
+}
+DIV.table-header-cell{
+    display: table-cell;
+    padding: 10px;
+    text-align: justify;
+    border-bottom: 1px solid black;
+}
+DIV.resp-table-header{
+    display: table-header-group;
+    padding-top: 50px;
+    background-color: var(--color-main);
+    font-family: var(--font-title);
+    color: var(--color-light);
+    font-weight: bold;
+    font-size: 25px;
+}
+DIV.resp-table-body{
+    display: table-row-group;
+
+}
+DIV.resp-table-row{
+    display: table-row;
+}
+FORM.resp-table-row{
+    display: table-row;
+}
+DIV.table-body-head-cell{
+    display: table-cell;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    vertical-align: middle;
+}
+DIV.table-body-cell{
+    display: table-cell;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    vertical-align: middle;
+    padding: 5px;
+}
+DIV.table-body-cell INPUT{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+DIV.table-body-cell TEXTAREA{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+DIV.end{
+    border-right: 1px solid black;
+}
+DIV.end INPUT{
+    border-right: 1px solid black;
+}
+DIV.end TEXTAREA{
+    border-right: 1px solid black;
+}
+DIV.year{
+    text-align: center;
+    width: 100px;
+}
+DIV.number{
+    text-align: center;
+    width: 150px;
+}
+DIV.year INPUT{
+    text-align: center;
+}
+DIV.option{
+    text-align: right;
+    width: 100px;
+}
+DIV.rowption{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 4px;
+}
+DIV.error{
+    background-color: #cb2e2e;
+    color: var(--color-light);
+    font-weight: bold;
+}
