@@ -1,26 +1,32 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
+    <div class="adminArtworks">
     <table>
-        <tr>
-            <td>Image</td>
-            <td>Titre</td>
-            <td>Type</td>
-            <td>Année</td>
-            <td>Description</td>
-            <td>Infos+</td>
-            <td>Action</td>
-        </tr>
+        <thead>
+            <tr>
+                <td class="id">ID</td>
+                <td>Image</td>
+                <td>Titre</td>
+                <td>Type</td>
+                <td>Année</td>
+                <td>Description</td>
+                <td>Infos+</td>
+                <td>Taille</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
     {% for artwork in artworks %}
         <tr>
-            <td>{{ artwork.id }}</td>
-            <td>{{ artwork.image }}</td>
+            <td class="id">{{ artwork.idArtwork }}</td>
+            <td><img src="/assets/upload/{{ artwork.image }}"</td>
             <td>{{ artwork.name }}</td>
             <td>{{ artwork.category }}</td>
             <td>{{ artwork.date|date("Y") }}</td>
             <td>{{ artwork.description }}</td>
             <td>{{ artwork.more_info }}+</td>
             <td>{{ artwork.size }}+</td>
-            <td>
+            <td class="admArtLink">
                 <div>
                     <a href="">MODIFIER</a>
                 </div>
@@ -30,5 +36,7 @@
             </td>
         </tr>
     {% endfor %}
+        </tbody>
     </table>
+    </div>
 {% endblock %}

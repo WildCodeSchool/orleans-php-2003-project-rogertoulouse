@@ -19,6 +19,7 @@ use App\Model\CategoryManager;
  */
 class ArtworksAdminController extends AbstractController
 {
+    protected $active = 'artworks';
     /**
      * Display home page
      *
@@ -37,7 +38,7 @@ class ArtworksAdminController extends AbstractController
         $artworks = $artworkManager->selectArtworks();
 
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
-            'active' => '$artworks',
+            'active' => $this->active,
             'artworks'=> $artworks,
             'categories'=>$categories,
             ]);
