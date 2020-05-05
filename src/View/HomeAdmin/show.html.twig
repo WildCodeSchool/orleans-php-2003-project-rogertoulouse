@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>News {{ new.title }}</h1>
+    <p>{{ new.id }}. {{ new.title }}</p>
+    <a href="/HomeAdmin/edit/{{ new.id }}">Edit</a>
+    <a href="/HomeAdmin/delete/{{ new.id}}">Supprimer</a>
+    <a href="/HomeAdmin/index">Back</a>
+{% endblock %}

@@ -9,19 +9,20 @@
 
 namespace App\Controller;
 
-use App\Model\ItemManager;
+use App\Model\NewsManager;
 
 /**
- * Class ItemController
+ * Class HomeAdminController
  *
  */
-class ItemController extends AbstractController
+class HomeAdminController extends AbstractController
 {
 
 
     /**
-     * Display item listing
      *
+     *
+     * @param $newsManager
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
@@ -29,15 +30,15 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->selectAll();
+        $newsManager = new NewsManager();
+        $news = $newsManager->selectNews();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('HomeAdmin/index.html.twig', ['news' => $news]);
     }
 
 
     /**
-     * Display item informations specified by $id
+     *
      *
      * @param int $id
      * @return string
@@ -47,15 +48,15 @@ class ItemController extends AbstractController
      */
     public function show(int $id)
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $newsManager = new NewsManager();
+        $new = $newsManager->selectOneById($id);
 
-        return $this->twig->render('Item/show.html.twig', ['item' => $item]);
+        return $this->twig->render('HomeAdmin/show.html.twig', ['new' => $new]);
     }
 
 
     /**
-     * Display item edition page specified by $id
+     *
      *
      * @param int $id
      * @return string
@@ -65,20 +66,20 @@ class ItemController extends AbstractController
      */
     public function edit(int $id): string
     {
-        $itemManager = new ItemManager();
-        $item = $itemManager->selectOneById($id);
+        $newsManager = new NewsManager();
+        $new = $newsManager->selectOneById($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $item['title'] = $_POST['title'];
-            $itemManager->update($item);
+            $new['title'] = $_POST['title'];
+            $newsManager->update($new);
         }
 
-        return $this->twig->render('Item/edit.html.twig', ['item' => $item]);
+        return $this->twig->render('HomeAdmin/edit.html.twig', ['new' => $new]);
     }
 
 
     /**
-     * Display item creation page
+     *
      *
      * @return string
      * @throws \Twig\Error\LoaderError
@@ -89,27 +90,27 @@ class ItemController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $itemManager = new ItemManager();
-            $item = [
+            $newsManager = new NewsManager();
+            $new = [
                 'title' => $_POST['title'],
             ];
-            $id = $itemManager->insert($item);
-            header('Location:/item/show/' . $id);
+            $id = $newsManager->insert($new);
+            header('Location:/HomeAdmin/show/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        return $this->twig->render('HomeAdmin/add.html.twig');
     }
 
 
     /**
-     * Handle item deletion
+     *
      *
      * @param int $id
      */
     public function delete(int $id)
     {
-        $itemManager = new ItemManager();
-        $itemManager->delete($id);
-        header('Location:/item/index');
+        $newsManager = new NewsManager();
+        $newsManager->delete($id);
+        header('Location:/HomeAdmin/index');
     }
 }
