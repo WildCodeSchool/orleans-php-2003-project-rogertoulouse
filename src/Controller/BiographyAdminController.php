@@ -101,7 +101,6 @@ class BiographyAdminController extends AbstractController
                 $this->errors['biography'][] = 'La biography ne doit pas être vide.';
             }
             if (!empty($this->errors)) {
-                var_dump($this->errors);
                 $this->modifier = 'new';
                 return $this->twig->render('/BiographyAdmin/index.html.twig', [
                     'active' => $this->active,
