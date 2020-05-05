@@ -17,17 +17,6 @@ use App\Model\NewsManager;
  */
 class HomeAdminController extends AbstractController
 {
-
-
-    /**
-     *
-     *
-     * @param $newsManager
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function index()
     {
         $newsManager = new NewsManager();
