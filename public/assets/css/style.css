@@ -15,6 +15,7 @@
     --color-light : #ffe4c2;
     --color-shadow : #80623B;
     --color-text : #FFC375;
+    --color-error : #CB2E2E;
     /* Font Size : */
     --sizeText : 16pt;
     --sizeTitle : calc(2 * var(--sizeText));
