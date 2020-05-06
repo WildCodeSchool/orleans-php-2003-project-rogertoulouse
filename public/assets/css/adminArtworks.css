@@ -32,7 +32,8 @@
     margin-top: 32px;
 }
 .adminArtworks .carousel{
-    background-color: var(--);
+    text-align: center;
+    background-color: var(--color-main);
     color: var(--color-light);
     text-decoration: none;
 }
