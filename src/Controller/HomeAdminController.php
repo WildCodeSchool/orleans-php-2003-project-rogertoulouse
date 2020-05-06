@@ -32,4 +32,46 @@ class HomeAdminController extends AbstractController
 
         return $this->twig->render('HomeAdmin/show.html.twig', ['new' => $new]);
     }
+
+    public function add()
+    {
+        $newsManager = new NewsManager();
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $errors = $this->controlNews($data);
+            if (empty($errors)) {
+                $newsManager->insert($data);
+                header('Location:/HomeAdmin/index');
+            }
+        }
+        return $this->twig->render('HomeAdmin/add.html.twig', [
+            'data' => $data ?? [],
+            'errors' => $errors ?? []
+        ]);
+    }
+
+    private function controlNews($data)
+    {
+        $lengthControl = 255;
+        $errors = [];
+        if (empty($data['title'])) {
+            $errors['title'] = 'Titre requis';
+        } elseif (strlen($data['title']) > 255) {
+            $errors['title'] = 'Le titre dépasse ' . $lengthControl . ' caractères';
+        }
+        if (empty($data['desc'])) {
+            $errors['desc'] = 'La description de l\'actu ne doit pas être vide';
+        } elseif (strlen($data['desc']) > 255) {
+            $errors['desc'] = 'La description dépasse ' . $lengthControl . ' caractères';
+        }
+        if (empty($data['button'])) {
+            $errors['button'] = 'La description du bouton ne doit pas être vide';
+        }
+        if (empty($data['button_link'])) {
+            $errors['button_link'] = 'La redirection du bouton ne doit pas être vide';
+        }
+
+        return $errors ?? [];
+    }
 }
