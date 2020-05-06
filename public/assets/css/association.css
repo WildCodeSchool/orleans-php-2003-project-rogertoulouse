@@ -1,3 +1,4 @@
+
 .top_page{
     background: var(--color-light);
     padding-top: 30px;
@@ -70,6 +71,7 @@ h2{
     font-size: var(--sizeText);
     font-family: var(--font-text);
 }
+
 
 .form {
     background: var(--color-main);
