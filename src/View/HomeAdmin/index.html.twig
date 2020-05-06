@@ -8,7 +8,7 @@
     <ul>
         <div>
             {% for new in news %}
-                <li><a href="/HomeAdmin/show/{{ new.id }}">{{ new.id }}. {{ new.title }}</a></li>
+                <li>{{ new.id }}. {{ new.title }}</li>
             {% else %}
                 <li>Nothing to display</li>
             {% endfor %}

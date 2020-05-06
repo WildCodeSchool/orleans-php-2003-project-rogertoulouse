@@ -37,13 +37,6 @@ class HomeAdminController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function show(int $id)
-    {
-        $newsManager = new NewsManager();
-        $new = $newsManager->selectOneById($id);
-
-        return $this->twig->render('HomeAdmin/show.html.twig', ['new' => $new]);
-    }
 
 
     /**
@@ -94,23 +87,25 @@ class HomeAdminController extends AbstractController
                 header('Location:/HomeAdmin/index');
             }
         }
-        return $this->twig->render('HomeAdmin/edit.html.twig', [
+        return $this->twig->render('HomeAdmin/add.html.twig', [
             'data' => $data ?? [],
-            'errors' => $errors ?? []]);
+            'errors' => $errors ?? []
+        ]);
     }
+
     private function controlNews($data)
     {
-        $length = 255;
+        $lengthControl = 255;
         $errors = [];
         if (empty($data['title'])) {
             $errors['title'] = 'Titre requis';
         } elseif (strlen($data['title']) > 255) {
-            $errors['title'] = 'Le titre dépasse '.$length. ' caractères';
+            $errors['title'] = 'Le titre dépasse ' . $lengthControl . ' caractères';
         }
         if (empty($data['desc'])) {
             $errors['desc'] = 'La description de l\'actu ne doit pas être vide';
         } elseif (strlen($data['desc']) > 255) {
-            $errors['desc'] = 'La description dépasse ' .$length. ' caractères';
+            $errors['desc'] = 'La description dépasse ' . $lengthControl . ' caractères';
         }
         if (empty($data['button'])) {
             $errors['button'] = 'La description du bouton ne doit pas être vide';
