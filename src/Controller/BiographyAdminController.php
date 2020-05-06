@@ -23,7 +23,7 @@ use Twig\Error\SyntaxError;
  */
 class BiographyAdminController extends AbstractController
 {
-    protected $active = 'biography';
+    const ACTIVE = 'biography';
 
     /**
      * Display home page
@@ -38,7 +38,7 @@ class BiographyAdminController extends AbstractController
     {
         $dataByYears = $this->populateData();
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
-            'active' => $this->active,
+            'active' => self::ACTIVE,
             'data' => $dataByYears]);
     }
 
@@ -55,24 +55,20 @@ class BiographyAdminController extends AbstractController
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            if (isset($data['year'])) {
-                if ($data['year'] != '') {
-                    $year = $data['year'];
-                    $userDate = '01-01-' . $year;
-                    $startDate = new DateTime('01-01-1916');
-                    $nowDate = new DateTime(date('m-d-Y'));
-                    $userDate = new DateTime($userDate);
-                    if ((strtotime($year)) === false) {
-                        $errors['year'][] = 'L\'année n\'est pas valide.';
-                    } elseif ($userDate <= $startDate || $userDate >= $nowDate) {
-                        $errors['year'][] = 'L\'année doit être comprise entre ' .
-                            $startDate->format('Y') .
-                            ' et ' .
-                            $nowDate->format('Y') .
-                            '.';
-                    }
-                } else {
-                    $errors['year'][] = 'L\'année ne doit pas être vide.';
+            if (isset($data['year']) && $data['year'] != '') {
+                $year = $data['year'];
+                $userDate = '01-01-' . $year;
+                $startDate = new DateTime('01-01-1916');
+                $nowDate = new DateTime(date('m-d-Y'));
+                $userDate = new DateTime($userDate);
+                if ((strtotime($year)) === false) {
+                    $errors['year'][] = 'L\'année n\'est pas valide.';
+                } elseif ($userDate <= $startDate || $userDate >= $nowDate) {
+                    $errors['year'][] = 'L\'année doit être comprise entre ' .
+                        $startDate->format('Y') .
+                        ' et ' .
+                        $nowDate->format('Y') .
+                        '.';
                 }
             } else {
                 $errors['year'][] = 'L\'année ne doit pas être vide.';
@@ -82,7 +78,7 @@ class BiographyAdminController extends AbstractController
             }
             if (!empty($errors)) {
                 return $this->twig->render('/BiographyAdmin/_add.html.twig', [
-                    'active' => $this->active,
+                    'active' => self::ACTIVE,
                     'data' => $dataByYears,
                     'errors' => $errors]);
             }
@@ -92,7 +88,7 @@ class BiographyAdminController extends AbstractController
             header('Location:/BiographyAdmin/Index');
         }
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
-            'active' => $this->active,
+            'active' => self::ACTIVE,
             'data' => $dataByYears,
             'errors' => $errors]);
     }
