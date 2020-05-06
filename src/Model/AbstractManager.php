@@ -67,4 +67,9 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+    public function selectNews(): array
+    {
+        return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
+    }
 }
