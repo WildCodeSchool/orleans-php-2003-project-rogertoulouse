@@ -5,3 +5,14 @@
 .homeadmin .form-group {
     justify-content: space-around;
 }
+.homeadmin p {
+    font-size: var(--sizeText);
+    color: var(--color-main);
+    margin: var(--padding);
+}
+
+.homeadmin h2 {
+    font-size: var(--sizeTitle);
+    font-family: var(--font-text);
+    color: var(--color-main);
+}

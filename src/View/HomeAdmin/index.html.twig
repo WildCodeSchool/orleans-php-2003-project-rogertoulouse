@@ -1,20 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="container">
-        <h1>Administration page d'accueil</h1>
-    </div>
-    <h2>News</h2>
-    <ul>
-        <div>
-            {% for new in news %}
-                <li>{{ new.id }}. {{ new.title }}</li>
-            {% else %}
-                <li>Nothing to display</li>
-            {% endfor %}
+    <div class="homeadmin">
+        <div class="container">
+            <h1>Administration page d'accueil</h1>
         </div>
-    </ul>
-    <a href="/HomeAdmin/add">Ajouter</a>
+        <h2>News</h2>
+        <ul>
+            <div>
+                {% for new in news %}
+                    <li class="list-group"><a href="/HomeAdmin/show/{{ new.id }}">{{ new.title }}</a></li>
+                {% else %}
+                    <li>Nothing to display</li>
+                {% endfor %}
+            </div>
+        </ul>
+        <a href="/HomeAdmin/add">Ajouter</a>
+    </div>
 {% endblock %}
 
 

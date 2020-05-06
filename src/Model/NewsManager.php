@@ -51,14 +51,20 @@ class NewsManager extends AbstractManager
     /**
      * @param int $id
      */
-    public function delete(int $id): void
+    public function delete(int $id)
     {
         // prepared request
         $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
-
+    public function deleteRoom()
+    {
+        $roomManager = new RoomManager();
+        $id = trim($_POST['id']);
+        $roomManager->deleteRoom($id);
+        header('Location: ../AdminRoom/index');
+    }
 
     /**
      * @param array $news
