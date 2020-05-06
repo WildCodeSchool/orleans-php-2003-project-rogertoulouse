@@ -27,12 +27,6 @@ class NewsManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-
-    /**
-     * @param array $news
-     * @return int
-     */
-
     public function selectNews(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table)->fetchAll();
