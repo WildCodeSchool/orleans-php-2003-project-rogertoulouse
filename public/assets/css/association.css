@@ -1,11 +1,3 @@
-.card{
-    background-color: var(--color-secondary);
-    border-style: none;
-}
-.card h3{
-    font-size: var(--sizeText);
-    font-family: var(--font-text);
-}
 
 .form {
     background: var(--color-main);
