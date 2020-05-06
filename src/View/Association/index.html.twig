@@ -1,24 +1,27 @@
 {% extends 'layout.html.twig' %}
 {% block title %}Association{% endblock %}
  {% block stylesheet %}
+     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet'/>
      <link rel="stylesheet" href="/assets/css/association.css">
+
  {% endblock %}
 {% block content %}
 
     <div class="container-fluid top_page">
         <h1>Les Amis de Roger Toulouse</h1>
         <div class="row">
-            <h2 class="subhead">Qui sommes-nous ?</h2>
+            <h2 class="col subhead">Qui sommes-nous ?</h2>
         </div>
-        <div class="row">
-            <div class="justify_part">
-                <div class="card_text">
-                    <div class="card-body assoc_text col-11">
-                        {{ association.text|nl2br }}
-                    </div>
+        <div class="row justify-content-around">
+            <div class="card_text col-md-7">
+                <div class="card-body assoc_text">
+                    {{ association.text|nl2br }}
                 </div>
-                <div class="card col-md-3">
-                    <div class="card-body">
+            </div>
+            <div class="col-md-2 roger ">
+                <div class="card ">
+                    <div class="card-body img-roger">
                         <h3 class="card-title">Roger Toulouse</h3>
                     </div>
                     <img src="/assets/upload/{{ association.image }}" class="card-img-top"
@@ -26,15 +29,23 @@
                 </div>
             </div>
         </div>
-    <hr>
+    </div>
     </div>
     <div class="container-fluid">
         <div class="row">
-                <h2 class="contact_title">Contactez-nous</h2>
+            <h2 class="contact_title">Contactez-nous</h2>
         </div>
     </div>
-    <div class="main_container ">
-        <div class=" row justify-content-around">
+    <div class="container">
+        <div class="row bottom-page justify-content-around">
+            <div class="card  col-md-3">
+                <div class="card-body contact-card">
+                    <h3 class="card-title">contact</h3>
+                    <p class="card-text"><i class="fas fa-phone"></i>  {{ association.numberphone }}</p>
+                    <p class="card-text"><i class="fas fa-at"></i>  {{ association.email }}</p>
+                    <p class="card-text"><i class="fas fa-map-marker-alt"></i>  {{ association.adress }}</p>
+                </div>
+            </div>
             <div class="form col-md-3">
                 <form method="POST" action="">
                     <div class="form-group">
@@ -57,6 +68,19 @@
                     <button>Envoyer !</button>
                 </form>
             </div>
+            <div id='map' class="col-md-3 map" ></div>
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoidG9iZWNvbnRpbnVlZCIsImEiOiJjazlkN2l2OTIwMG42M2VraG52NDl6YzF4In0.imlbzYxIzJhCTHijAYORYA';
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [1.9190940856933594, 47.900421142578125],
+                    zoom: 12
+                });
+                var marker = new mapboxgl.Marker()
+                    .setLngLat([1.9190940856933594, 47.900421142578125])
+                    .addTo(map);
+            </script>
         </div>
     </div>
 {% endblock %}
