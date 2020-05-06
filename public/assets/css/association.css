@@ -1,11 +1,77 @@
+
+.top_page{
+    background: var(--color-light);
+    padding-top: 30px;
+    height: 100%;
+}
+hr{
+    width: 65%;
+    color: var(--color-main);
+    border: 1px solid;
+    margin-bottom: 20px;
+}
+
+.justify_part{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    align-content: stretch;
+}
+
+.card-text{
+    background-color: var(--color-light);
+}
+
+h1{
+    text-align: center;
+    font-size: var(--sizeTitle);
+    font-family: var(--font-title);
+    margin-bottom: 100px;
+
+}
+h2{
+    text-align: center;
+    font-size: var(--sizeTitle);
+    font-family: var(--font-title);
+    background-color: var(--color-main);
+    color: var(--color-light);
+    border-radius: 7px;
+    margin-left:20x;
+}
+.card-body{
+    background: var(--color-main);
+    color: var(--color-light);
+}
+.card-img{
+    background-color: var(--color-main);
+    border-radius: 0px;
+    color: var(--color-light);
+}
+.card-title{
+    text-align: center;
+}
+.assoc_text {
+    font-family: var(--font-text);
+    font-size: 10pt;
+    background: var(--color-light);
+    color: var(--color-main);
+    margin-left: 10px;
+}
+
 .card{
-    background-color: var(--color-secondary);
+    background-color: var(--color-light);
     border-style: none;
+    padding: 0px;
+    min-width: 250px;
+    max-width: 350px;
 }
 .card h3{
     font-size: var(--sizeText);
     font-family: var(--font-text);
 }
+
 
 .form {
     background: var(--color-main);
@@ -28,9 +94,14 @@ form {
     padding: 10px;
     margin-bottom: 10px;
 }
-.contact_title {
-    font-family: var(--font-title);
-    font-size: var(--sizeTitle);
-    text-align: center;
-    height: 100px;
+
+@media screen and (max-width: 750px) {
+    .top_page {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: stretch;
+    }
 }

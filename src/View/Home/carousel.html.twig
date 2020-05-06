@@ -3,8 +3,8 @@
         <div class="carousel-inner">
             {% for slide in carousel %}
                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                    <img src="/assets/upload/{{ slide.image }}" class="d-block w-100 img-home"
-                         alt="{{ slide.name }}">
+                    <a href="/Artworks/single/{{ slide.id }}"><img src="/assets/upload/{{ slide.image }}" class="d-block w-100 img-home"
+                         alt="{{ slide.name }}"></a>
                     <div class="carousel-caption d-none d-md-block">
                         <p class="slide-title">{{ slide.name }}</p>
                         <p class="slide-text">{{ slide.more_info }}</p>

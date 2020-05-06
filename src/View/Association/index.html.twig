@@ -1,26 +1,36 @@
 {% extends 'layout.html.twig' %}
-
 {% block title %}Association{% endblock %}
-
  {% block stylesheet %}
-
      <link rel="stylesheet" href="/assets/css/association.css">
  {% endblock %}
-
 {% block content %}
-
-    <div class="card col-md-2">
-        <img src="/assets/upload/{{ association.image }}" class="card-img-top" alt="Photo de Roger toulouse">
-        <div class="card-body">
-            <h3 class="card-title">Roger Toulouse</h3>
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="container-fluid top_page">
+        <h1>Les Amis de Roger Toulouse</h1>
         <div class="row">
-            <div class="col">
-                <h2 class="contact_title">Nous Joindre</h2>
+            <h2 class="subhead">Qui sommes-nous ?</h2>
+        </div>
+
+        <div class="row">
+            <div class="justify_part">
+                <div class="card_text">
+                    <div class="card-body assoc_text col-11">
+                        {{ association.text|nl2br }}
+                    </div>
+                </div>
+                <div class="card col-md-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Roger Toulouse</h3>
+                    </div>
+                    <img src="/assets/upload/{{ association.image }}" class="card-img-top"
+                         alt="Photo de Roger toulouse">
+                </div>
             </div>
+        </div>
+    <hr>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+                <h2 class="contact_title">Contactez-nous</h2>
         </div>
     </div>
     <div class="main_container ">

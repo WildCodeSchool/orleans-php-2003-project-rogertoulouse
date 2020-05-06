@@ -10,7 +10,8 @@
 
 namespace App\Controller;
 
-use App\Model\BiographyManager;
+use App\Model\ArtworkManager;
+use App\Model\CategoryManager;
 
 /**
  * Class AdminController
@@ -26,9 +27,19 @@ class ArtworksAdminController extends AbstractController
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function index()
+    public function index():string
     {
+        // récupération des catégories
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+        // récupération des oeuvres
+        $artworkManager = new ArtworkManager();
+        $artworks = $artworkManager->selectArtworks();
+
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
-            'active' => 'artworks']);
+            'active' => '$artworks',
+            'artworks'=> $artworks,
+            'categories'=>$categories,
+            ]);
     }
 }
