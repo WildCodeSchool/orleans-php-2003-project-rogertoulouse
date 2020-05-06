@@ -35,8 +35,12 @@ class NewsManager extends AbstractManager
     public function insert(array $news): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`) VALUES (:title)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`title`,`desc`,`button`,
+        `button_link`) VALUES (:title, :desc, :button, :button_link)");
         $statement->bindValue('title', $news['title'], \PDO::PARAM_STR);
+        $statement->bindValue('desc', $news['desc'], \PDO::PARAM_STR);
+        $statement->bindValue('button', $news['button'], \PDO::PARAM_STR);
+        $statement->bindValue('button_link', $news['button_link'], \PDO::PARAM_STR);
 
         if ($statement->execute()) {
             return (int)$this->pdo->lastInsertId();
@@ -67,6 +71,9 @@ class NewsManager extends AbstractManager
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET `title` = :title WHERE id=:id");
         $statement->bindValue('id', $news['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $news['title'], \PDO::PARAM_STR);
+        $statement->bindValue('desc', $news['desc'], \PDO::PARAM_STR);
+        $statement->bindValue('button', $news['button'], \PDO::PARAM_STR);
+        $statement->bindValue('button_link', $news['button_link'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }

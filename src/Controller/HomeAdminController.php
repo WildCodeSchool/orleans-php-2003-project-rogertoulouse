@@ -17,6 +17,8 @@ use App\Model\NewsManager;
  */
 class HomeAdminController extends AbstractController
 {
+    public $title = [];
+
     public function index()
     {
         $newsManager = new NewsManager();
@@ -58,7 +60,6 @@ class HomeAdminController extends AbstractController
         $newsManager = new NewsManager();
         $new = $newsManager->selectOneById($id);
 
-        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $new = [
                 'title' => $_POST['title'],
@@ -83,21 +84,43 @@ class HomeAdminController extends AbstractController
      */
     public function add()
     {
+        $newsManager = new NewsManager();
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $newsManager = new NewsManager();
-            $new = [
-                'title' => $_POST['title'],
-                'desc' => $_POST['desc'],
-                'button' => $_POST['button'],
-                'button_link' => $_POST['button_link'],
-            ];
-            $id = $newsManager->insert($new);
-            header('Location:/HomeAdmin/show/' . $id);
+            $data = array_map('trim', $_POST);
+            $errors = $this->controlNews($data);
+            if (empty($errors)) {
+                $newsManager->insert($data);
+                header('Location:/HomeAdmin/index');
+            }
+        }
+        return $this->twig->render('HomeAdmin/edit.html.twig', [
+            'data' => $data ?? [],
+            'errors' => $errors ?? []]);
+    }
+    private function controlNews($data)
+    {
+        $length = 255;
+        $errors = [];
+        if (empty($data['title'])) {
+            $errors['title'] = 'Titre requis';
+        } elseif (strlen($data['title']) > 255) {
+            $errors['title'] = 'Le titre dépasse '.$length. ' caractères';
+        }
+        if (empty($data['desc'])) {
+            $errors['desc'] = 'La description de l\'actu ne doit pas être vide';
+        } elseif (strlen($data['desc']) > 255) {
+            $errors['desc'] = 'La description dépasse ' .$length. ' caractères';
+        }
+        if (empty($data['button'])) {
+            $errors['button'] = 'La description du bouton ne doit pas être vide';
+        }
+        if (empty($data['button_link'])) {
+            $errors['button_link'] = 'La redirection du bouton ne doit pas être vide';
         }
 
-        return $this->twig->render('HomeAdmin/add.html.twig');
+        return $errors ?? [];
     }
-
 
     /**
      *
