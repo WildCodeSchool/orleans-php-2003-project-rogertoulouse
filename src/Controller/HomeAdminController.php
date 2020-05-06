@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: root
@@ -10,25 +9,27 @@
 
 namespace App\Controller;
 
-use App\Model\BiographyManager;
+use App\Model\NewsManager;
 
 /**
- * Class AdminController
+ * Class HomeAdminController
  *
  */
 class HomeAdminController extends AbstractController
 {
-    /**
-     * Display home page
-     *
-     * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
     public function index()
     {
-        return $this->twig->render('/HomeAdmin/index.html.twig', [
-            'active' => 'home']);
+        $newsManager = new NewsManager();
+        $news = $newsManager->selectNews();
+
+        return $this->twig->render('HomeAdmin/index.html.twig', ['news' => $news]);
+    }
+
+    public function show(int $id)
+    {
+        $newsManager = new NewsManager();
+        $new = $newsManager->selectOneById($id);
+
+        return $this->twig->render('HomeAdmin/show.html.twig', ['new' => $new]);
     }
 }
