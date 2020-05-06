@@ -3,6 +3,7 @@
 {% block content %}
     {% include 'Artworks/select.html.twig' %}
     {% include 'Artworks/_errors.html.twig' %}
+    {% if artwork is not empty %}
     <div class="bloc_details">
         <div class="title_details">
             <H2>{{ artwork.name }}</H2>
@@ -26,4 +27,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}

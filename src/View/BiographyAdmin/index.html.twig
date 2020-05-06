@@ -1,4 +1,38 @@
 {% extends 'Admin/index.html.twig' %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+    <link rel="stylesheet" href="/assets/css/biographyAdmin.css">
+{% endblock %}
 {% block admin %}
-coucou
+    <section class="container w-10 table-responsive-lg">
+        <div class="resp-table">
+            <div class="resp-table-header">
+                <div class="resp-table-row">
+                    <div class="table-header-cell number">Numéro</div>
+                    <div class="table-header-cell year">Année</div>
+                    <div class="table-header-cell">Biographie</div>
+                    <div class="table-header-cell rowption">
+                            <a class="btn" href="/BiographyAdmin/Add"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+                {% block add %}
+                {% endblock %}
+        <div class="resp-table">
+            <div class="resp-table-body">
+                {% for year, biographies in data %}
+                    {% for biography in biographies %}
+                        <div class="resp-table-row">
+                            <div class="table-body-head-cell number">{{ loop.parent.loop.index }}</div>
+                            <div class="table-body-cell year">{{ year }}</div>
+                            <div class="table-body-cell">{{ biography.info }}</div>
+                            <div class="table-body-cell end option">
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

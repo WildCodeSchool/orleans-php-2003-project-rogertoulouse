@@ -23,7 +23,7 @@ class ArtworkManager extends AbstractManager
 
         return $artworks;
     }
-    public function selectArtwork(int $idArtwork = null):array
+    public function selectArtwork(int $idArtwork = null)
     {
         $query='SELECT *, a.id as idArtwork FROM ' . $this->table . ' a JOIN works_category c 
         ON a.category_id=c.id WHERE a.id=:idArtwork';
