@@ -38,14 +38,6 @@ class BiographyAdminController extends AbstractController
      */
     public function index()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_POST['control'] == 'cancel') {
-                $this->modifier = '';
-            }
-            if ($_POST['control'] == 'new') {
-                $this->modifier = 'new';
-            }
-        }
         $this->populateData();
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
             'active' => $this->active,
