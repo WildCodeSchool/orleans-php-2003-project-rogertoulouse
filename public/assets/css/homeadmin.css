@@ -1,18 +1,54 @@
-.homeadmin input {
-    height: 50px;
+.adminHome{
+    width: 1300px;
+    margin: auto;
+    margin-top: 32px;
 }
 
-.homeadmin .form-group {
-    justify-content: space-around;
+.adminHome table{
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-main);
 }
-.homeadmin p {
-    font-size: var(--sizeText);
-    color: var(--color-main);
-    margin: var(--padding);
+.adminHome .id{
+    text-align: center;
+    width: 30px;
+}
+.adminHome table thead{
+    position: sticky;
+    top:60px;
+    text-align: center;
+}
+.adminHome table tbody tr:nth-child(even){
+    background-color: var(--color-light);
+}
+.adminHome table thead{
+    background-color: var(--color-main) ;
+    color: var(--color-light);
 }
 
-.homeadmin h2 {
-    font-size: var(--sizeTitle);
-    font-family: var(--font-text);
-    color: var(--color-main);
+.adminHome img {
+    width: 100px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+}
+.adminHome a{
+    color: var(--color-light);
+    text-decoration: none;
+}
+.adminHome a:hover{
+    font-weight: 700;
+
+}
+.adminHome .admHomeLink{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 200px;
+    width: 100px;
+}
+.adminHome .admHomeLink div{
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-main);
 }
