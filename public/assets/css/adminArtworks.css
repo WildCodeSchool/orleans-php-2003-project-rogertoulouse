@@ -14,6 +14,8 @@
     width: 30px;
 }
 .adminArtworks table thead{
+    position: sticky;
+    top:60px;
     text-align: center;
 }
 .adminArtworks table tbody tr:nth-child(even){
