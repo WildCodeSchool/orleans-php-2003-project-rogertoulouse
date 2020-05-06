@@ -26,22 +26,6 @@ class BiographyAdminController extends AbstractController
     protected $active = 'biography';
     protected $dataByYears = [];
     protected $modifier = '';
-    protected $errors = [];
-
-
-    public function __construct()
-    {
-        parent::__construct();
-        $biographyManager = new BiographyManager();
-        $dataByDates[] = $biographyManager->selectAllBioByDate();
-        foreach ($dataByDates as $biographies) {
-            foreach ($biographies as $biography) {
-                $year = date_format(date_create($biography['date']), 'Y');
-                $this->dataByYears[$year][] = $biography;
-            }
-        }
-        ksort($this->dataByYears);
-    }
 
     /**
      * Display home page
@@ -54,20 +38,19 @@ class BiographyAdminController extends AbstractController
      */
     public function index()
     {
-        if (isset($_POST['control'])) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($_POST['control'] == 'cancel') {
                 $this->modifier = '';
-                $this->errors = array();
             }
             if ($_POST['control'] == 'new') {
                 $this->modifier = 'new';
             }
         }
+        $this->populateData();
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
             'active' => $this->active,
             'data' => $this->dataByYears,
-            'form' => $this->modifier,
-            'errors' => $this->errors]);
+            'form' => $this->modifier]);
     }
 
 
@@ -79,44 +62,60 @@ class BiographyAdminController extends AbstractController
      */
     public function add()
     {
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_POST['year'] != '') {
+            $data = array_map('trim', $_POST);
+            if (isset($data['year'])) {
+                $year = htmlentities($data['year']);
                 $startDate = strtotime('01-01-1916');
                 $nowDate = strtotime(date('m-d-Y'));
-                $userDate = strtotime('01-01-' . $_POST['year']);
-                if ((strtotime($_POST['year'])) === false) {
-                    $this->errors['year'][] = 'L\'année n\'est pas valide.';
-                }
-                if ($userDate <= $startDate || $userDate >= $nowDate) {
-                    $this->errors['year'][] = 'L\'année doit être comprise entre ' .
+                $userDate = strtotime('01-01-' . $year);
+                if ((strtotime($year)) === false) {
+                    $errors['year'][] = 'L\'année n\'est pas valide.';
+                } elseif ($userDate <= $startDate || $userDate >= $nowDate) {
+                    $errors['year'][] = 'L\'année doit être comprise entre ' .
                         date('Y', $startDate) .
                         ' et ' .
                         date('Y', $nowDate) .
                         '.';
                 }
             } else {
-                $this->errors['year'][] = 'L\'année ne doit pas être vide.';
+                $errors['year'][] = 'L\'année ne doit pas être vide.';
             }
-            if ($_POST['biography'] == '') {
-                $this->errors['biography'][] = 'La biographie ne doit pas être vide.';
+            if (isset($data['biography'])) {
+                $errors['biography'][] = 'La biographie ne doit pas être vide.';
             }
-            if (!empty($this->errors)) {
+            if (!empty($errors)) {
+                $this->populateData();
                 $this->modifier = 'new';
-                return $this->twig->render('/BiographyAdmin/index.html.twig', [
+                return $this->twig->render('/BiographyAdmin/_add.html.twig', [
                     'active' => $this->active,
                     'data' => $this->dataByYears,
                     'form' => $this->modifier,
-                    'errors' => $this->errors]);
+                    'errors' => $errors]);
             }
             $biographyManager = new BiographyManager();
-            $date = new DateTime($_POST['year'] . '-01-01');
-            $biographyManager->insert($date->format('Y-m-d'), htmlentities($_POST['biography']));
+            $date = new DateTime($data['year'] . '-01-01');
+            $biographyManager->insert($date->format('Y-m-d'), htmlentities($data['biography']));
             header('Location:/BiographyAdmin/Index');
         }
-        return $this->twig->render('/BiographyAdmin/index.html.twig', [
+        $this->populateData();
+        return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => $this->active,
             'data' => $this->dataByYears,
             'form' => $this->modifier,
-            'errors' => $this->errors]);
+            'errors' => $errors]);
+    }
+    private function populateData()
+    {
+        $biographyManager = new BiographyManager();
+        $dataByDates[] = $biographyManager->selectAllBioByDate();
+        foreach ($dataByDates as $biographies) {
+            foreach ($biographies as $biography) {
+                $year = date_format(date_create($biography['date']), 'Y');
+                $this->dataByYears[$year][] = $biography;
+            }
+        }
+        ksort($this->dataByYears);
     }
 }

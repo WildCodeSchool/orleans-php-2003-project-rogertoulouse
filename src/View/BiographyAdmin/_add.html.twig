@@ -1,0 +1,39 @@
+{% extends 'BiographyAdmin/index.html.twig' %}
+{% block add %}
+    <div class="resp-table">
+        <div class="resp-table-body">
+            <form class="resp-table-row" action="/BiographyAdmin/add" method="post">
+                <div class="table-body-head-cell number">Ajout</div>
+                <diV class="table-body-cell year">
+                    <label for="year" hidden></label><input type="number" name="year" id="year" value=""></diV>
+                <diV class="table-body-cell">
+                    <label for="biography" hidden></label><textarea name="biography" id="biography"></textarea></diV>
+                <div class="table-body-cell end option">
+                    <div class="rowption">
+                        <input type="hidden" name="control" value="add" id="add">
+                        <button class="btn"><i class="fas fa-check"></i></button>
+                        <a class="btn" href="/BiographyAdmin/Index"><i class="fas fa-times"></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="resp-table">
+        {% if errors.year is defined %}
+            {% for error in errors.year %}
+                <div class="resp-table-body">
+                    <diV class="table-body-cell end column-span error">
+                        {{ error }}
+                    </diV>
+                </div>
+            {% endfor %}
+            {% for error in errors.biography %}
+                <div class="resp-table-body">
+                    <diV class="table-body-cell end column-span error">
+                        {{ error }}
+                    </diV>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

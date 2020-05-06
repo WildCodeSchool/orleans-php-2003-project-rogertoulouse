@@ -15,6 +15,7 @@
     --color-light : #ffe4c2;
     --color-shadow : #80623B;
     --color-text : #FFC375;
+    --color-error : #cb2e2e;
     /* Font Size : */
     --sizeText : 16pt;
     --sizeTitle : calc(2 * var(--sizeText));
@@ -77,7 +78,7 @@ body {
 .link div{
     margin: auto;
 }
-button{
+.btn{
     outline: none;
     min-width: 40px;
     min-height: 40px;
@@ -94,15 +95,15 @@ button{
     margin: 5px 0 5px 0;
     line-height: 24pt;
 }
-button:hover{
+.btn:hover{
     outline: none;
     color: var(--color-light);
     background-color: var(--color-main);
     transition: 150ms;
 }
-button:active{
+.btn:active{
     outline: none;
 }
-button:focus{
+.btn:focus{
     outline: none;
 }

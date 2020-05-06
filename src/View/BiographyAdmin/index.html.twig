@@ -4,9 +4,6 @@
     <link rel="stylesheet" href="/assets/css/biographyAdmin.css">
 {% endblock %}
 {% block admin %}
-    <form method="post" action="/BiographyAdmin/Index" id="cancel" hidden>
-        <label for="cancel" hidden><input type="text" name="control" value="cancel" id="cancel" hidden></label>
-    </form>
     <section class="container w-10 table-responsive-lg">
         <div class="resp-table">
             <div class="resp-table-header">
@@ -14,56 +11,16 @@
                     <div class="table-header-cell number">Numéro</div>
                     <div class="table-header-cell year">Année</div>
                     <div class="table-header-cell">Biographie</div>
-                    <div class="table-header-cell">
-                        <form action="" method="post" class="text-right">
-                            <label for="new" hidden></label>
-                            <input type="text" name="control" value="new" id="new" hidden>
-                            <button class="fas fa-plus"></button>
-                        </form>
+                    <div class="table-header-cell rowption">
+                            <a class="btn" href="/BiographyAdmin/Add"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
-            </div>
-            <div class="resp-table-body">
-                {% if form == 'new' %}
-                <form class="resp-table-row" action="/BiographyAdmin/add" method="post">
-                    <div class="table-body-head-cell number">Ajout</div>
-                    <diV class="table-body-cell year">
-                        <label for="year" hidden></label><input type="number" name="year" id="year" value=""></diV>
-                    <diV class="table-body-cell">
-                        <label for="biography" hidden></label><textarea name="biography" id="biography"></textarea></diV>
-                    <div class="table-body-cell end option">
-                        <div class="rowption">
-                            <label for="add" hidden><input type="text" name="control" value="add" id="add" hidden></label>
-                            <button class="fas fa-check"></button>
-                            <button class="fas fa-times" form="cancel"></button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
-        {% if errors.year is defined %}
-            <div class="resp-table">
-                {% for error in errors.year %}
-                    <div class="resp-table-body">
-                        <diV class="table-body-cell end column-span error">
-                            {{ error }}
-                        </diV>
-                    </div>
-                {% endfor %}
-                {% for error in errors.biography %}
-                    <div class="resp-table-body">
-                        <diV class="table-body-cell end column-span error">
-                            {{ error }}
-                        </diV>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+                {% block add %}
+                {% endblock %}
         <div class="resp-table">
             <div class="resp-table-body">
-                <div class="resp-table-row">
-                </div>
-                {% endif %}
                 {% for year, biographies in data %}
                     {% for biography in biographies %}
                         <div class="resp-table-row">
