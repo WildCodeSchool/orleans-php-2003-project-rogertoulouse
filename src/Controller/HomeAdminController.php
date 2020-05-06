@@ -58,8 +58,14 @@ class HomeAdminController extends AbstractController
         $newsManager = new NewsManager();
         $new = $newsManager->selectOneById($id);
 
+        $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $new['title'] = $_POST['title'];
+            $new = [
+                'title' => $_POST['title'],
+                'desc' => $_POST['desc'],
+                'button' => $_POST['button'],
+                'button_link' => $_POST['button_link'],
+            ];
             $newsManager->update($new);
         }
 
@@ -77,7 +83,6 @@ class HomeAdminController extends AbstractController
      */
     public function add()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $newsManager = new NewsManager();
             $new = [
