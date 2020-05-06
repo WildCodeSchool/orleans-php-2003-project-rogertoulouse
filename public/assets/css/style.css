@@ -16,6 +16,7 @@
     --color-light : #ffe4c2;
     --color-shadow : #80623B;
     --color-text : #FFC375;
+    --color-error : #cb2e2e;
     /* Font Size : */
     --sizeText : 16pt;
     --sizeTitle : calc(2 * var(--sizeText));
@@ -52,7 +53,7 @@ h3{
     border-color: var(--color-main);
     border-width: 1px;
     border-radius: 2px;
-    font-size: 1vmin;
+    font-size: 2vmin;
     color: var(--color-main);
     background-color: var(--color-light);
     text-decoration: none;
@@ -77,6 +78,36 @@ h3{
 
 .link div{
     margin: auto;
+}
+
+.btn{
+    outline: none;
+    min-width: 40px;
+    min-height: 40px;
+    text-align: center;
+    border-style: solid;
+    border-color: var(--color-main);
+    border-width: 1px;
+    border-radius: 2px;
+    font-size: calc(var(--sizeText) / 1.5);
+    color: var(--color-main);
+    background-color: var(--color-light);
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+    margin: 5px 0 5px 0;
+    line-height: 24pt;
+}
+.btn:hover{
+    outline: none;
+    color: var(--color-light);
+    background-color: var(--color-main);
+    transition: 150ms;
+}
+.btn:active{
+    outline: none;
+}
+.btn:focus {
+    outline: none;
 }
 .rgba-white-light{
     margin: 0 15%;
