@@ -5,7 +5,7 @@
 .homeadmin .form-group {
     justify-content: space-around;
 }
-.homeadmin p {
+.homeadmin .show {
     font-size: var(--sizeText);
     color: var(--color-main);
     margin: var(--padding);
