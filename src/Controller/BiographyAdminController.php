@@ -25,7 +25,6 @@ class BiographyAdminController extends AbstractController
 {
     protected $active = 'biography';
     protected $dataByYears = [];
-    protected $modifier = '';
 
     /**
      * Display home page
@@ -41,8 +40,7 @@ class BiographyAdminController extends AbstractController
         $this->populateData();
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
             'active' => $this->active,
-            'data' => $this->dataByYears,
-            'form' => $this->modifier]);
+            'data' => $this->dataByYears]);
     }
 
 
@@ -79,11 +77,9 @@ class BiographyAdminController extends AbstractController
             }
             if (!empty($errors)) {
                 $this->populateData();
-                $this->modifier = 'new';
                 return $this->twig->render('/BiographyAdmin/_add.html.twig', [
                     'active' => $this->active,
                     'data' => $this->dataByYears,
-                    'form' => $this->modifier,
                     'errors' => $errors]);
             }
             $biographyManager = new BiographyManager();
@@ -95,7 +91,6 @@ class BiographyAdminController extends AbstractController
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => $this->active,
             'data' => $this->dataByYears,
-            'form' => $this->modifier,
             'errors' => $errors]);
     }
     private function populateData()
