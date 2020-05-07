@@ -9,7 +9,6 @@ hr{
     border: 1px solid;
     margin-bottom: 20px;
 }
-
 .card-text{
     background-color: var(--color-secondary);
     align-items: center;
@@ -22,7 +21,6 @@ h1{
     font-family: var(--font-title);
     color: var(--color-main);
     margin-bottom: 100px;
-
 }
 h2{
     text-align: center;
@@ -51,7 +49,6 @@ h2{
     color: var(--color-light);
 }
 .card-title{
-    text-align: center;
     color: var(--color-main);
 }
 .assoc_text {
@@ -88,9 +85,7 @@ h2{
     align-content: stretch;
 }
 .card-title{
-
     color: var(--color-main);
-
 }
 .contact-roger{
     color: var(--color-main);
@@ -99,12 +94,10 @@ h2{
 .card{
     padding: 0px;
     border: none;
-
 }
 .card h3{
     font-size: var(--sizeText);
     font-family: var(--font-title);
-
 }
 .contact_title{
     text-align: center;
@@ -126,14 +119,13 @@ form label {
     text-align: center;
     font-family: var(--font-text);
     color: var(--color-light);
-
 }
-
 
 form {
     padding: 10px;
     margin: 10px;
     align-items: center;
+    text-align: center;
 }
 .img-roger h3{
     color: var(--color-light);

@@ -16,7 +16,7 @@
         <div class="row justify-content-around">
             <div class="card_text col-md-7">
                 <div class="card-body assoc_text">
-                    {{ association.text|nl2br }}
+                    <p>{{ association.text|nl2br }}</p>
                 </div>
             </div>
             <div class="col-md-2 roger ">
@@ -36,8 +36,8 @@
             <h2 class="contact_title">Contactez-nous</h2>
         </div>
     </div>
-    <div class="container">
-        <div class="row bottom-page justify-content-between">
+    <div class="bottom-page container-fluid">
+        <div class="row  justify-content-around ">
             <div class="card  col-md-3">
                 <div class="card-body contact-card">
                     <h3 class="card-title contact-roger">contact</h3>
@@ -46,7 +46,7 @@
                     <p class="card-text"><i class="fas fa-map-marker-alt"></i>  {{ association.adress }}</p>
                 </div>
             </div>
-            <div class="form col-md-3">
+            <div class="form col-md-4">
                 <form method="POST" action="">
                     <div class="form-group">
                         <label for="email">Email</label>
