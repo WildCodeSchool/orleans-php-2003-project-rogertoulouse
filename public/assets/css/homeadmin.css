@@ -13,6 +13,11 @@
     text-align: center;
     width: 30px;
 }
+.adminHome .form {
+    font-size: var(--sizeText);
+    color: var(--color-main);
+    margin: var(--padding);
+}
 .adminHome table thead{
     position: sticky;
     top:60px;

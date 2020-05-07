@@ -2,15 +2,15 @@
 
 {% block content %}
     <div class="homeadmin">
-    <div class="container">
-        <h1>{{ new.title }}</h1>
-    </div>
-    <p> {{ new.title }} <br>
-        {{ new.desc }} <br>
-        {{ new.button }} <br>
-        {{ new.button_link }}</p>
-    <a href="/HomeAdmin/edit/{{ new.id }}">Edit</a>
-    <a href="/HomeAdmin/delete/{{ new.id }}">Supprimer</a>
-    <a href="/HomeAdmin/index">Back</a>
+        <div class="container">
+            <h1>{{ new.title }}</h1>
+        </div>
+        <div class="form"> {{ new.title }} </div>
+        <div class="form"> {{ new.desc }} </div>
+        <div class="form"> {{ new.button }} </div>
+        <div class="form"> {{ new.button_link }} </div>
+        <a href="/HomeAdmin/edit/{{ new.id }}">Edit</a>
+        <a href="/HomeAdmin/delete/{{ new.id }}">Supprimer</a>
+        <a href="/HomeAdmin/index">Back</a>
     </div>
 {% endblock %}
