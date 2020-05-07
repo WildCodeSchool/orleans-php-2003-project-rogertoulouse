@@ -7,7 +7,7 @@
             {% for new in news %}
                 <div class="card-title">{{ new.title }}</div>
             <p class="card-text">{{ new.desc }}</p>
-            <a href="{{ new.button_link }}" class="btn btn-primary card-btn">{{ new.button }}</a>
+            <a href="{{ new.button_link }}" class="btn btn-primary card-btn" target="_blank">{{ new.button }}</a>
             {% endfor %}
         </div>
     </div>
