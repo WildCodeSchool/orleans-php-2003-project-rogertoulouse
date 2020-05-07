@@ -52,6 +52,7 @@ h2{
 }
 .card-title{
     text-align: center;
+    color: var(--color-main);
 }
 .assoc_text {
     font-family: var(--font-text);
@@ -77,25 +78,39 @@ h2{
 }
 .contact-card{
     width: 100%;
-    align-items: center;
     background: var(--color-secondary);
     color: var(--color-main);
-    border-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
 }
+.card-title{
 
+    color: var(--color-main);
+
+}
+.contact-roger{
+    color: var(--color-main);
+    margin-bottom: 20px;
+}
 .card{
-
-
-
     padding: 0px;
+    border: none;
 
 }
 .card h3{
     font-size: var(--sizeText);
     font-family: var(--font-title);
+
 }
 .contact_title{
     text-align: center;
+    width: 100%;
+    margin-bottom: 100px;
+    margin-top: 20px;
 }
 .form {
     background: var(--color-main);
@@ -111,10 +126,16 @@ form label {
     text-align: center;
     font-family: var(--font-text);
     color: var(--color-light);
+
 }
 
 
 form {
     padding: 10px;
     margin: 10px;
+    align-items: center;
+}
+.img-roger h3{
+    color: var(--color-light);
+    text-align: start;
 }

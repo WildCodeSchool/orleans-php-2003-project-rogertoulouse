@@ -34,9 +34,10 @@ class AssociationController extends AbstractController
                 $errors[] = 'Un message est requis';
             }
         }
-        $associationManager = new AssociationManager();
-        $association = $associationManager->selectOneById(1);
 
-        return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'association'=>$association]);
+        $assoc = new AssociationManager();
+        $association = $assoc->selectOneById(1);
+
+        return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'association' => $association]);
     }
 }

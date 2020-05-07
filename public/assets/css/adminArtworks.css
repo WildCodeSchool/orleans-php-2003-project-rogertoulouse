@@ -1,0 +1,61 @@
+.adminArtworks{
+    width: 1300px;
+    margin: auto;
+    margin-top: 32px;
+}
+
+.adminArtworks table{
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-main);
+}
+.adminArtworks .id{
+    text-align: center;
+    width: 30px;
+}
+.adminArtworks table thead{
+    position: sticky;
+    top:60px;
+    text-align: center;
+}
+.adminArtworks table tbody tr:nth-child(even){
+    background-color: var(--color-light);
+}
+.adminArtworks table thead{
+    background-color: var(--color-main) ;
+    color: var(--color-light);
+}
+.adminArtworks table tbody tr{
+
+}
+.adminArtworks img {
+    width: 100px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+.adminArtworks .carousel{
+    text-align: center;
+    background-color: var(--color-main);
+    color: var(--color-light);
+    text-decoration: none;
+}
+.adminArtworks a{
+    color: var(--color-light);
+    text-decoration: none;
+}
+.adminArtworks a:hover{
+    font-weight: 700;
+
+}
+.adminArtworks .admArtLink{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    height: 200px;
+    width: 100px;
+}
+.adminArtworks .admArtLink div{
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-main);
+}
