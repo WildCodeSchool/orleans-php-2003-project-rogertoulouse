@@ -57,12 +57,12 @@ class HomeAdminController extends AbstractController
         $errors = [];
         if (empty($data['title'])) {
             $errors['title'] = 'Titre requis';
-        } elseif (strlen($data['title']) > 255) {
+        } elseif (strlen($data['title']) > $lengthControl) {
             $errors['title'] = 'Le titre dépasse ' . $lengthControl . ' caractères';
         }
         if (empty($data['desc'])) {
             $errors['desc'] = 'La description de l\'actu ne doit pas être vide';
-        } elseif (strlen($data['desc']) > 255) {
+        } elseif (strlen($data['desc']) > $lengthControl) {
             $errors['desc'] = 'La description dépasse ' . $lengthControl . ' caractères';
         }
         if (empty($data['button'])) {
