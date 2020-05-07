@@ -1,6 +1,6 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
-    <div class="adminArtworks">
+<div class="adminArtworks">
     <table>
         <thead>
             <tr>
@@ -17,32 +17,76 @@
             </tr>
         </thead>
         <tbody>
-    {% for artwork in artworks %}
-        <tr>
-            <td class="id">{{ artwork.idArtwork }}</td>
-            <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
-            <td>{{ artwork.name }}</td>
-            <td>{{ artwork.category }}</td>
-            <td>{{ artwork.date|date("Y") }}</td>
-            <td>
-                {% if artwork.carousel == 1 %}
-                    <div class="carousel"><i class="fas fa-check"></i></div>
-                {% endif %}
-            </td>
-            <td>{{ artwork.description }}</td>
-            <td>{{ artwork.more_info }}</td>
-            <td>{{ artwork.size }}+</td>
-            <td class="admArtLink">
-                <div>
-                    <a href="">MODIFIER</a>
-                </div>
-                <div>
-                    <a href="">SUPPRIMER</a>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
+
+        {% if step == 'confirmDelete' %}
+            <div class="message">La suppression a bien été effectuée.</div>
+        {% endif %}
+        {% if step == 'delete' %}
+            <div class="message"><h3>CONFIRMATION</h3></div>
+            <div class="message">Souhaitez-vous supprimer cette oeuvre de la base de données ?</div>
+            <tr>
+                <td class="id">{{ artwork.idArtwork }}</td>
+                <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
+                <td>{{ artwork.name }}</td>
+                <td>{{ artwork.category }}</td>
+                <td>{{ artwork.date|date("Y") }}</td>
+                <td>
+                    {% if artwork.carousel == 1 %}
+                        <div class="carousel"><i class="fas fa-check"></i></div>
+                    {% endif %}
+                </td>
+                <td>{{ artwork.description }}</td>
+                <td>{{ artwork.more_info }}</td>
+                <td>{{ artwork.size }}</td>
+                <td>
+                    <div>
+                        <form action="/ArtworksAdmin/index" method="post">
+                            <input type="submit" value="ANNULER" class="btn">
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/ArtworksAdmin/delete/?act=confirmDelete" method="post">
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="text" name="pictureArtwork" value="{{ artwork.image }}" hidden>
+                            <input type="submit" value="CONFIRMER" class="btn">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+
+        {% for artwork in artworks %}
+            <tr>
+                <td class="id">{{ artwork.idArtwork }}</td>
+                <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
+                <td>{{ artwork.name }}</td>
+                <td>{{ artwork.category }}</td>
+                <td>{{ artwork.date|date("Y") }}</td>
+                <td>
+                    {% if artwork.carousel == 1 %}
+                        <div class="carousel"><i class="fas fa-check"></i></div>
+                    {% endif %}
+                </td>
+                <td>{{ artwork.description }}</td>
+                <td>{{ artwork.more_info }}</td>
+                <td>{{ artwork.size }}</td>
+                <td>
+                    <div>
+                        <form action="/ArtworksAdmin/update/?act=update" method="post">
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="submit" value="MODIFIER" class="btn">
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/ArtworksAdmin/delete/?act=delete" method="post">
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="submit" value="SUPPRIMER" class="btn">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 {% endblock %}

@@ -59,3 +59,8 @@
     width: 100%;
     background-color: var(--color-main);
 }
+.message{
+    width: 100%;
+    text-align: center;
+    background-color: var(--color-error);
+}

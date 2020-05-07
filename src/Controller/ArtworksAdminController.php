@@ -30,9 +30,6 @@ class ArtworksAdminController extends AbstractController
      */
     public function index():string
     {
-        // récupération des catégories
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
         // récupération des oeuvres
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectArtworks();
@@ -40,7 +37,39 @@ class ArtworksAdminController extends AbstractController
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
             'active' => self::ACTIVE,
             'artworks'=> $artworks,
-            'categories'=>$categories,
             ]);
+    }
+
+    public function delete():string
+    {
+        $artworkManager = new ArtworkManager();
+
+        if (!empty($_GET['act']) && $_GET['act']=='delete' && (!empty($_POST['idArtwork']))) {
+            $idArtwork = intval($_POST['idArtwork']);
+            $step=$_GET['act'];
+
+            // récupération de l'oeuvre à supprimer
+            $artwork = $artworkManager->selectArtwork($idArtwork);
+
+            return $this->twig->render('/ArtworksAdmin/index.html.twig', [
+                'active' => self::ACTIVE,
+                'artwork' => $artwork,
+                'step' => $step,
+                ]);
+        } elseif (!empty($_GET['act']) && $_GET['act']=='confirmDelete' && (!empty($_POST['idArtwork']))) {
+            $idArtwork = intval($_POST['idArtwork']);
+            $picture = htmlentities($_POST['pictureArtwork']);
+            $step = $_GET['act'];
+            // suppression de l'oeuvre
+            $artworkManager->deleteArtwork($idArtwork, $picture);
+
+            $artworks = $artworkManager->selectArtworks();
+
+            return $this->twig->render('/ArtworksAdmin/index.html.twig', [
+                'active' => self::ACTIVE,
+                'artworks'=> $artworks,
+                'step' => $step
+            ]);
+        }
     }
 }
