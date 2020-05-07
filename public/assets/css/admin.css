@@ -1,0 +1,14 @@
+.leftNavBar{
+    height: 45vh;
+}
+.leftNavLinks {
+    justify-content: space-between;
+    margin-top: 15px;
+    height: 100%;
+}
+.leftNavLinks a{
+    margin-top: 20px;
+}
+section{
+    padding-top: 20px;
+}

@@ -9,6 +9,8 @@
 
 namespace App\Model;
 
+use DateTime;
+
 /**
  *
  */
@@ -35,5 +37,21 @@ class BiographyManager extends AbstractManager
     public function selectAllBioByDate(): array
     {
         return $this->pdo->query('SELECT * FROM ' . $this->table . ' ORDER BY `date` ASC')->fetchAll();
+    }
+
+
+    /**
+     * @param string $year
+     * @param string $biography
+     * @return bool
+     */
+    public function insert(string $year, string $biography): bool
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("
+INSERT INTO " . self::TABLE . " (`date`, `info`) VALUES (:date, :info)");
+        $statement->bindValue('date', $year, \PDO::PARAM_STR);
+        $statement->bindValue('info', $biography, \PDO::PARAM_STR);
+        return $statement->execute();
     }
 }

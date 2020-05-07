@@ -11,12 +11,27 @@ class ArtworkManager extends AbstractManager
         parent::__construct(self::TABLE);
     }
 
-    public function selectArtworks($categoryArtwork = null):array
+    public function selectArtworks(int $categoryArtwork = null):array
     {
-        $statement='SELECT * FROM ' . $this->table . ' a JOIN works_category c 
-        ON a.category_id=c.id' . ($categoryArtwork !=null ? ' WHERE c.id=' . $categoryArtwork : '' );
-        $artworks = $this->pdo->query($statement)->fetchAll();
+        $query='SELECT *, a.id as idArtwork FROM ' . $this->table . ' a JOIN works_category c 
+        ON a.category_id=c.id'
+            . ($categoryArtwork !==null ? ' WHERE c.id=:categoryArtwork' : '' );
+        $statement =$this->pdo->prepare($query);
+        $statement->bindValue(':categoryArtwork', $categoryArtwork, \PDO::PARAM_INT);
+        $statement->execute();
+        $artworks = $statement->fetchAll();
+
         return $artworks;
+    }
+    public function selectArtwork(int $idArtwork = null)
+    {
+        $query='SELECT *, a.id as idArtwork FROM ' . $this->table . ' a JOIN works_category c 
+        ON a.category_id=c.id WHERE a.id=:idArtwork';
+        $statement =$this->pdo->prepare($query);
+        $statement->bindValue(':idArtwork', $idArtwork, \PDO::PARAM_INT);
+        $statement->execute();
+        $artwork = $statement->fetch();
+        return $artwork;
     }
 
     public function selectCarousel(): array

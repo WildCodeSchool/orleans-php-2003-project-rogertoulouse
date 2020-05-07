@@ -1,0 +1,40 @@
+{% extends 'Admin/index.html.twig' %}
+
+{% block admin %}
+    <div class="adminHome">
+        <table>
+            <thead>
+            <tr>
+                <td class="id">ID</td>
+                <td>Titre</td>
+                <td>Desc</td>
+                <td>Desc. Bouton</td>
+                <td>Lien Bouton</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for new in news %}
+                <tr>
+                    <td class="id">{{ new.id }}</td>
+                    <td>{{ new.titre }}</td>
+                    <td>{{ new.desc }}</td>
+                    <td>{{ new.button }}</td>
+                    <td>{{ new.button_link }}</td>
+                    <td class="admHomeLink">
+                        <div>
+                            <a href="/HomeAdmin/add/">AJOUTER</a>
+                        </div>
+                        <div>
+                            <a href="/HomeAdmin/edit/{{ new.id }}">MODIFIER</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+
+
