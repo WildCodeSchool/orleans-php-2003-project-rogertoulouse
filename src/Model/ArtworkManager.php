@@ -33,13 +33,12 @@ class ArtworkManager extends AbstractManager
         $artwork = $statement->fetch();
         return $artwork;
     }
-    public function deleteArtwork(int $idArtwork, string $picture):void
+    public function deleteArtwork(int $idArtwork):void
     {
         $query='DELETE FROM ' . $this->table . ' WHERE id=:idArtwork;';
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':idArtwork', $idArtwork, \PDO::PARAM_INT);
         $statement->execute();
-        unlink('assets/upload/'.$picture);
     }
 
     public function selectCarousel(): array

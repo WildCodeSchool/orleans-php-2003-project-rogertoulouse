@@ -64,3 +64,20 @@
     text-align: center;
     background-color: var(--color-error);
 }
+.confSuppr {
+    display: none;
+    top:0px;
+    margin-left: -150px;
+    left: 50%;
+    color: var(--color-light);
+    position:absolute;
+    opacity: 0.9;
+    background-color: var(--color-main);
+    padding-top: 5px;
+    width: 300px;
+    height: 110px;
+    text-align: center;
+}
+td form input{
+    width: 100%;
+}
