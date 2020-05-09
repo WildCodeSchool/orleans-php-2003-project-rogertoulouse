@@ -48,20 +48,19 @@ class ArtworksAdminController extends AbstractController
         if (!empty($_POST['idArtwork'])) {
             $idArtwork = intval($_POST['idArtwork']);
 
-        // récupération des catégories
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
-        // récupération des oeuvres
-        $artworkManager = new ArtworkManager();
-        $artwork = $artworkManager->selectArtwork($idArtwork);
-        return $this->twig->render('/ArtworksAdmin/update.html.twig', [
+            // récupération des catégories
+            $categoryManager = new CategoryManager();
+            $categories = $categoryManager->selectAllCategories();
+            // récupération des oeuvres
+            $artworkManager = new ArtworkManager();
+            $artwork = $artworkManager->selectArtwork($idArtwork);
+            return $this->twig->render('/ArtworksAdmin/update.html.twig', [
             'active' => self::ACTIVE,
             'artwork'=> $artwork,
             'categories'=>$categories,
-        ]);
+            ]);
         } else {
             header('location:../');
-            exit();
         }
     }
 }
