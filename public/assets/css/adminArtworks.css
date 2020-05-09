@@ -59,3 +59,21 @@
     width: 100%;
     background-color: var(--color-main);
 }
+/* update */
+.upd_form_vertical{
+    margin: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.updateArtworks .bloc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.updateArtworks .bloc_img{
+}
+.updateArtworks .bloc_infos{
+}
+.updateArtworks .description{
+}

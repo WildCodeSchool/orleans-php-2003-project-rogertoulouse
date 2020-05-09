@@ -1,0 +1,59 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    <div class="updateArtworks">
+
+        <form id="updateArtwork" method="post" action="ArtworkAdmin/Index">
+            <div class="upd_form_vertical">
+                <div class="bloc">
+                    <div class="bloc_infos col-4">
+                        <div>
+                            <input id="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                                <div><label for="name">Nom de l'oeuvre</label></div>
+                            <input id="name" name="name" type="text" value="{{ artwork.name }}" required>
+                        </div>
+                        <div>
+                            <div><label for="category">Catégorie</label></div>
+                            <select name="category" id="category">
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}" {% if (category.id==artwork.category_id) %} selected {% endif %}>
+                                        {{ category.category }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <label for="carousel">Carousel : </label>
+                            <input type="checkbox" id="carousel" name="carousel" {% if (artwork.carousel==true) %} checked{% endif %}>
+                        </div>
+                        <div>
+                            <label for="date">Année de l'oeuvre : </label>
+                            <input id="date" name="date" type="text" style="width:50px" value="{{ artwork.date|date('Y') }}" required>
+                        </div>
+                        <div>
+                            <div><label for="more_info">L'info en plus : </label></div>
+                            <textarea id="more_info" name="more_info" rows="3" spellcheck="true">{{ artwork.more_info }}</textarea>
+                        </div>
+                        <div>
+                            <div><label for="size">La taille de l'oeuvre : </label></div>
+                            <input id="size" name="size" type="text" value="{{ artwork.size }}" required>
+                        </div>
+                    </div>
+                    <div class="bloc_img col-4">
+                        <img src="/assets/upload/{{ artwork.image }}" alt="">
+                    </div>
+                <div class="description">
+                    <div><label for="description">Description de l'oeuvre : </label></div>
+                    <textarea style="width: 550px" id="description" name="description" rows="5" spellcheck="true">{{ artwork.description }}</textarea>
+                </div>
+                <button type="submit" class="btn">MODIFIER</button>
+            </div>
+        </form>
+
+
+                {% if artwork.carousel == 1 %}
+                {% endif %}
+
+
+
+    </div>
+{% endblock %}

@@ -34,10 +34,16 @@
             <td>{{ artwork.size }}+</td>
             <td class="admArtLink">
                 <div>
-                    <a href="">MODIFIER</a>
+                    <form action="/ArtworksAdmin/update/?act=update" method="post">
+                        <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                        <input type="submit" value="MODIFIER" class="btn">
+                    </form>
                 </div>
                 <div>
-                    <a href="">SUPPRIMER</a>
+                    <form action="/ArtworksAdmin/delete/?act=delete" method="post">
+                        <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                        <input type="submit" value="SUPPRIMER" class="btn">
+                    </form>
                 </div>
             </td>
         </tr>
