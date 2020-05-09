@@ -30,9 +30,6 @@ class ArtworksAdminController extends AbstractController
      */
     public function index():string
     {
-        // récupération des catégories
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
         // récupération des oeuvres
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectArtworks();
@@ -40,9 +37,9 @@ class ArtworksAdminController extends AbstractController
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
             'active' => self::ACTIVE,
             'artworks'=> $artworks,
-            'categories'=>$categories,
             ]);
     }
+
     public function update():string
     {
         if (!empty($_POST['idArtwork'])) {
@@ -55,12 +52,35 @@ class ArtworksAdminController extends AbstractController
             $artworkManager = new ArtworkManager();
             $artwork = $artworkManager->selectArtwork($idArtwork);
             return $this->twig->render('/ArtworksAdmin/update.html.twig', [
-            'active' => self::ACTIVE,
-            'artwork'=> $artwork,
-            'categories'=>$categories,
+                'active' => self::ACTIVE,
+                'artwork' => $artwork,
+                'categories' => $categories,
             ]);
         } else {
             header('location:../');
+        }
+    }
+
+
+    public function delete():string
+    {
+        $artworkManager = new ArtworkManager();
+
+        if (!empty($_POST['idArtwork'])) {
+            $idArtwork = intval($_POST['idArtwork']);
+            $picture = htmlentities($_POST['pictureArtwork']);
+            // suppression de l'oeuvre
+            $artworkManager->deleteArtwork($idArtwork);
+            unlink('assets/upload/'.$picture);
+            $message="La suppression de l'oeuvre a bien été effectuée.";
+
+            $artworks = $artworkManager->selectArtworks();
+
+            return $this->twig->render('/ArtworksAdmin/index.html.twig', [
+                'active' => self::ACTIVE,
+                'artworks'=> $artworks,
+                'message' => $message
+            ]);
         }
     }
 }

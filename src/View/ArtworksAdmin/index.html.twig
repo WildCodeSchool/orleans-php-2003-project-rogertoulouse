@@ -1,6 +1,11 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
-    <div class="adminArtworks">
+<div class="adminArtworks">
+    {% if message is not empty %}
+    <div>
+        {{ message }}
+    </div>
+    {% endif %}
     <table>
         <thead>
             <tr>
@@ -17,38 +22,44 @@
             </tr>
         </thead>
         <tbody>
-    {% for artwork in artworks %}
-        <tr>
-            <td class="id">{{ artwork.idArtwork }}</td>
-            <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
-            <td>{{ artwork.name }}</td>
-            <td>{{ artwork.category }}</td>
-            <td>{{ artwork.date|date("Y") }}</td>
-            <td>
-                {% if artwork.carousel == 1 %}
-                    <div class="carousel"><i class="fas fa-check"></i></div>
-                {% endif %}
-            </td>
-            <td>{{ artwork.description }}</td>
-            <td>{{ artwork.more_info }}</td>
-            <td>{{ artwork.size }}+</td>
-            <td class="admArtLink">
-                <div>
-                    <form action="/ArtworksAdmin/update/?act=update" method="post">
-                        <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                        <input type="submit" value="MODIFIER" class="btn">
-                    </form>
-                </div>
-                <div>
-                    <form action="/ArtworksAdmin/delete/?act=delete" method="post">
-                        <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                        <input type="submit" value="SUPPRIMER" class="btn">
-                    </form>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
+        {% for artwork in artworks %}
+            <tr>
+                <td class="id">{{ artwork.idArtwork }}</td>
+                <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
+                <td>{{ artwork.name }}</td>
+                <td>{{ artwork.category }}</td>
+                <td>{{ artwork.date|date("Y") }}</td>
+                <td>
+                    {% if artwork.carousel == 1 %}
+                        <div class="carousel"><i class="fas fa-check"></i></div>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="relative">
+                        <div>{{ artwork.description }}</div>
+                    </div>
+                </td>
+                <td>{{ artwork.more_info }}</td>
+                <td>{{ artwork.size }}</td>
+                <td>
+                    <div>
+                        <form action="/ArtworksAdmin/update/" method="post">
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="submit" value="MODIFIER" class="btn">
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/ArtworksAdmin/delete/" method="post">
+                            <input type="text" name="action" value="delete" hidden>
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="text" name="pictureArtwork" value="{{ artwork.image }}" hidden>
+                            <input type="submit" value="SUPPRIMER" class="btn">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 {% endblock %}
