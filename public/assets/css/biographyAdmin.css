@@ -96,3 +96,7 @@ div.error{
 div.column-span{
     width: 100%;
 }
+.confirm{
+    padding-top: 200px;
+    text-align: center;
+}

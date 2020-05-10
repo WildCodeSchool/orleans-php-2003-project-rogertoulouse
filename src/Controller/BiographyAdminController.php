@@ -92,6 +92,27 @@ class BiographyAdminController extends AbstractController
             'data' => $dataByYears,
             'errors' => $errors]);
     }
+
+    /**
+     * Display item creation page
+     *
+     * @return string
+     * @throws Exception
+     */
+    public function delete(int $id)
+    {
+        $biographyManager = new BiographyManager();
+        $biography = $biographyManager->selectOneById($id);
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $biographyManager->delete($id);
+            header('Location:/BiographyAdmin/Index');
+        }
+        return $this->twig->render('/BiographyAdmin/_delete.html.twig', [
+            'active' => self::ACTIVE,
+            'data' => $biography,
+            'errors' => $errors]);
+    }
     private function populateData()
     {
         $data = [];
