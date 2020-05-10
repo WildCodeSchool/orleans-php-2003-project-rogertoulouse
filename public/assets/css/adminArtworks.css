@@ -69,7 +69,7 @@
 .updateArtworks .bloc{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .updateArtworks .bloc_img{
 }
@@ -98,4 +98,16 @@
 }
 td form input{
     width: 100%;
+}
+.description textarea{
+    width: 100%;
+}
+input, textarea, select {
+    background-color: var(--color-light);
+    border-style: solid;
+    border-color: var(--color-main);
+    border-width: 0px;
+}
+.updateArtworks label{
+    padding-top: 8px;
 }

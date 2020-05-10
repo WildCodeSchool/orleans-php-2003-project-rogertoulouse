@@ -2,17 +2,18 @@
 {% block admin %}
     <div class="updateArtworks">
 
-        <form id="updateArtwork" method="post" action="ArtworkAdmin/Index">
+        <form id="updateArtwork" method="post" action="/ArtworksAdmin/index/">
+            <input id="action" name="action" value="update" hidden>
+            <input id="idArtwork" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
             <div class="upd_form_vertical">
                 <div class="bloc">
                     <div class="bloc_infos col-4">
                         <div>
-                            <input id="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                                <div><label for="name">Nom de l'oeuvre</label></div>
+                            <div><label for="name">Nom de l'oeuvre</label></div>
                             <input id="name" name="name" type="text" value="{{ artwork.name }}" required>
                         </div>
                         <div>
-                            <div><label for="category">Catégorie</label></div>
+                            <label for="category">Catégorie</label>
                             <select name="category" id="category">
                                 {% for category in categories %}
                                     <option value="{{ category.id }}" {% if (category.id==artwork.category_id) %} selected {% endif %}>
@@ -35,25 +36,22 @@
                         </div>
                         <div>
                             <div><label for="size">La taille de l'oeuvre : </label></div>
-                            <input id="size" name="size" type="text" value="{{ artwork.size }}" required>
+                            <input id="size" name="size" type="text" value="{{ artwork.size }}">
                         </div>
                     </div>
                     <div class="bloc_img col-4">
-                        <img src="/assets/upload/{{ artwork.image }}" alt="">
+                        <input id="picture" name="picture" type="text" value="{{ artwork.image }}" hidden>
+                        <img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}">
                     </div>
+                </div>
                 <div class="description">
                     <div><label for="description">Description de l'oeuvre : </label></div>
-                    <textarea style="width: 550px" id="description" name="description" rows="5" spellcheck="true">{{ artwork.description }}</textarea>
+                    <textarea id="description" name="description" rows="5" spellcheck="true">{{ artwork.description }}</textarea>
                 </div>
                 <button type="submit" class="btn">MODIFIER</button>
             </div>
         </form>
-
-
                 {% if artwork.carousel == 1 %}
                 {% endif %}
-
-
-
     </div>
 {% endblock %}

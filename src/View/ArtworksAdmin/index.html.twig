@@ -1,10 +1,12 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
 <div class="adminArtworks">
-    {% if message is not empty %}
-    <div>
-        {{ message }}
-    </div>
+    {% if messages is not empty %}
+        {% for message in messages %}
+            <div class="message">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
     <table>
         <thead>
@@ -50,7 +52,6 @@
                     </div>
                     <div>
                         <form action="/ArtworksAdmin/delete/" method="post">
-                            <input type="text" name="action" value="delete" hidden>
                             <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
                             <input type="text" name="pictureArtwork" value="{{ artwork.image }}" hidden>
                             <input type="submit" value="SUPPRIMER" class="btn">
