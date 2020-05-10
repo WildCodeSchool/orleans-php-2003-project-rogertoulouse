@@ -1,0 +1,51 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    <div class="updateArtworks">
+
+        <form id="updateArtwork" method="post" action="/ArtworksAdmin/index/">
+            <input id="action" name="action" value="add" hidden>
+            <div class="upd_form_vertical">
+                <div class="bloc">
+                    <div class="bloc_infos col-4">
+                        <div>
+                            <div><label for="name">Nom de l'oeuvre</label></div>
+                            <input id="name" name="name" type="text" value="Nom de l'oeuvre" required>
+                        </div>
+                        <div>
+                            <label for="category">Catégorie</label>
+                            <select name="category" id="category">
+                                {% for category in categories %}
+                                    <option value="{{ category.id }}" {% if (category.id==artwork.category_id) %} selected {% endif %}>
+                                        {{ category.category }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <label for="carousel">Carousel : </label>
+                            <input type="checkbox" id="carousel" name="carousel">
+                        </div>
+                        <div>
+                            <label for="date">Année de l'oeuvre : </label>
+                            <input id="date" name="date" type="text" style="width:50px" required>
+                        </div>
+                        <div>
+                            <div><label for="more_info">L'info en plus : </label></div>
+                            <textarea id="more_info" name="more_info" rows="3" spellcheck="true"></textarea>
+                        </div>
+                        <div>
+                            <div><label for="size">La taille de l'oeuvre : </label></div>
+                            <input id="size" name="size" type="text">
+                        </div>
+                        <div>
+                            <label for="description">Description de l'oeuvre : </label>
+                        </div>
+                        <div>
+                            <textarea id="description" name="description" rows="5" spellcheck="true"></textarea>
+                        </div>
+                </div>
+                <button type="submit" class="btn">AJOUTER</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

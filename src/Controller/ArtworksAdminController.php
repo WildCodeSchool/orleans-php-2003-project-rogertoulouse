@@ -43,4 +43,15 @@ class ArtworksAdminController extends AbstractController
             'categories'=>$categories,
             ]);
     }
+    public function add():string
+    {
+        // récupération des catégories
+        $categoryManager = new CategoryManager();
+        $categories = $categoryManager->selectAllCategories();
+
+        return $this->twig->render('/ArtworksAdmin/add.html.twig', [
+            'active' => self::ACTIVE,
+            'categories'=>$categories,
+        ]);
+    }
 }
