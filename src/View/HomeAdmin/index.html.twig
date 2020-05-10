@@ -1,22 +1,40 @@
-{% extends 'layout.html.twig' %}
+{% extends 'Admin/index.html.twig' %}
 
-{% block content %}
-    <div class="homeadmin">
-        <div class="container">
-            <h1>Administration page d'accueil</h1>
-        </div>
-        <h2>News</h2>
-        <ul>
-            <div>
-                {% for new in news %}
-                    <li class="list-group"><a href="/HomeAdmin/show/{{ new.id }}">{{ new.title }}</a></li>
-                {% else %}
-                    <li>Nothing to display</li>
-                {% endfor %}
-            </div>
-        </ul>
-        <a href="/HomeAdmin/add">Ajouter</a>
+{% block admin %}
+    <div class="adminHome">
+        <table>
+            <thead>
+            <tr>
+                <td class="id">ID</td>
+                <td>Titre</td>
+                <td>Desc</td>
+                <td>Desc. Bouton</td>
+                <td>Lien Bouton</td>
+                <td>Action</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for new in news %}
+                <tr>
+                    <td class="id">{{ new.id }}</td>
+                    <td>{{ new.titre }}</td>
+                    <td>{{ new.desc }}</td>
+                    <td>{{ new.button }}</td>
+                    <td>{{ new.button_link }}</td>
+                    <td class="admHomeLink">
+                        <div>
+                            <a href="/HomeAdmin/add/">AJOUTER</a>
+                        </div>
+                        <div>
+                            <a href="/HomeAdmin/edit/{{ new.id }}">MODIFIER</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}
+
 
 
