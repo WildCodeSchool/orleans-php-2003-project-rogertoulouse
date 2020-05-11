@@ -70,19 +70,19 @@ class ArtworksAdminController extends AbstractController
         $categories = $categoryManager->selectAllCategories();
 
         $artworkManager = new ArtworkManager();
-        $messages=[];
+        $messages = [];
 
-        if (!empty($_POST['action'])=='update') {
-            $artwork=[];
+        if (!empty($_POST['action']) == 'update') {
+            $artwork = [];
             //validation des données
             foreach ($_POST as $key => $value) {
-                $artwork[$key]= trim($value);
+                $artwork[$key] = trim($value);
             }
             $artwork['date'] = $artwork['date'] . '-01-01';
             if (isset($artwork['carousel'])) {
-                $artwork['carousel']=true;
+                $artwork['carousel'] = true;
             } else {
-                $artwork['carousel']=false;
+                $artwork['carousel'] = false;
             }
             $messages = $this->validData($artwork, $categories);
             if (empty($messages)) {
@@ -109,17 +109,17 @@ class ArtworksAdminController extends AbstractController
             ]);
         }
     }
-  
-    public function delete() 
+
+    public function delete()
     {
         $artworkManager = new ArtworkManager();
-      
+
         if (!empty($_POST['idArtwork'])) {
             $idArtwork = intval($_POST['idArtwork']);
-            $artwork= $artworkManager->selectArtwork($idArtwork);
+            $artwork = $artworkManager->selectArtwork($idArtwork);
             // suppression de l'oeuvre
             $artworkManager->deleteArtwork($idArtwork);
-            unlink('assets/upload/'.$artwork['image']);
+            unlink('assets/upload/' . $artwork['image']);
 
             header('location:/ArtworksAdmin/index');
         }
