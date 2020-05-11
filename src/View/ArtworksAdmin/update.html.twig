@@ -1,7 +1,6 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
     <div class="updateArtworks">
-
         <form id="updateArtwork" method="post" action="/ArtworksAdmin/index/">
             <input id="action" name="action" value="update" hidden>
             <input id="idArtwork" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
