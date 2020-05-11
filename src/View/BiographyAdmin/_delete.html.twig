@@ -1,0 +1,19 @@
+{% extends 'BiographyAdmin/index.html.twig' %}
+{% block AditionalContent %}
+    <form action="/BiographyAdmin/Delete/{{ id }}" method="post" id="formDelete">
+        <input type="hidden" name="id" value="{{ id }}">
+    </form>
+    <tr class="cell deleter" id="{{ biography.id }}">
+        <th class="id" scope="row">{{ biography.id }}</th>
+        <td>{{ year }}</td>
+        <td class="cellinfo">{{ biography.info }}</td>
+        <td class="admArtLink">
+        </td>
+    </tr>
+    <tr class="error">
+        <td colspan="4">Voulez-vous vraiment supprimer cette biographie ?</td>
+    </tr>
+    <tr class="error">
+        <td colspan="4"><button class="btn" form="formDelete">OUI</button><a class="btn" href="/BiographyAdmin/Index">NON</a></td>
+    </tr>
+{% endblock %}
