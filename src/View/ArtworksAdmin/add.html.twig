@@ -1,6 +1,6 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
-    <div class="updateArtworks">
+    <section class="updateArtworks container">
         <form method="post" enctype="multipart/form-data">
             <div>
                 <label for="name">Nom de l'oeuvre : </label>
@@ -15,7 +15,7 @@
                 <input type="text" name="size" id="size" ">
             </div>
             <div>
-                <label for="more_info">Info Plus : </label>
+                <label for="more_info">Info en plus : </label>
                 <input type="more_info" name="more_info" id="more_info">
             </div>
             <div>
@@ -36,5 +36,5 @@
             </div>
             <button class="btn btn-primary mt-5">Valider</button>
         </form>
-    </div>
+    </section>
 {% endblock %}

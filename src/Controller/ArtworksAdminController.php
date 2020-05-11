@@ -48,12 +48,12 @@ class ArtworksAdminController extends AbstractController
         // récupération des catégories
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
-        $name='';
         if (isset($_FILES['image']) && isset($_POST['name'])) {
-            $artwork=$_POST;
-            $uploadDir = 'assets/upload/';
+            $artwork = $_POST;
+            $artwork['date']=  $artwork['date'] . "-01-01";
+           /* $uploadDir = 'assets/upload/';
             $errorMessage = array();
-            $typeFileAllowed=['image/jpg','image/jpeg','image/png','image/gif',];
+            $typeFileAllowed=['image/jpg','image/jpeg','image/png','image/gif'];
 
             if ($_FILES['image']['size']>1000000) {
                 $errorMessage[]="La taille maximal du fichier ne doit pas dépasser 1Mo.";
@@ -63,17 +63,22 @@ class ArtworksAdminController extends AbstractController
                 $errorMessage[]="Seuls les images .jpg, .jpeg, .png, .gif sont autorisés.";
                 echo "extension";
             }
+            if (empty($artwork['name']) || empty($artwork['date'])
+                || empty($artwork['category']) || empty($artwork['description'])) {
+                $errorMessage = 'Les champs nom, date, categorie et description sont obligatoires.';
+            }
             if (empty($errorMessage)) {
                 $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-                $name = uniqid() . "." . $extension;
-                $uploadFile = $uploadDir . $name;
+                $fileName = uniqid() . "." . $extension;
+                $uploadFile = $uploadDir . $fileName;
                 move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
-            }
-            $artwork['image']=$name;
-            $artworkManager = new ArtworkManager();
-            $artworkManager->addArtwork($artwork);
-            //header('location:artworksAdmin/index/');
+*/
+                //$artwork['image']=$fileName;
+                $artworkManager = new ArtworkManager();
+                $artworkManager->addArtwork($artwork);
         }
+        //header('location:artworksAdmin/index/');
+        //}
 
         return $this->twig->render('/ArtworksAdmin/add.html.twig', [
             'active' => self::ACTIVE,

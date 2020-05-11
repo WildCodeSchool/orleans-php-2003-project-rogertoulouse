@@ -45,7 +45,6 @@ class ArtworkManager extends AbstractManager
         $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);
         $statement->bindValue(':size', $artwork['size'], \PDO::PARAM_STR);
         $statement->bindValue(':description', $artwork['description'], \PDO::PARAM_STR);
-        var_dump($artwork);
         $statement->execute();
     }
 
