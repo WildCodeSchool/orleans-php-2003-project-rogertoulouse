@@ -33,6 +33,21 @@ class ArtworkManager extends AbstractManager
         $artwork = $statement->fetch();
         return $artwork;
     }
+    public function addArtwork(array $artwork)
+    {
+        $query='INSERT INTO ' . $this->table . ' (name, image, category_id, description, size, more_info) 
+        VALUES (:name, :image, :category, :description, :size, :more_info)';
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':name', $artwork['name'], \PDO::PARAM_STR);
+        $statement->bindValue(':image', $artwork['image'], \PDO::PARAM_STR);
+        $statement->bindValue(':category', $artwork['category_id'], \PDO::PARAM_STR);
+        $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);
+        $statement->bindValue(':size', $artwork['size'], \PDO::PARAM_STR);
+        $statement->bindValue(':description', $artwork['description'], \PDO::PARAM_STR);
+        var_dump($artwork);
+        $statement->execute();
+    }
 
     public function selectCarousel(): array
     {
