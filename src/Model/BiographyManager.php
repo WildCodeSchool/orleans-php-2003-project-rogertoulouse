@@ -48,8 +48,20 @@ class BiographyManager extends AbstractManager
     public function insert(string $year, string $biography): bool
     {
         // prepared request
-        $statement = $this->pdo->prepare("
-INSERT INTO " . self::TABLE . " (`date`, `info`) VALUES (:date, :info)");
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE . " (`date`, `info`) 
+                                                    VALUES (:date, :info)");
+        $statement->bindValue('date', $year, \PDO::PARAM_STR);
+        $statement->bindValue('info', $biography, \PDO::PARAM_STR);
+        return $statement->execute();
+    }
+
+    public function update(int $id, string $year, string $biography): bool
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " 
+                                                    SET `date` = :date, `info` = :info 
+                                                    WHERE `id` = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->bindValue('date', $year, \PDO::PARAM_STR);
         $statement->bindValue('info', $biography, \PDO::PARAM_STR);
         return $statement->execute();

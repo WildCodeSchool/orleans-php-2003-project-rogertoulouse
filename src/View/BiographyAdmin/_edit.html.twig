@@ -1,0 +1,28 @@
+{% extends 'BiographyAdmin/index.html.twig' %}
+{% block edit %}
+    <form action="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}" method="post" id="formEdit"></form>
+    <tr>
+    </tr>
+    <tr class="cell" id="{{ biography.id }}">
+        <th class="id" scope="row">{{ biography.id }}</th>
+        <td><form id="formEdit"><label for="year" hidden></label><input type="number" name="year" id="year" value="{{ year }}" form="formEdit"></form></td>
+        <td><form class="cellinfo" id="formEdit"><label for="biography" hidden></label><textarea name="biography" id="biography" form="formEdit">{{ biography.info }}</textarea></form></td>
+        <td class="admArtLink">
+            <input type="hidden" name="control" value="add" id="add">
+            <button class="btn" form="formEdit"><i class="fas fa-check"></i></button>
+            <a class="btn" href="/BiographyAdmin/Index"><i class="fas fa-times"></i></a>
+        </td>
+    </tr>
+    {% if errors.year is defined %}
+        {% for error in errors.year %}
+            <tr>
+                <td colspan="4">{{ error }}</td>
+            </tr>
+        {% endfor %}
+        {% for error in errors.biography %}
+            <tr>
+                <td colspan="4">{{ error }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
