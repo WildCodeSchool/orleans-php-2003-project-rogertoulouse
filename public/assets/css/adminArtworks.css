@@ -51,7 +51,6 @@
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
-    height: 200px;
     width: 100px;
 }
 .adminArtworks .admArtLink div{

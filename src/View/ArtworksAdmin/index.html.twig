@@ -52,8 +52,8 @@
                     </div>
                     <div>
                         <form action="/ArtworksAdmin/delete/" method="post">
-                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="text" name="pictureArtwork" value="{{ artwork.image }}" hidden>
+                            <input name="action" value="delete" hidden>
+                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
                             <input type="submit" value="SUPPRIMER" class="btn">
                         </form>
                     </div>

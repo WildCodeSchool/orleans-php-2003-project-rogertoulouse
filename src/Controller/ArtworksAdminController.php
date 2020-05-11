@@ -62,6 +62,7 @@ class ArtworksAdminController extends AbstractController
         return $messages;
     }
 
+
     public function update()
     {
         //recup categories
@@ -106,6 +107,21 @@ class ArtworksAdminController extends AbstractController
                 'categories' => $categories,
                 'messages' => $messages
             ]);
+        }
+    }
+  
+    public function delete() 
+    {
+        $artworkManager = new ArtworkManager();
+      
+        if (!empty($_POST['idArtwork'])) {
+            $idArtwork = intval($_POST['idArtwork']);
+            $artwork= $artworkManager->selectArtwork($idArtwork);
+            // suppression de l'oeuvre
+            $artworkManager->deleteArtwork($idArtwork);
+            unlink('assets/upload/'.$artwork['image']);
+
+            header('location:/ArtworksAdmin/index');
         }
     }
 }
