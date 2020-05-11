@@ -6,6 +6,7 @@
  * Time: 20:52
  * PHP version 7
  */
+
 namespace App\Model;
 
 use App\Model\Connection;
@@ -54,7 +55,7 @@ abstract class AbstractManager
     /**
      * Get one row from database by ID.
      *
-     * @param  int $id
+     * @param int $id
      *
      * @return array
      */
@@ -66,23 +67,11 @@ abstract class AbstractManager
      * @param int $offset
      * @return array
      */
-    public function selectOneById(int $id, int $limit = 0, int $offset = 0)
+    public function selectOneById(int $id)
     {
         // prepared request
-        if ($limit > 0 && $offset > 0) {
-            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id LIMIT :limit, :offset");
-            $statement->bindValue('id', $id, \PDO::PARAM_INT);
-            $statement->bindValue('limit', $limit, \PDO::PARAM_INT);
-            $statement->bindValue('offset', $offset, \PDO::PARAM_INT);
-        }
-        if ($limit > 0 && $offset == 0) {
-            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id LIMIT :limit");
-            $statement->bindValue('id', $id, \PDO::PARAM_INT);
-            $statement->bindValue('limit', $limit, \PDO::PARAM_INT);
-        } else {
-            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-            $statement->bindValue('id', $id, \PDO::PARAM_INT);
-        }
+        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch();
     }

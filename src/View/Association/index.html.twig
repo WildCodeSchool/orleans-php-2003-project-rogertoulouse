@@ -16,7 +16,7 @@
         <div class="row justify-content-around">
             <div class="card_text col-md-7">
                 <div class="card-body assoc_text">
-                    <p>{{ association.text|nl2br }}</p>
+                    <p>{{ association.0.text|nl2br }}</p>
                 </div>
             </div>
             <div class="col-md-2 roger ">
@@ -24,7 +24,7 @@
                     <div class="card-body img-roger">
                         <h3 class="card-title">Roger Toulouse</h3>
                     </div>
-                    <img src="/assets/upload/{{ association.image }}" class="card-img-top"
+                    <img src="/assets/upload/{{ association.0.image }}" class="card-img-top"
                          alt="Photo de Roger toulouse">
                 </div>
             </div>
@@ -41,9 +41,9 @@
             <div class="card  col-md-3">
                 <div class="card-body contact-card">
                     <h3 class="card-title contact-roger">contact</h3>
-                    <p class="card-text"><i class="fas fa-phone"></i>  {{ association.numberphone }}</p>
-                    <p class="card-text"><i class="fas fa-at"></i>  {{ association.email }}</p>
-                    <p class="card-text"><i class="fas fa-map-marker-alt"></i>  {{ association.adress }}</p>
+                    <p class="card-text"><i class="fas fa-phone"></i>  {{ association.0.numberphone }}</p>
+                    <p class="card-text"><i class="fas fa-at"></i>  {{ association.0.email }}</p>
+                    <p class="card-text"><i class="fas fa-map-marker-alt"></i>  {{ association.0.adress }}</p>
                 </div>
             </div>
             <div class="form col-md-4">
