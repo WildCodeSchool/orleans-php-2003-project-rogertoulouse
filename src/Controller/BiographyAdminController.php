@@ -34,7 +34,7 @@ class BiographyAdminController extends AbstractController
      * @throws SyntaxError
      * @throws Exception
      */
-    public function index()
+    public function index(): string
     {
         $dataByYears = $this->populateData();
         return $this->twig->render('/BiographyAdmin/index.html.twig', [
@@ -42,14 +42,13 @@ class BiographyAdminController extends AbstractController
             'data' => $dataByYears]);
     }
 
-
     /**
      * Display item creation page
      *
      * @return string
      * @throws Exception
      */
-    public function add()
+    public function add(): string
     {
         $dataByYears = $this->populateData();
         $errors = [];
@@ -69,31 +68,8 @@ class BiographyAdminController extends AbstractController
         }
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => self::ACTIVE,
-            'data' => $dataByYears,
-            'errors' => $errors]);
+            'data' => $dataByYears]);
     }
-
-    /**
-     * Display item creation page
-     *
-     * @return string
-     * @throws Exception
-     */
-    public function delete(int $id)
-    {
-        $biographyManager = new BiographyManager();
-        $biography = $biographyManager->selectOneById($id);
-        $errors = [];
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $biographyManager->delete($id);
-            header('Location:/BiographyAdmin/Index');
-        }
-        return $this->twig->render('/BiographyAdmin/_delete.html.twig', [
-            'active' => self::ACTIVE,
-            'data' => $biography,
-            'errors' => $errors]);
-    }
-
 
     /**
      * Display item creation page
@@ -103,8 +79,9 @@ class BiographyAdminController extends AbstractController
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
+     * @throws Exception
      */
-    public function edit(int $id)
+    public function edit(int $id): string
     {
         $dataByYears = $this->populateData();
         $errors = [];
@@ -114,6 +91,7 @@ class BiographyAdminController extends AbstractController
             if (!empty($errors) && $errors != '') {
                 return $this->twig->render('/BiographyAdmin/_edit.html.twig', [
                     'active' => self::ACTIVE,
+                    'id' => $id,
                     'data' => $dataByYears,
                     'errors' => $errors]);
             }
@@ -129,7 +107,38 @@ class BiographyAdminController extends AbstractController
             'data' => $dataByYears,
             'errors' => $errors]);
     }
-    private function populateData()
+
+    /**
+     * Display item creation page
+     *
+     * @param int $id
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function delete(int $id): string
+    {
+        $dataByYears = $this->populateData();
+        $biographyManager = new BiographyManager();
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $biographyManager->delete($id);
+            header('Location:/BiographyAdmin/Index');
+        }
+        return $this->twig->render('/BiographyAdmin/_delete.html.twig', [
+            'active' => self::ACTIVE,
+            'id' => $id,
+            'data' => $dataByYears,
+            'errors' => $errors]);
+    }
+
+    /**
+     * Display item creation page
+     *
+     * @return array
+     */
+    private function populateData(): array
     {
         $data = [];
         $biographyManager = new BiographyManager();
@@ -143,6 +152,15 @@ class BiographyAdminController extends AbstractController
         ksort($data);
         return $data;
     }
+
+    /**
+     * Display item creation page
+     *
+     * @param string $year
+     * @param string $biography
+     * @return array
+     * @throws Exception
+     */
     private function validationSQL(string $year, string $biography): array
     {
         $errors = [];

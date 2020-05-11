@@ -1,31 +1,19 @@
 {% extends 'BiographyAdmin/index.html.twig' %}
-{% block admin %}
-    <section class=" container confirm">
-        <h4>Voulez-vous vraiment supprimer cette biographie ?</h4>
-        <form action="/BiographyAdmin/Delete/{{ data.id }}" method="post">
-            <input type="hidden" name="id" value="{{ data.id }}">
-        <div class="buttons"><button class="btn">OUI</button><a class="btn" href="/BiographyAdmin/Index">NON</a></div>
-        </form>
-    <hr>
-        <div class="resp-table">
-            <div class="resp-table-header">
-                <div class="resp-table-row">
-                    <div class="table-header-cell number">Id</div>
-                    <div class="table-header-cell year">Année</div>
-                    <div class="table-header-cell">Biographie</div>
-                </div>
-            </div>
-        </div>
-        {% block add %}
-        {% endblock %}
-        <div class="resp-table">
-            <div class="resp-table-body">
-                <div class="resp-table-row">
-                    <div class="table-body-head-cell number">{{ data.id }}</div>
-                    <div class="table-body-cell year">{{ data.date|date("Y") }}</div>
-                    <div class="table-body-cell">{{ data.info }}</div>
-                </div>
-            </div>
-        </div>
-    </section>
+{% block AditionalContent %}
+    <form action="/BiographyAdmin/Delete/{{ id }}" method="post" id="formDelete">
+        <input type="hidden" name="id" value="{{ id }}">
+    </form>
+    <tr class="cell deleter" id="{{ biography.id }}">
+        <th class="id" scope="row">{{ biography.id }}</th>
+        <td>{{ year }}</td>
+        <td class="cellinfo">{{ biography.info }}</td>
+        <td class="admArtLink">
+        </td>
+    </tr>
+    <tr class="error">
+        <td colspan="4">Voulez-vous vraiment supprimer cette biographie ?</td>
+    </tr>
+    <tr class="error">
+        <td colspan="4"><button class="btn" form="formDelete">OUI</button><a class="btn" href="/BiographyAdmin/Index">NON</a></td>
+    </tr>
 {% endblock %}

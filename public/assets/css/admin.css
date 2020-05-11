@@ -49,6 +49,9 @@ table thead{
 table tbody tr:nth-child(even){
      background-color: var(--color-light);
 }
+table tbody tr:nth-child(even).error{
+    background-color: var(--color-error);
+}
 table thead{
     background-color: var(--color-main) ;
     color: var(--color-light);
@@ -73,7 +76,16 @@ a:hover{
     background-color: var(--color-main);
 }
 .error{
+    text-align: center;
     color: var(--color-light);
     font-weight: bold;
     background-color: var(--color-error);
+    border-left: var(--color-error) 4px solid;
+    border-right: var(--color-error) 4px solid;
+    border-bottom: var(--color-error) 4px solid;
+}
+.deleter{
+    border-top: var(--color-error) 4px solid;
+    border-left: var(--color-error) 4px solid;
+    border-right: var(--color-error) 4px solid;
 }

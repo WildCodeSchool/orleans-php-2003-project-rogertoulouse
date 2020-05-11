@@ -17,14 +17,12 @@
                 <td colspan="4">{{ error }}</td>
             </tr>
         {% endfor %}
-        <tr>
-        </tr>
+    {% endif %}
+    {% if errors.biography is defined %}
         {% for error in errors.biography %}
             <tr class="error">
                 <td colspan="4">{{ error }}</td>
             </tr>
         {% endfor %}
-        <tr>
-        </tr>
     {% endif %}
 {% endblock %}

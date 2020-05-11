@@ -1,5 +1,5 @@
 {% extends 'BiographyAdmin/index.html.twig' %}
-{% block edit %}
+{% block AditionalContent %}
     <form action="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}" method="post" id="formEdit"></form>
     <tr>
     </tr>
@@ -15,12 +15,14 @@
     </tr>
     {% if errors.year is defined %}
         {% for error in errors.year %}
-            <tr>
+            <tr class="error">
                 <td colspan="4">{{ error }}</td>
             </tr>
         {% endfor %}
+    {% endif %}
+    {% if errors.biography is defined %}
         {% for error in errors.biography %}
-            <tr>
+            <tr class="error">
                 <td colspan="4">{{ error }}</td>
             </tr>
         {% endfor %}

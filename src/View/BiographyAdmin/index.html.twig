@@ -22,7 +22,7 @@
             {% for year, biographies in data %}
                 {% for biography in biographies %}
                     {% if biography.id == id %}
-                        {% block edit %}
+                        {% block AditionalContent %}
                         {% endblock %}
                     {% else %}
                         <tr class="cell" id="{{ biography.id }}">
@@ -31,6 +31,7 @@
                             <td class="cellinfo">{{ biography.info }}</td>
                             <td class="admArtLink">
                                 <a class="btn" href="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-edit"></i></a>
+                                <a class="btn" href="/BiographyAdmin/Delete/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     {% endif %}
