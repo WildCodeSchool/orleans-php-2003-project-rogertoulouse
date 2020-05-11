@@ -46,4 +46,20 @@ class NewsManager extends AbstractManager
             return (int)$this->pdo->lastInsertId();
         }
     }
+
+    public function update(array $new): bool
+    {
+
+        // prepared request
+        $statement = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `title` = :title, 
+         `desc` = :desc, `button` = :button, `button_link` = :button_link WHERE id=:id");
+        $statement->bindValue('id', $new['id'], \PDO::PARAM_INT);
+        $statement->bindValue('title', $new['title'], \PDO::PARAM_STR);
+        $statement->bindValue('desc', $new['desc'], \PDO::PARAM_STR);
+        $statement->bindValue('button', $new['button'], \PDO::PARAM_STR);
+        $statement->bindValue('button_link', $new['button_link'], \PDO::PARAM_STR);
+
+        return $statement->execute();
+
+    }
 }

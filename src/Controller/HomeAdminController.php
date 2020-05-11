@@ -74,4 +74,23 @@ class HomeAdminController extends AbstractController
 
         return $errors ?? [];
     }
+    public function edit(int $id): string
+    {
+        $newsManager = new NewsManager();
+        $new = $newsManager->selectOneById($id);
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $errors = $this->controlNews($data);
+            if (empty($errors)) {
+                $newsManager->update($data);
+                header('Location:/HomeAdmin/index');
+            }
+        }
+        return $this->twig->render('HomeAdmin/edit.html.twig', [
+            'new' => $new,
+            'data' => $data ?? [],
+            'errors' => $errors ?? []
+        ]);
+    }
 }
