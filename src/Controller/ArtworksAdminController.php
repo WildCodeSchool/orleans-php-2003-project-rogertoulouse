@@ -39,6 +39,28 @@ class ArtworksAdminController extends AbstractController
             'artworks' => $artworks,
             ]);
     }
+    public function validData($artwork, $categories)
+    {
+        $messages=[];
+        $sizeLenght=40;
+        $nameLenght=100;
+        $moreInfoLenght=255;
+
+        if (strlen($artwork['name'])>$nameLenght) {
+            $messages[]='Le titre ne peut dépasser ' . $nameLenght . ' caractères.';
+        }
+        if (!in_array($artwork['category'], array_column($categories, 'id'))) {
+            $messages[]='La catégorie n\'est pas valide';
+        }
+        if (strlen($artwork['more_info'])>$moreInfoLenght) {
+            $messages[] = 'La longueur de l\'info en plus doit être inférieure à '
+                . $moreInfoLenght . ' caractères.';
+        }
+        if (strlen($artwork['size'])>$sizeLenght) {
+            $messages[]='Le champ taille ne peut dépasser ' . $sizeLenght . ' caractères.';
+        }
+        return $messages;
+    }
 
     public function update()
     {
@@ -50,29 +72,28 @@ class ArtworksAdminController extends AbstractController
         $messages=[];
 
         if (!empty($_POST['action'])=='update') {
+            $artwork=[];
             //validation des données
-            $artwork=$_POST;
+            foreach ($_POST as $key => $value) {
+                $artwork[$key]= trim($value);
+            }
             $artwork['date'] = $artwork['date'] . '-01-01';
             if (isset($artwork['carousel'])) {
                 $artwork['carousel']=true;
             } else {
                 $artwork['carousel']=false;
             }
-            if (strlen($artwork['name'])>100) {
-                $messages[]='Le TITRE ne peut dépasser 100 caractères';
-            }
-            if (!in_array($artwork['category'], array_column($categories, 'id'))) {
-                $messages[]='La CATEGORIE n\'est pas valide';
-            }
-            if (strlen($artwork['more_info'])>255) {
-                $messages[]='La longueur de l\'INFO+ doit être inférieure à 255 caractères.';
-            }
-            if (strlen($artwork['size'])>40) {
-                $messages[]='Le champ TAILLE ne peut dépasser 40 caractères.';
-            }
+            $messages = $this->validData($artwork, $categories);
             if (empty($messages)) {
                 $artworkManager->updateArtwork($artwork);
                 header('location:/ArtworksAdmin/index/?update=valid');
+            } else {
+                return $this->twig->render('/ArtworksAdmin/update.html.twig', [
+                    'active' => self::ACTIVE,
+                    'artwork' => $artwork,
+                    'categories' => $categories,
+                    'messages' => $messages
+                ]);
             }
         }
         if (!empty($_POST['idArtwork'])) {

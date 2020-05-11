@@ -44,7 +44,7 @@ class ArtworkManager extends AbstractManager
     {
         $query='UPDATE ' . $this->table . ' SET 
         name=:name,
-        image=:picture,
+        image=:image,
         category_id=:category,
         description=:description,
         size=:size,
@@ -57,7 +57,7 @@ class ArtworkManager extends AbstractManager
         $statement->bindValue(':idArtwork', $artwork['idArtwork'], \PDO::PARAM_INT);
         $statement->bindValue(':carousel', $artwork['carousel'], \PDO::PARAM_BOOL);
         $statement->bindValue(':name', $artwork['name'], \PDO::PARAM_STR);
-        $statement->bindValue(':picture', $artwork['picture'], \PDO::PARAM_STR);
+        $statement->bindValue(':image', $artwork['image'], \PDO::PARAM_STR);
         $statement->bindValue(':category', $artwork['category'], \PDO::PARAM_INT);
         $statement->bindValue(':date', $artwork['date'], \PDO::PARAM_STR);
         $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);

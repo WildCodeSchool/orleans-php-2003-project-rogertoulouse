@@ -71,12 +71,6 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.updateArtworks .bloc_img{
-}
-.updateArtworks .bloc_infos{
-}
-.updateArtworks .description{
-}
 .message{
     width: 100%;
     text-align: center;
