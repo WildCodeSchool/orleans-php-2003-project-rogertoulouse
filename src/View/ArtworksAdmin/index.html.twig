@@ -1,10 +1,12 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
 <div class="adminArtworks">
-    {% if message is not empty %}
-    <div>
-        {{ message }}
-    </div>
+    {% if messages is not empty %}
+        {% for message in messages %}
+            <div class="message">
+                {{ message }}
+            </div>
+        {% endfor %}
     {% endif %}
     <table>
         <thead>
@@ -22,7 +24,6 @@
             </tr>
         </thead>
         <tbody>
-
         {% for artwork in artworks %}
             <tr>
                 <td class="id">{{ artwork.idArtwork }}</td>

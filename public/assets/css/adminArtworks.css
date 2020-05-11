@@ -58,6 +58,18 @@
     width: 100%;
     background-color: var(--color-main);
 }
+/* update */
+.upd_form_vertical{
+    margin: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.updateArtworks .bloc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .message{
     width: 100%;
     text-align: center;
@@ -79,4 +91,16 @@
 }
 td form input{
     width: 100%;
+}
+.description textarea{
+    width: 100%;
+}
+input, textarea, select {
+    background-color: var(--color-light);
+    border-style: solid;
+    border-color: var(--color-main);
+    border-width: 0px;
+}
+.updateArtworks label{
+    padding-top: 8px;
 }
