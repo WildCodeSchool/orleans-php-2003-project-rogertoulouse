@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block title %}Association{% endblock %}
  {% block stylesheet %}
-     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+
      <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet'/>
      <link rel="stylesheet" href="/assets/css/association.css">
  {% endblock %}
@@ -68,6 +68,7 @@
                 </form>
             </div>
             <div id='map' class="col-md-3 map"></div>
+            <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
             <script>
                 mapboxgl.accessToken = 'pk.eyJ1IjoidG9iZWNvbnRpbnVlZCIsImEiOiJjazlkN2l2OTIwMG42M2VraG52NDl6YzF4In0.imlbzYxIzJhCTHijAYORYA';
                 var map = new mapboxgl.Map({
