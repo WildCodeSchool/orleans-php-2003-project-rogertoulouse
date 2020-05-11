@@ -12,3 +12,68 @@
 section{
     padding-top: 20px;
 }
+table{
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-main);
+}
+.id{
+    scroll-behavior: auto;
+    scroll-snap-align: center;
+    scroll-padding-top: 100px;
+    text-align: center;
+    width: 5%;
+}
+.year{
+    width: 10%;
+}
+.infos{
+    width: auto;
+    text-align: left;
+}
+.cell{
+    text-align: center;
+    scroll-margin-block-start: 200px;
+}
+.cellinfo{
+    text-align: left;
+}
+.option{
+    width: 10%;
+}
+table thead{
+    position: sticky;
+    top:160px;
+    text-align: center;
+}
+table tbody tr:nth-child(even){
+     background-color: var(--color-light);
+}
+table thead{
+    background-color: var(--color-main) ;
+    color: var(--color-light);
+}
+a{
+    color: var(--color-light);
+    text-decoration: none;
+}
+a:hover{
+    font-weight: 700;
+
+}
+.admArtLink{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    width: 100px;
+}
+.admArtLink div{
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-main);
+}
+.error{
+    color: var(--color-light);
+    font-weight: bold;
+    background-color: var(--color-error);
+}

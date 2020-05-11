@@ -55,28 +55,8 @@ class BiographyAdminController extends AbstractController
         $errors = [];
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $data = array_map('trim', $_POST);
-            if (isset($data['year']) && $data['year'] != '') {
-                $year = $data['year'];
-                $userDate = '01-01-' . $year;
-                $startDate = new DateTime('01-01-1916');
-                $nowDate = new DateTime(date('m-d-Y'));
-                $userDate = new DateTime($userDate);
-                if ((strtotime($year)) === false) {
-                    $errors['year'][] = 'L\'année n\'est pas valide.';
-                } elseif ($userDate <= $startDate || $userDate >= $nowDate) {
-                    $errors['year'][] = 'L\'année doit être comprise entre ' .
-                        $startDate->format('Y') .
-                        ' et ' .
-                        $nowDate->format('Y') .
-                        '.';
-                }
-            } else {
-                $errors['year'][] = 'L\'année ne doit pas être vide.';
-            }
-            if (isset($data['biography'])) {
-                $errors['biography'][] = 'La biographie ne doit pas être vide.';
-            }
-            if (!empty($errors)) {
+            $errors = $this->validationSQL($data['year'], $data['biography']);
+            if (!empty($errors) && $errors != '') {
                 return $this->twig->render('/BiographyAdmin/_add.html.twig', [
                     'active' => self::ACTIVE,
                     'data' => $dataByYears,
@@ -84,11 +64,48 @@ class BiographyAdminController extends AbstractController
             }
             $biographyManager = new BiographyManager();
             $date = new DateTime($data['year'] . '-01-01');
+
             $biographyManager->insert($date->format('Y-m-d'), $data['biography']);
             header('Location:/BiographyAdmin/Index');
         }
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => self::ACTIVE,
+            'data' => $dataByYears,
+            'errors' => $errors]);
+    }
+
+
+    /**
+     * Display item creation page
+     *
+     * @param int $id
+     * @return string
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     */
+    public function edit(int $id)
+    {
+        $dataByYears = $this->populateData();
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $data = array_map('trim', $_POST);
+            $errors = $this->validationSQL($data['year'], $data['biography']);
+            if (!empty($errors) && $errors != '') {
+                return $this->twig->render('/BiographyAdmin/_edit.html.twig', [
+                    'active' => self::ACTIVE,
+                    'data' => $dataByYears,
+                    'errors' => $errors]);
+            }
+            $biographyManager = new BiographyManager();
+            $date = new DateTime($data['year'] . '-01-01');
+
+            $biographyManager->update($id, $date->format('Y-m-d'), $data['biography']);
+            header('Location:/BiographyAdmin/Index');
+        }
+        return $this->twig->render('/BiographyAdmin/_edit.html.twig', [
+            'active' => self::ACTIVE,
+            'id' => $id,
             'data' => $dataByYears,
             'errors' => $errors]);
     }
@@ -105,5 +122,30 @@ class BiographyAdminController extends AbstractController
         }
         ksort($data);
         return $data;
+    }
+    private function validationSQL(string $year, string $biography): array
+    {
+        $errors = [];
+        if ($year != '') {
+            $userDate = '01-01-' . $year;
+            $startDate = new DateTime('01-01-1916');
+            $nowDate = new DateTime(date('m-d-Y'));
+            $userDate = new DateTime($userDate);
+            if ((strtotime($year)) === false) {
+                $errors['year'][] = 'L\'année n\'est pas valide.';
+            } elseif ($userDate <= $startDate || $userDate >= $nowDate) {
+                $errors['year'][] = 'L\'année doit être comprise entre ' .
+                    $startDate->format('Y') .
+                    ' et ' .
+                    $nowDate->format('Y') .
+                    '.';
+            }
+        } else {
+            $errors['year'][] = 'L\'année ne doit pas être vide.';
+        }
+        if ($biography == '') {
+            $errors['biography'][] = 'La biographie ne doit pas être vide.';
+        }
+        return $errors;
     }
 }

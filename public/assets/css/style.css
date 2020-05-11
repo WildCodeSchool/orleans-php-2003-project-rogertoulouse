@@ -33,6 +33,7 @@
 }
 html{
     position: relative;
+    scroll-behavior: smooth;
     min-height: calc(100% - 180px);
 }
 body {
