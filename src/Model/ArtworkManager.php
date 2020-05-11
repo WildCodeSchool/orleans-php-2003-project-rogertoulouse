@@ -23,7 +23,7 @@ class ArtworkManager extends AbstractManager
 
         return $artworks;
     }
-    public function selectArtwork(int $idArtwork = null)
+    public function selectArtwork(int $idArtwork = null):array
     {
         $query='SELECT *, a.id as idArtwork FROM ' . $this->table . ' a JOIN works_category c 
         ON a.category_id=c.id WHERE a.id=:idArtwork';
@@ -33,16 +33,17 @@ class ArtworkManager extends AbstractManager
         $artwork = $statement->fetch();
         return $artwork;
     }
-    public function addArtwork(array $artwork)
+    public function addArtwork(array $artwork):void
     {
-        $query='INSERT INTO ' . $this->table . ' (name, image, category_id, description, size, more_info) 
-        VALUES (:name, :image, :category, :description, :size, :more_info)';
+        $query='INSERT INTO ' . $this->table . ' (name, image, category_id, date, description, size, more_info) 
+        VALUES (:name, :image, :category, :date, :description, :size, :more_info)';
 
         $statement = $this->pdo->prepare($query);
         $statement->bindValue(':name', $artwork['name'], \PDO::PARAM_STR);
         $statement->bindValue(':image', $artwork['image'], \PDO::PARAM_STR);
         $statement->bindValue(':category', $artwork['category_id'], \PDO::PARAM_STR);
         $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);
+        $statement->bindValue(':date', $artwork['date'], \PDO::PARAM_STR);
         $statement->bindValue(':size', $artwork['size'], \PDO::PARAM_STR);
         $statement->bindValue(':description', $artwork['description'], \PDO::PARAM_STR);
         $statement->execute();

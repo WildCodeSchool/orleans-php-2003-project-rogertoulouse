@@ -1,6 +1,7 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
     <div class="adminArtworks">
+        <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
@@ -31,7 +32,7 @@
             </td>
             <td>{{ artwork.description }}</td>
             <td>{{ artwork.more_info }}</td>
-            <td>{{ artwork.size }}+</td>
+            <td>{{ artwork.size }}</td>
             <td class="admArtLink">
                 <div>
                     <a href="">MODIFIER</a>
