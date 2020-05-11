@@ -60,6 +60,5 @@ class NewsManager extends AbstractManager
         $statement->bindValue('button_link', $new['button_link'], \PDO::PARAM_STR);
 
         return $statement->execute();
-
     }
 }

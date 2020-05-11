@@ -25,14 +25,6 @@ class HomeAdminController extends AbstractController
         return $this->twig->render('HomeAdmin/index.html.twig', ['news' => $news]);
     }
 
-    public function show(int $id)
-    {
-        $newsManager = new NewsManager();
-        $new = $newsManager->selectOneById($id);
-
-        return $this->twig->render('HomeAdmin/show.html.twig', ['new' => $new]);
-    }
-
     public function add()
     {
         $newsManager = new NewsManager();
