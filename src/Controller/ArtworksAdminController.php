@@ -40,7 +40,7 @@ class ArtworksAdminController extends AbstractController
             ]);
     }
 
-    public function delete():string
+    public function delete()
     {
         $artworkManager = new ArtworkManager();
 
@@ -50,15 +50,8 @@ class ArtworksAdminController extends AbstractController
             // suppression de l'oeuvre
             $artworkManager->deleteArtwork($idArtwork);
             unlink('assets/upload/'.$artwork['image']);
-            $message="La suppression de l'oeuvre a bien été effectuée.";
 
-            $artworks = $artworkManager->selectArtworks();
-
-            return $this->twig->render('/ArtworksAdmin/index.html.twig', [
-                'active' => self::ACTIVE,
-                'artworks'=> $artworks,
-                'message' => $message
-            ]);
+            header('location:/ArtworksAdmin/index');
         }
     }
 }
