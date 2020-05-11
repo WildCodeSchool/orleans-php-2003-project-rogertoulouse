@@ -48,7 +48,7 @@ class ArtworksAdminController extends AbstractController
         // récupération des catégories
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
-
+        $name='';
         if (isset($_FILES['image']) && isset($_POST['name'])) {
             $artwork=$_POST;
             $uploadDir = 'assets/upload/';
@@ -59,7 +59,7 @@ class ArtworksAdminController extends AbstractController
                 $errorMessage[]="La taille maximal du fichier ne doit pas dépasser 1Mo.";
                 echo "taille";
             }
-            if (in_array($_FILES['image']['type'], $typeFileAllowed)==false){
+            if (in_array($_FILES['image']['type'], $typeFileAllowed)==false) {
                 $errorMessage[]="Seuls les images .jpg, .jpeg, .png, .gif sont autorisés.";
                 echo "extension";
             }
