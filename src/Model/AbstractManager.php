@@ -59,14 +59,6 @@ abstract class AbstractManager
      *
      * @return array
      */
-    /**
-     * Get one row from database by ID.
-     *
-     * @param int $id
-     * @param int $limit
-     * @param int $offset
-     * @return array
-     */
     public function selectOneById(int $id)
     {
         // prepared request
