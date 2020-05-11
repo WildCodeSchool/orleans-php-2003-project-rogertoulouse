@@ -1,39 +1,28 @@
 {% extends 'BiographyAdmin/index.html.twig' %}
 {% block add %}
-    <div class="resp-table">
-        <div class="resp-table-body">
-            <form class="resp-table-row" action="/BiographyAdmin/add" method="post">
-                <div class="table-body-head-cell number">Ajout</div>
-                <div class="table-body-cell year">
-                    <label for="year" hidden></label><input type="number" name="year" id="year" value=""></div>
-                <div class="table-body-cell">
-                    <label for="biography" hidden></label><textarea name="biography" id="biography"></textarea></div>
-                <div class="table-body-cell end option">
-                    <div class="rowption">
-                        <input type="hidden" name="control" value="add" id="add">
-                        <button class="btn"><i class="fas fa-check"></i></button>
-                        <a class="btn" href="/BiographyAdmin/Index"><i class="fas fa-times"></i></a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="resp-table">
-        {% if errors.year is defined %}
-            {% for error in errors.year %}
-                <div class="resp-table-body">
-                    <div class="table-body-cell end column-span error">
-                        {{ error }}
-                    </div>
-                </div>
-            {% endfor %}
-            {% for error in errors.biography %}
-                <div class="resp-table-body">
-                    <div class="table-body-cell end column-span error">
-                        {{ error }}
-                    </div>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
+    <form action="/BiographyAdmin/Add" method="post" id="formAdd"></form>
+    <tr class="cell" id="0">
+        <th class="id" scope="row">Ajout</th>
+        <td><form id="formAdd"><label for="year" hidden></label><input type="number" name="year" id="year" value="" form="formAdd"></form></td>
+        <td class="cellinfo"><form id="formAdd"><label for="biography" hidden></label><textarea name="biography" id="biography" form="formAdd"></textarea></form></td>
+        <td class="admArtLink option">
+            <input type="hidden" name="control" value="add" id="add">
+            <button class="btn" form="formAdd"><i class="fas fa-check"></i></button>
+            <a class="btn" href="/BiographyAdmin/Index"><i class="fas fa-times"></i></a>
+        </td>
+    </tr>
+    {% if errors.year is defined %}
+        {% for error in errors.year %}
+            <tr class="error">
+                <td colspan="4">{{ error }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    {% if errors.biography is defined %}
+        {% for error in errors.biography %}
+            <tr class="error">
+                <td colspan="4">{{ error }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

@@ -33,9 +33,10 @@ class ArtworkManager extends AbstractManager
         $artwork = $statement->fetch();
         return $artwork;
     }
+
     public function addArtwork(array $artwork):void
     {
-        $query='INSERT INTO ' . $this->table . ' (name, image, category_id, date, description, size, more_info) 
+        $query = 'INSERT INTO ' . $this->table . ' (name, image, category_id, date, description, size, more_info) 
         VALUES (:name, :image, :category, :date, :description, :size, :more_info)';
 
         $statement = $this->pdo->prepare($query);
@@ -44,6 +45,39 @@ class ArtworkManager extends AbstractManager
         $statement->bindValue(':category', $artwork['category_id'], \PDO::PARAM_STR);
         $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);
         $statement->bindValue(':date', $artwork['date'], \PDO::PARAM_STR);
+        $statement->bindValue(':size', $artwork['size'], \PDO::PARAM_STR);
+        $statement->bindValue(':description', $artwork['description'], \PDO::PARAM_STR);
+        $statement->execute();
+    }
+
+    public function deleteArtwork(int $idArtwork):void
+    {
+        $query='DELETE FROM ' . $this->table . ' WHERE id=:idArtwork;';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':idArtwork', $idArtwork, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+    public function updateArtwork(array $artwork):void
+    {
+        $query='UPDATE ' . $this->table . ' SET 
+        name=:name,
+        image=:image,
+        category_id=:category,
+        description=:description,
+        size=:size,
+        more_info=:more_info,
+        carousel=:carousel,
+        date=:date 
+        WHERE id=:idArtwork;';
+
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':idArtwork', $artwork['idArtwork'], \PDO::PARAM_INT);
+        $statement->bindValue(':carousel', $artwork['carousel'], \PDO::PARAM_BOOL);
+        $statement->bindValue(':name', $artwork['name'], \PDO::PARAM_STR);
+        $statement->bindValue(':image', $artwork['image'], \PDO::PARAM_STR);
+        $statement->bindValue(':category', $artwork['category'], \PDO::PARAM_INT);
+        $statement->bindValue(':date', $artwork['date'], \PDO::PARAM_STR);
+        $statement->bindValue(':more_info', $artwork['more_info'], \PDO::PARAM_STR);
         $statement->bindValue(':size', $artwork['size'], \PDO::PARAM_STR);
         $statement->bindValue(':description', $artwork['description'], \PDO::PARAM_STR);
         $statement->execute();

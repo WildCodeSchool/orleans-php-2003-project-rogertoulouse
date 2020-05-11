@@ -4,8 +4,8 @@
 {% endblock %}
 
 {% block content %}
-    <nav class="leftNavBar col-1 ml-1 position-fixed">
-        <div class="leftNavLinks link nav flex-column justify-content-between" id="v-pills-tab" aria-orientation="vertical">
+    <nav class="leftNavBar h-80 col-11 col-xl-1 m-0 position-fixed pt-5">
+        <div class="leftNavLinks h-100 d-flex flex-xl-column link nav justify-content-xl-around justify-content-around align-items-stretch" id="v-pills-tab" aria-orientation="vertical">
             <a class="leftNavLink nav-link btn {{ active == 'home' ? 'active' : ''}}"
                id="v-pills-home-tab" href="/HomeAdmin/Index" role="tab" aria-controls="v-pills-home" aria-selected="{{ active == 'home' ? 'true' : 'false'}}">Accueil</a>
             <a class="leftNavLink nav-link btn {{ active == 'biography' ? 'active' : ''}}"
@@ -16,8 +16,8 @@
                id="v-pills-association-tab" href="/AssociationAdmin/Index" role="tab" aria-controls="v-pills-association" aria-selected="{{ active == 'association' ? 'true' : 'false'}}">Association</a>
         </div>
     </nav>
-    <section class="admin row w-100">
-        <div class="container col-10">
+    <section class="admin row w-lg-100">
+        <div class="container-xl col-lg-12">
             {% block admin %}
 
             {% endblock %}

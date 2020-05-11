@@ -1,7 +1,14 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
-    <div class="adminArtworks">
-        <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
+<div class="adminArtworks">
+    {% if messages is not empty %}
+        {% for message in messages %}
+            <div class="message">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
@@ -18,32 +25,43 @@
             </tr>
         </thead>
         <tbody>
-    {% for artwork in artworks %}
-        <tr>
-            <td class="id">{{ artwork.idArtwork }}</td>
-            <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
-            <td>{{ artwork.name }}</td>
-            <td>{{ artwork.category }}</td>
-            <td>{{ artwork.date|date("Y") }}</td>
-            <td>
-                {% if artwork.carousel == 1 %}
-                    <div class="carousel"><i class="fas fa-check"></i></div>
-                {% endif %}
-            </td>
-            <td>{{ artwork.description }}</td>
-            <td>{{ artwork.more_info }}</td>
-            <td>{{ artwork.size }}</td>
-            <td class="admArtLink">
-                <div>
-                    <a href="">MODIFIER</a>
-                </div>
-                <div>
-                    <a href="">SUPPRIMER</a>
-                </div>
-            </td>
-        </tr>
-    {% endfor %}
+        {% for artwork in artworks %}
+            <tr>
+                <td class="id">{{ artwork.idArtwork }}</td>
+                <td><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></td>
+                <td>{{ artwork.name }}</td>
+                <td>{{ artwork.category }}</td>
+                <td>{{ artwork.date|date("Y") }}</td>
+                <td>
+                    {% if artwork.carousel == 1 %}
+                        <div class="carousel"><i class="fas fa-check"></i></div>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="relative">
+                        <div>{{ artwork.description }}</div>
+                    </div>
+                </td>
+                <td>{{ artwork.more_info }}</td>
+                <td>{{ artwork.size }}</td>
+                <td>
+                    <div>
+                        <form action="/ArtworksAdmin/update/" method="post">
+                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="submit" value="MODIFIER" class="btn">
+                        </form>
+                    </div>
+                    <div>
+                        <form action="/ArtworksAdmin/delete/" method="post">
+                            <input name="action" value="delete" hidden>
+                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+                            <input type="submit" value="SUPPRIMER" class="btn">
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
-    </div>
+</div>
 {% endblock %}
