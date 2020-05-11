@@ -64,13 +64,33 @@ class BiographyAdminController extends AbstractController
             }
             $biographyManager = new BiographyManager();
             $date = new DateTime($data['year'] . '-01-01');
-
             $biographyManager->insert($date->format('Y-m-d'), $data['biography']);
             header('Location:/BiographyAdmin/Index');
         }
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => self::ACTIVE,
             'data' => $dataByYears,
+            'errors' => $errors]);
+    }
+
+    /**
+     * Display item creation page
+     *
+     * @return string
+     * @throws Exception
+     */
+    public function delete(int $id)
+    {
+        $biographyManager = new BiographyManager();
+        $biography = $biographyManager->selectOneById($id);
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $biographyManager->delete($id);
+            header('Location:/BiographyAdmin/Index');
+        }
+        return $this->twig->render('/BiographyAdmin/_delete.html.twig', [
+            'active' => self::ACTIVE,
+            'data' => $biography,
             'errors' => $errors]);
     }
 

@@ -11,3 +11,7 @@ textarea, input{
 textarea{
     min-height: 200px;
 }
+.confirm{
+    padding-top: 200px;
+    text-align: center;
+}

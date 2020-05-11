@@ -66,4 +66,12 @@ class BiographyManager extends AbstractManager
         $statement->bindValue('info', $biography, \PDO::PARAM_STR);
         return $statement->execute();
     }
+
+    public function delete(int $id)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("DELETE FROM " . self::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
 }
