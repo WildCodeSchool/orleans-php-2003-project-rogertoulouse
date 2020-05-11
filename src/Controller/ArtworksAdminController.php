@@ -31,11 +31,22 @@ class ArtworksAdminController extends AbstractController
      */
     public function index():string
     {
+        $artworkManager = new ArtworkManager();
+        $artworks = $artworkManager->selectArtworks();
+
+        return $this->twig->render('/ArtworksAdmin/index.html.twig', [
+            'active' => self::ACTIVE,
+            'artworks' => $artworks,
+            ]);
+    }
+
+    public function update()
+    {
         //recup categories
         $categoryManager = new CategoryManager();
-        $categories = array_column($categoryManager->selectAllCategories(), 'id');
-        $artworkManager = new ArtworkManager();
+        $categories = $categoryManager->selectAllCategories();
 
+        $artworkManager = new ArtworkManager();
         $messages=[];
 
         if (!empty($_POST['action'])=='update') {
@@ -50,69 +61,29 @@ class ArtworksAdminController extends AbstractController
             if (strlen($artwork['name'])>100) {
                 $messages[]='Le TITRE ne peut dépasser 100 caractères';
             }
-            if (!in_array($artwork['category'], $categories)) {
+            if (!in_array($artwork['category'], array_column($categories, 'id'))) {
                 $messages[]='La CATEGORIE n\'est pas valide';
             }
             if (strlen($artwork['more_info'])>255) {
                 $messages[]='La longueur de l\'INFO+ doit être inférieure à 255 caractères.';
             }
             if (strlen($artwork['size'])>40) {
-                $messages[]='Le champ TAILLE dne peut dépasser 40 caractères.';
+                $messages[]='Le champ TAILLE ne peut dépasser 40 caractères.';
             }
             if (empty($messages)) {
                 $artworkManager->updateArtwork($artwork);
+                header('location:/ArtworksAdmin/index/?update=valid');
             }
         }
-
-        $artworks = $artworkManager->selectArtworks();
-
-        return $this->twig->render('/ArtworksAdmin/index.html.twig', [
-            'active' => self::ACTIVE,
-            'artworks' => $artworks,
-            'messages' => $messages,
-            ]);
-    }
-
-    public function update():string
-    {
         if (!empty($_POST['idArtwork'])) {
             $idArtwork = intval($_POST['idArtwork']);
 
-            // récupération des catégories
-            $categoryManager = new CategoryManager();
-            $categories = $categoryManager->selectAllCategories();
-            // récupération des oeuvres
-            $artworkManager = new ArtworkManager();
             $artwork = $artworkManager->selectArtwork($idArtwork);
             return $this->twig->render('/ArtworksAdmin/update.html.twig', [
                 'active' => self::ACTIVE,
                 'artwork' => $artwork,
                 'categories' => $categories,
-            ]);
-        } else {
-            header('location:../');
-        }
-    }
-
-
-    public function delete():string
-    {
-        $artworkManager = new ArtworkManager();
-
-        if (!empty($_POST['idArtwork'])) {
-            $idArtwork = intval($_POST['idArtwork']);
-            $picture = htmlentities($_POST['pictureArtwork']);
-            // suppression de l'oeuvre
-            $artworkManager->deleteArtwork($idArtwork);
-            unlink('assets/upload/'.$picture);
-            $message="La suppression de l'oeuvre a bien été effectuée.";
-
-            $artworks = $artworkManager->selectArtworks();
-
-            return $this->twig->render('/ArtworksAdmin/index.html.twig', [
-                'active' => self::ACTIVE,
-                'artworks'=> $artworks,
-                'message' => $message
+                'messages' => $messages
             ]);
         }
     }
