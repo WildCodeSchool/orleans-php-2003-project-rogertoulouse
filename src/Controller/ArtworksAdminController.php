@@ -46,10 +46,10 @@ class ArtworksAdminController extends AbstractController
 
         if (!empty($_POST['idArtwork'])) {
             $idArtwork = intval($_POST['idArtwork']);
-            $picture = htmlentities($_POST['pictureArtwork']);
+            $artwork= $artworkManager->selectArtwork($idArtwork);
             // suppression de l'oeuvre
             $artworkManager->deleteArtwork($idArtwork);
-            unlink('assets/upload/'.$picture);
+            unlink('assets/upload/'.$artwork['image']);
             $message="La suppression de l'oeuvre a bien été effectuée.";
 
             $artworks = $artworkManager->selectArtworks();
