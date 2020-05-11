@@ -20,7 +20,7 @@
     --color-error : #cb2e2e;
     /* Font Size : */
     --sizeText : 16pt;
-    --sizeTitle : calc(2 * var(--sizeText));
+    --sizeTitle : calc(3 * var(--sizeText));
     --sizeBanner : 8vmin;
     /* Border Radius */
     --border-radius : 8px;
@@ -42,7 +42,13 @@ body {
      font-family: var(--font-text);
  }
 .container h1{
-    font-size: calc(var(--sizeTitle)*2);
+    font-size: calc(var(--sizeTitle));
+    font-family: var(--font-title);
+    text-align: center;
+    color: var(--color-main);
+}
+.container-lg h1{
+    font-size: calc(var(--sizeTitle));
     font-family: var(--font-title);
     text-align: center;
     color: var(--color-main);
@@ -113,4 +119,10 @@ h3{
 }
 .rgba-white-light{
     margin: 0 15%;
+}
+.leftNavBar{
+    z-index: 2000;
+}
+.leftNavBar a{
+    max-height: 30px;
 }
