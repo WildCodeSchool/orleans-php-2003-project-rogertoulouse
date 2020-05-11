@@ -30,9 +30,6 @@ class ArtworksAdminController extends AbstractController
      */
     public function index():string
     {
-        // récupération des catégories
-        $categoryManager = new CategoryManager();
-        $categories = $categoryManager->selectAllCategories();
         // récupération des oeuvres
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectArtworks();
@@ -40,7 +37,21 @@ class ArtworksAdminController extends AbstractController
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
             'active' => self::ACTIVE,
             'artworks'=> $artworks,
-            'categories'=>$categories,
             ]);
+    }
+
+    public function delete()
+    {
+        $artworkManager = new ArtworkManager();
+
+        if (!empty($_POST['idArtwork'])) {
+            $idArtwork = intval($_POST['idArtwork']);
+            $artwork= $artworkManager->selectArtwork($idArtwork);
+            // suppression de l'oeuvre
+            $artworkManager->deleteArtwork($idArtwork);
+            unlink('assets/upload/'.$artwork['image']);
+
+            header('location:/ArtworksAdmin/index');
+        }
     }
 }
