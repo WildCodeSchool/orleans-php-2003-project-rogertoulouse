@@ -54,15 +54,28 @@ abstract class AbstractManager
     /**
      * Get one row from database by ID.
      *
-     * @param  int $id
-     *
+     * @param int $id
+     * @param int $limit
+     * @param int $offset
      * @return array
      */
-    public function selectOneById(int $id)
+    public function selectOneById(int $id, int $limit = 0, int $offset = 0)
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
-        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        if ($limit > 0 && $offset > 0) {
+            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id LIMIT :limit, :offset");
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+            $statement->bindValue('limit', $limit, \PDO::PARAM_INT);
+            $statement->bindValue('offset', $offset, \PDO::PARAM_INT);
+        }
+        if ($limit > 0 && $offset == 0) {
+            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id LIMIT :limit");
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+            $statement->bindValue('limit', $limit, \PDO::PARAM_INT);
+        } else {
+            $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        }
         $statement->execute();
 
         return $statement->fetch();
