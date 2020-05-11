@@ -10,13 +10,5 @@ class AssociationManager extends AbstractManager
     {
         parent::__construct(self::TABLE);
     }
-    public function selectOneBy()
-    {
-        // prepared request
-        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id LIMIT 0, 1");
-        $statement->bindValue('id', \PDO::PARAM_INT);
-        $statement->execute();
 
-        return $statement->fetch();
-    }
 }

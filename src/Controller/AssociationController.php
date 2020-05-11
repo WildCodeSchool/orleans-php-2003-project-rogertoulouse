@@ -36,7 +36,7 @@ class AssociationController extends AbstractController
         }
 
         $assoc = new AssociationManager();
-        $association = $assoc->selectOneBy();
+        $association = $assoc->selectOneById(1);
 
         return $this->twig->render('Association/index.html.twig', ['errors' => $errors, 'association' => $association]);
     }
