@@ -13,7 +13,7 @@
             <input id="idArtwork" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
             <div class="upd_form_vertical">
                 <div class="bloc">
-                    <div class="bloc_infos col-4">
+                    <div class="bloc_infos col-6">
                         <div>
                             <div><label for="name">Nom de l'oeuvre</label></div>
                             <input id="name" name="name" type="text" value="{{ artwork.name }}" required>
@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <div>
-                            <label for="carousel">Carousel : </label>
+                            <label for="carousel">Doit apparaître dans le carousel : </label>
                             <input type="checkbox" id="carousel" name="carousel" {% if (artwork.carousel==true) %} checked{% endif %}>
                         </div>
                         <div>
@@ -45,7 +45,7 @@
                             <input id="size" name="size" type="text" value="{{ artwork.size }}">
                         </div>
                     </div>
-                    <div class="bloc_img col-4">
+                    <div class="bloc_img col-6">
                         <input id="image" name="image" type="text" value="{{ artwork.image }}" hidden>
                         <img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}">
                     </div>
