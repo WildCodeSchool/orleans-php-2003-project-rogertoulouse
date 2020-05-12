@@ -51,9 +51,8 @@ class NewsManager extends AbstractManager
     {
 
         // prepared request
-        $query = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `title` = :title, 
+        $statement = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `title` = :title, 
          `desc` = :desc, `button` = :button, `button_link` = :button_link WHERE id=:id");
-        $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $new['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $new['title'], \PDO::PARAM_STR);
         $statement->bindValue('desc', $new['desc'], \PDO::PARAM_STR);
