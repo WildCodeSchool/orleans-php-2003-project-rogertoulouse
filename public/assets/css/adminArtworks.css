@@ -2,6 +2,7 @@
     width: 1300px;
     margin: auto;
     margin-top: 32px;
+    text-align: center ;
 }
 
 .adminArtworks table{
@@ -24,9 +25,6 @@
 .adminArtworks table thead{
     background-color: var(--color-main) ;
     color: var(--color-light);
-}
-.adminArtworks table tbody tr{
-
 }
 .adminArtworks img {
     width: 100px;
@@ -57,6 +55,39 @@
     text-align: center;
     width: 100%;
     background-color: var(--color-main);
+}
+
+.addArtworks{
+    color: var(--color-main);
+}
+.addArtworks .formContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.addArtworks .label{
+    text-align: right;
+    width: 300px;
+    padding-right: 24px;
+}
+.addArtworks .champs{
+    width: 500px;
+    text-align: left;
+}
+.addArtworks input, textarea, .select{
+    background-color: var(--color-light);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--color-main);
+}
+.addArtworks .select{
+    height: 32px;
+}
+.addArtworks div{
+    height:40px;
+    padding-top: 8px;
+}
+.addArtworks .description {
+    height: 150px;
 }
 /* update */
 .upd_form_vertical{
@@ -100,6 +131,24 @@ input, textarea, select {
     border-style: solid;
     border-color: var(--color-main);
     border-width: 0px;
+}
+.updateArtworks .bloc_infos{
+    text-align: left;
+    padding-left: 0;
+}
+#carousel{
+    width: 50px;
+}
+.updateArtworks .bloc_infos input, textarea{
+    width: 400px;
+}
+.updateArtworks .bloc_img{
+    text-align: right;
+    padding-right: 0;
+}
+.updateArtworks{
+    margin-left: 250px;
+    width:1000px;
 }
 .updateArtworks label{
     padding-top: 8px;

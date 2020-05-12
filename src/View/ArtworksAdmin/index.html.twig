@@ -8,6 +8,7 @@
             </div>
         {% endfor %}
     {% endif %}
+    <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
@@ -27,7 +28,7 @@
         {% for artwork in artworks %}
             <tr>
                 <td class="id">{{ artwork.idArtwork }}</td>
-                <td><img src="/assets/upload/{{ artwork.image }}" alt=""></td>
+                <td><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></td>
                 <td>{{ artwork.name }}</td>
                 <td>{{ artwork.category }}</td>
                 <td>{{ artwork.date|date("Y") }}</td>

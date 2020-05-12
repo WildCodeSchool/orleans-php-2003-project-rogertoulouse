@@ -1,0 +1,66 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    <section class="addArtworks container">
+        {% for message in messages %}
+            <div class="error">{{ message }}</div>
+        {% endfor %}
+        <form method="post" enctype="multipart/form-data">
+            <div class="formContainer">
+                <div class="label">
+                    <div>
+                        <label for="name">*Nom de l'oeuvre : </label>
+                    </div>
+                    <div>
+                        <label for="date">*Année de l'oeuvre : </label>
+                    </div>
+                    <div>
+                        <label for="size">Taille : </label>
+                    </div>
+                    <div>
+                        <label for="more_info">Info en plus : </label>
+                    </div>
+                    <div>
+                        <label for="image">*Image : </label>
+                    </div>
+                    <div>
+                        <label for="category_id">*Categorie : </label>
+                    </div>
+                    <div>
+                        <label for="description">*Description : </label>
+                    </div>
+                </div>
+                <div class="champs">
+                    <div>
+                        <input required type="text" name="name" id="name">
+                    </div>
+                    <div>
+                        <input type="text" name="date" id="date" min="1916" max="{{ 'now'|date('Y') }}">
+                    </div>
+                    <div>
+                        <input type="text" name="size" id="size">
+                    </div>
+                    <div>
+                        <input type="more_info" name="more_info" id="more_info">
+                    </div>
+                    <div>
+                        <input type="file"  name="image">
+                    </div>
+                    <div>
+                        <select id="category_id" name="category_id" class="select">
+                            {% for category in categories %}
+                                <option value="{{ category.id }}">{{ category.category|upper }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="description">
+                        <textarea name="description" id="description" rows="5" cols="40"></textarea>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Valider</button>
+                    </div>
+                    <div>Les champs marqués d'une étoile (*) sont obligatoires.</div>
+                </div>
+            </div>
+        </form>
+    </section>
+{% endblock %}
