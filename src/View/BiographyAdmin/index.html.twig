@@ -8,7 +8,6 @@
         <table class="resp-table">
             <thead class="thead-dark">
             <tr>
-                <th class="id" scope="col">Id</th>
                 <th class="year" scope="col">Année</th>
                 <th class="infos" scope="col">Biographie</th>
                 <th class="option" scope="col">
@@ -26,8 +25,7 @@
                         {% endblock %}
                     {% else %}
                         <tr class="cell" id="{{ biography.id }}">
-                            <th class="id" scope="row">{{ biography.id }}</th>
-                            <td>{{ year }}</td>
+                            <td class="yearValue">{{ year }}</td>
                             <td class="cellinfo">{{ biography.info }}</td>
                             <td class="admArtLink">
                                 <a class="btn" href="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-edit"></i></a>

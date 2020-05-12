@@ -1,9 +1,9 @@
 {% extends 'BiographyAdmin/index.html.twig' %}
 {% block add %}
+    <tr></tr>
     <form action="/BiographyAdmin/Add" method="post" id="formAdd"></form>
-    <tr class="cell" id="0">
-        <th class="id" scope="row">Ajout</th>
-        <td><form id="formAdd"><label for="year" hidden></label><input type="number" name="year" id="year" value="" form="formAdd"></form></td>
+    <tr class="cell adder" id="0">
+        <td class="yearValue"><form id="formAdd"><label for="year" hidden></label><input type="number" name="year" id="year" value="" form="formAdd"></form></td>
         <td class="cellinfo"><form id="formAdd"><label for="biography" hidden></label><textarea name="biography" id="biography" form="formAdd"></textarea></form></td>
         <td class="admArtLink option">
             <input type="hidden" name="control" value="add" id="add">

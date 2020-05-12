@@ -73,7 +73,7 @@
     width: 500px;
     text-align: left;
 }
-.addArtworks input, textarea, .select{
+.addArtworks input,.addArtworks textarea,.addArtworks select{
     background-color: var(--color-light);
     border-width: 1px;
     border-style: solid;
@@ -126,7 +126,7 @@ td form input{
 .description textarea{
     width: 100%;
 }
-input, textarea, select {
+.updateArtworks input,.updateArtworks textarea,.updateArtworks select {
     background-color: var(--color-light);
     border-style: solid;
     border-color: var(--color-main);
