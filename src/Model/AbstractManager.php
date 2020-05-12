@@ -6,6 +6,7 @@
  * Time: 20:52
  * PHP version 7
  */
+
 namespace App\Model;
 
 use App\Model\Connection;
@@ -64,7 +65,6 @@ abstract class AbstractManager
         $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
-
         return $statement->fetch();
     }
 
