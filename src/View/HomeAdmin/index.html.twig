@@ -21,13 +21,18 @@
                     <td>{{ new.desc }}</td>
                     <td>{{ new.button }}</td>
                     <td>{{ new.button_link }}</td>
-                    <td class="admHomeLink">
-                        <div>
-                            <a href="/HomeAdmin/add/">AJOUTER</a>
-                        </div>
-                        <div>
-                            <a href="/HomeAdmin/edit/{{ new.id }}">MODIFIER</a>
-                        </div>
+                    <td>
+                        <a href="/HomeAdmin/add/">
+                            <div class="btn">AJOUTER</div>
+                        </a>
+                        <form action="/HomeAdmin/edit/{{ new.id }}" method="post">
+                            <input type="submit" value="EDITER" class="btn">
+                        </form>
+                        <form action="/HomeAdmin/delete/" method="post">
+                        <input name="action" value="delete" hidden>
+                        <input name="id" value="{{ new.id }}" hidden>
+                        <input type="submit" value="SUPPRIMER" class="btn">
+                        </form>
                     </td>
                 </tr>
             {% endfor %}

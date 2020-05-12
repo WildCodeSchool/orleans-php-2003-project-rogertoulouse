@@ -51,8 +51,9 @@ class NewsManager extends AbstractManager
     {
 
         // prepared request
-        $statement = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `title` = :title, 
+        $query = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `title` = :title, 
          `desc` = :desc, `button` = :button, `button_link` = :button_link WHERE id=:id");
+        $statement = $this->pdo->prepare($query);
         $statement->bindValue('id', $new['id'], \PDO::PARAM_INT);
         $statement->bindValue('title', $new['title'], \PDO::PARAM_STR);
         $statement->bindValue('desc', $new['desc'], \PDO::PARAM_STR);
@@ -60,5 +61,12 @@ class NewsManager extends AbstractManager
         $statement->bindValue('button_link', $new['button_link'], \PDO::PARAM_STR);
 
         return $statement->execute();
+    }
+    public function deleteNews(int $id):void
+    {
+        $query='DELETE FROM ' . $this->table . ' WHERE id=:id;';
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
