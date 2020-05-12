@@ -1,4 +1,3 @@
-
 .top_page{
     background: var(--color-light);
     padding-top: 30px;
@@ -10,47 +9,47 @@ hr{
     border: 1px solid;
     margin-bottom: 20px;
 }
-
-.justify_part{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    align-items: flex-end;
-    align-content: stretch;
-}
-
 .card-text{
-    background-color: var(--color-light);
+    background-color: var(--color-secondary);
+    align-items: center;
+    justify-content: center;
 }
 
 h1{
     text-align: center;
     font-size: var(--sizeTitle);
     font-family: var(--font-title);
+    color: var(--color-main);
     margin-bottom: 100px;
-
 }
 h2{
     text-align: center;
     font-size: var(--sizeTitle);
     font-family: var(--font-title);
-    background-color: var(--color-main);
-    color: var(--color-light);
+    color: var(--color-main);
     border-radius: 7px;
-    margin-left:20x;
+    margin-left: 20px;
+}
+.card-top{
+    background-color: var(--color-light);
+    border-style: none;
+    padding: 0px;
+    align-items: flex-end;
 }
 .card-body{
     background: var(--color-main);
     color: var(--color-light);
+    width: 100%;
+    font-size: var(--font-text);
 }
-.card-img{
+.card-img-top{
     background-color: var(--color-main);
-    border-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
     color: var(--color-light);
 }
 .card-title{
-    text-align: center;
+    color: var(--color-main);
 }
 .assoc_text {
     font-family: var(--font-text);
@@ -58,29 +57,62 @@ h2{
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
+    width: 100%;
 }
-
-.card{
-    background-color: var(--color-light);
-    border-style: none;
-    padding: 0px;
+.map{
+    width: 100%;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+}
+.roger{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 250px;
     max-width: 350px;
 }
+.contact-card{
+    width: 100%;
+    background: var(--color-secondary);
+    color: var(--color-main);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+}
+.card-title{
+    color: var(--color-main);
+}
+.contact-roger{
+    color: var(--color-main);
+    margin-bottom: 20px;
+}
+.card{
+    padding: 0px;
+    border: none;
+}
 .card h3{
     font-size: var(--sizeText);
-    font-family: var(--font-text);
+    font-family: var(--font-title);
 }
-
-
+.contact_title{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
 .form {
     background: var(--color-main);
-    border-radius: .25rem;
     font-family: var(--font-text);
     color: var(--color-light);
     margin-bottom: 10px;
     padding: 20px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 form label {
@@ -89,19 +121,13 @@ form label {
     color: var(--color-light);
 }
 
-
 form {
     padding: 10px;
-    margin-bottom: 10px;
+    margin: 10px;
+    align-items: center;
+    text-align: center;
 }
-
-@media screen and (max-width: 750px) {
-    .top_page {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: stretch;
-    }
+.img-roger h3{
+    color: var(--color-light);
+    text-align: start;
 }
