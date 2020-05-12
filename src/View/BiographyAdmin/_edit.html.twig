@@ -1,11 +1,9 @@
 {% extends 'BiographyAdmin/index.html.twig' %}
 {% block AditionalContent %}
+    <tr></tr>
     <form action="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}" method="post" id="formEdit"></form>
-    <tr>
-    </tr>
     <tr class="cell" id="{{ biography.id }}">
-        <th class="id" scope="row">{{ biography.id }}</th>
-        <td><form id="formEdit"><label for="year" hidden></label><input type="number" name="year" id="year" value="{{ year }}" form="formEdit"></form></td>
+        <td class="yearValue"><form id="formEdit"><label for="year" hidden></label><input type="number" name="year" id="year" value="{{ year }}" form="formEdit"></form></td>
         <td><form class="cellinfo" id="formEdit"><label for="biography" hidden></label><textarea name="biography" id="biography" form="formEdit">{{ biography.info }}</textarea></form></td>
         <td class="admArtLink">
             <input type="hidden" name="control" value="add" id="add">
