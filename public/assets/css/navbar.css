@@ -3,10 +3,10 @@
     top: 50%; left: 50%;
     transform: translate(-30%, -50%);
 }
-h1 {
+.rogerToulouse h1 {
     color: var(--color-light);
     font-family: var(--font-title);
-    font-size: 3.5vmax;
+    font-size: calc(var(--sizeTitle) / 1.7);
     flex-wrap: wrap;
     justify-content: space-around;
 }

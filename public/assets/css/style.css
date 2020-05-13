@@ -19,8 +19,8 @@
     --color-text : #FFC375;
     --color-error : #cb2e2e;
     /* Font Size : */
-    --sizeText : 1em;
-    --sizeTitle : calc(4 * var(--sizeText));
+    --sizeText : 2vmax;
+    --sizeTitle : calc(3 * var(--sizeText));
     --sizeBanner : 8vmin;
     /* Border Radius */
     --border-radius : 8px;
