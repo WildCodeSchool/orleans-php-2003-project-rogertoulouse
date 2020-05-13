@@ -59,8 +59,7 @@ a:hover{
     font-weight: 700;
 
 }
-.admArtLink{
-    display: flex;
+td.admArtLink{
     flex-wrap: wrap;
     align-content: space-around;
     width: 100px;

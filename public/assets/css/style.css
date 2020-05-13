@@ -105,6 +105,10 @@ h3{
     margin: 5px 0 5px 0;
     line-height: 24pt;
 }
+.btn i{
+    width: 24px;
+    height: 24px;
+}
 .btn:hover{
     outline: none;
     color: var(--color-light);
@@ -125,4 +129,10 @@ h3{
 }
 .leftNavBar a{
     max-height: 30px;
+}
+.more{
+    min-width: 94px;
+}
+.end{
+    margin-right: 10px;
 }
