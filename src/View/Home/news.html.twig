@@ -9,7 +9,9 @@
             <p class="card-text">{{ new.desc }}</p>
             <a href="{{ new.button_link }}" class="btn btn-primary card-btn" target="_blank">{{ new.button }}</a>
             {% endfor %}
+            {% if news is empty %}
+                <p class="card-text">Pas d'actualités en cours</p>
+            {% endif %}
         </div>
     </div>
 </div>
-<hr/>
