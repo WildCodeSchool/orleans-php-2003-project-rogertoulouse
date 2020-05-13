@@ -38,8 +38,10 @@ html{
 }
 body {
     background-color: var(--color-secondary);
-}.container{
+}
+.container{
      font-family: var(--font-text);
+     margin-top: 32px;
  }
 .container h1{
     font-size: calc(var(--sizeTitle) / 2);
