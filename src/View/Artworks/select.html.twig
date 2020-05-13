@@ -3,16 +3,26 @@
         <div class="sort-artworks-title"></div>
         <div class="bloc_sort_link">
             <div class="sort_img_label">
-                <div>
-                    <img src="/assets/images/illustration.svg">
-                    <img src="/assets/images/peinture.svg">
-                    <img src="/assets/images/sculpture.svg">
-                    <img src="/assets/images/ecriture.svg">
+                <div class="pictos">
+                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-shapes"></i>
+                    <i class="fas fa-pen"></i>
+                    <i class="fas fa-feather-alt"></i>
                 </div>
                 <a href="/artworks">INTEGRALITE DES OEUVRES</a></div>
             {% for category in categories %}
                 <div class="sort_img_label">
-                <div><img src="/assets/images/{{ category.category }}.svg"></div>
+                    <div class="pictos">
+                        {% if category.category == 'ecriture' %}
+                            <i class="fas fa-feather-alt"></i>
+                        {% elseif category.category == 'peinture'%}
+                            <i class="fas fa-palette"></i>
+                        {% elseif category.category == 'illustration'%}
+                            <i class="fas fa-pen"></i>
+                        {% else %}
+                            <i class="fas fa-shapes"></i>
+                        {% endif %}
+                    </div>
                     <a href="/artworks/index/?cat={{ category.id }}">
                         {{ category.category|upper}}
                     </a>

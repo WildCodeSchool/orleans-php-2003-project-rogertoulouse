@@ -45,8 +45,10 @@ class HomeController extends AbstractController
             $randomArtworks[$category] = $artworksByCategory[array_rand($artworksByCategory)];
         }
         shuffle($randomArtworks);
-        return $this->twig->render('Home/index.html.twig', ['artworks' => $randomArtworks,
+        return $this->twig->render('Home/index.html.twig', [
+            'artworks' => $randomArtworks,
             'carousel' => $carousel,
-            'news' => $news]);
+            'news' => $news,
+            ]);
     }
 }
