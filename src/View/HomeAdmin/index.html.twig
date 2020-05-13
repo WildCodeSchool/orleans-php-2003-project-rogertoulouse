@@ -29,10 +29,10 @@
                         <form action="/HomeAdmin/edit/{{ new.id }}" method="post">
                             <input type="submit" value="EDITER" class="btn">
                         </form>
-                        <form action="/HomeAdmin/delete/" method="post">
+                        <form action="/HomeAdmin/delete/{{ new.id }}" method="post">
                             <input name="action" value="delete" hidden>
                             <input name="id" value="{{ new.id }}" hidden>
-                            <input type="submit" value="SUPPRIMER" class="btn">
+                            <button class="btn"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </td>
                 </tr>
