@@ -1,6 +1,6 @@
 .top_page{
     background: var(--color-light);
-    padding-top: 30px;
+    padding-top: 50px;
     height: 100%;
 }
 hr{
@@ -23,8 +23,7 @@ hr{
 .card-text-admin-bis{
     padding-left: 5px;
     padding-right: 5px;
-    margin: 0px;
-    background: var(--color-light);
+
 }
 
 h1{
@@ -161,6 +160,30 @@ text-align: center;
     margin-top: 100px;
     margin-bottom: 30px;
 }
+.info-title-admin p{
+    text-align: center;
+    background: var(--color-main);
+    font-family:var(--font-title);
+    font-size: var(--sizeText);
+    color: var(--color-light);
+}
+.info-title-admin {
+    padding: 0px;
+    border: 1px solid var(--color-main);
+}
+.card-infos-admin{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.button{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+}
 .admin-bottom h2{
     margin-bottom: 50px;
     margin-left: 0px;
@@ -168,10 +191,12 @@ text-align: center;
     color: var(--color-light);
     font-size: var(--sizeIntermediate);
     border-radius: 0px;
+
 }
 .row .admin-bottom{
     margin-top: 0px;
     border: 1px solid var(--color-main);
+    margin-bottom: 50px;
 }
 .card-admin{
     border: 1px solid var(--color-main);
@@ -192,4 +217,19 @@ text-align: center;
     margin: 0px;
 }
 
+.row .button{
 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+.card-responsive-admin{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.card-responsive-admin-top{
+    margin-top: 30px;
+}
