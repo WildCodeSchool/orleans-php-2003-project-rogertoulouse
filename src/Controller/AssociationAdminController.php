@@ -61,7 +61,7 @@ class AssociationAdminController extends AbstractController
 
     private function controlUpdate(array $data)
     {
-        $lengthTitle = 100;
+        $lengthTitle = 30;
         $lengthText = 65535;
         $lengthEmail = $lengthAddress = 250;
         $lengthNumber = 30;

@@ -7,18 +7,22 @@
 
     <div class="container container-admin">
         <div class="row admin-top justify-content-between">
-            <div class="card  col-md-3">
+            <div class="card card-responsive-admin-top col-md-3">
                 <div class="card-body card-admin contact-card">
                     <h3 class="card-title  contact-roger">infos</h3>
-                    <p class="card-text-admin">Sous titre: {{ association.title }}</p>
                     <p class="card-text-admin-bis"><i class="fas fa-phone"></i> {{ association.numberphone }}</p>
                     <p class="card-text-admin"><i class="fas fa-at"></i> {{ association.email }}</p>
                     <p class="card-text-admin-bis"><i class="fas fa-map-marker-alt"></i> {{ association.address }}</p>
-
                 </div>
+
             </div>
-            <div class="col-3">
-                <img src="/assets/upload/{{ association.image }}" class="card-img-top"
+           <div class="col-md-5 card-responsive-admin info-title-admin">
+               <p>titre</p>
+               <h2>{{ association.title }}</h2>
+
+           </div>
+            <div class="col-md-3 ">
+                <img src="/assets/upload/{{ association.image }}" class=" card-img-top"
                      alt="Photo de Roger toulouse">
             </div>
 
@@ -29,8 +33,8 @@
             </div>
 
         </div>
-        <div class="update-btn">
-            <a href="/AssociationAdmin/update">MODIFIER</a>
+        <div class="row button">
+            <a href="/AssociationAdmin/update" class="btn"> <i class="fas fa-edit"></i></a>
         </div>
     </div>
 
