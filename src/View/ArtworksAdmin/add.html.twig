@@ -2,7 +2,7 @@
 {% block admin %}
     <section class="addArtworks container">
         {% for message in messages %}
-            <div class="error">{{ message }}</div>
+            <div class="message">{{ message }}</div>
         {% endfor %}
         <form method="post" enctype="multipart/form-data">
             <div class="formContainer">

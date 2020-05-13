@@ -31,12 +31,16 @@ class ArtworksAdminController extends AbstractController
      */
     public function index():string
     {
+        $message=[];
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectArtworks();
-
+        if (isset($_GET['update'])) {
+            $message[]='La mise à jour a bien été effectuée.';
+        }
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
             'active' => self::ACTIVE,
             'artworks' => $artworks,
+            'messages' => $message,
             ]);
     }
     public function validData($artwork, $categories)

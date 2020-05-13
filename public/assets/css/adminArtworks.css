@@ -101,11 +101,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.message{
-    width: 100%;
-    text-align: center;
-    background-color: var(--color-error);
-}
+
 .confSuppr {
     display: none;
     top:0px;
@@ -130,7 +126,7 @@ td form input{
     background-color: var(--color-light);
     border-style: solid;
     border-color: var(--color-main);
-    border-width: 0px;
+    border-width: 0;
 }
 .updateArtworks .bloc_infos{
     text-align: left;
