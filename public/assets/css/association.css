@@ -13,6 +13,18 @@ hr{
     background-color: var(--color-secondary);
     align-items: center;
     justify-content: center;
+
+}
+.card-text-admin{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0px;
+}
+.card-text-admin-bis{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0px;
+    background: var(--color-light);
 }
 
 h1{
@@ -145,19 +157,39 @@ text-align: center;
 .update-btn a {
     background: var(--color-main);
 }
-.admin-top{
-    margin-top: 30px;
+.container-admin .admin-top{
+    margin-top: 100px;
+    margin-bottom: 30px;
 }
 .admin-bottom h2{
-    margin-top: 30px;
     margin-bottom: 50px;
+    margin-left: 0px;
+    background: var(--color-main);
+    color: var(--color-light);
+    font-size: var(--sizeIntermediate);
+    border-radius: 0px;
+}
+.row .admin-bottom{
+    margin-top: 0px;
+    border: 1px solid var(--color-main);
 }
 .card-admin{
-
+    border: 1px solid var(--color-main);
+    padding: 0px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
+    background: var(--color-secondary);
+    font-family: var(--font-text);
 }
+.card-admin h3{
+    text-align: center;
+    background: var(--color-main);
+    color: var(--color-light);
+    margin: 0px;
+}
+
+

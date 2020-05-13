@@ -31,6 +31,10 @@
     margin-inline-start: 25px;
     margin-inline-end: 25px;
 }
+.card_artwork .picture {
+    overflow: hidden;
+    max-height: 350px;
+}
 
 .artwork .card-body{
     padding: 0px;
