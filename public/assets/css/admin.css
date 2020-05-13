@@ -79,6 +79,15 @@ a:hover{
     border-right: var(--color-error) 4px solid;
     border-bottom: var(--color-error) 4px solid;
 }
+.message{
+    text-align: center;
+    color: var(--color-light);
+    font-weight: bold;
+    background-color: var(--color-main);
+    border-left: var(--color-main) 4px solid;
+    border-right: var(--color-main) 4px solid;
+    border-bottom: var(--color-main) 4px solid;
+}
 .deleter{
     border-top: var(--color-error) 4px solid;
     border-left: var(--color-error) 4px solid;
