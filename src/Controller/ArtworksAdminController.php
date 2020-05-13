@@ -34,8 +34,14 @@ class ArtworksAdminController extends AbstractController
         $message=[];
         $artworkManager = new ArtworkManager();
         $artworks = $artworkManager->selectArtworks();
-        if (isset($_GET['update'])) {
-            $message[]='La mise à jour a bien été effectuée.';
+        if (isset($_GET['validation'])) {
+            if ($_GET['validation']=='update') {
+                $message[] = 'La mise à jour de l\'oeuvre a bien été effectuée.';
+            } elseif ($_GET['validation']=='add') {
+                $message[] = 'L\'ajout de l\'oeuvre a bien été effectuée.';
+            } elseif ($_GET['validation']=='delete') {
+                $message[] = 'La suppression de l\'oeuvre a bien été effectuée.';
+            }
         }
         return $this->twig->render('/ArtworksAdmin/index.html.twig', [
             'active' => self::ACTIVE,
@@ -49,7 +55,12 @@ class ArtworksAdminController extends AbstractController
         $sizeLenght=40;
         $nameLenght=100;
         $moreInfoLenght=255;
+        $startYear=1917;
+        $endYear=1995;
 
+        if ($artwork['year'] < $startYear || $artwork['year'] > $endYear) {
+            $messages[]='L\'année de la création de l\'oeuvre doit être comprise entre 1918 et 1994';
+        }
         if (strlen($artwork['name'])>$nameLenght) {
             $messages[]='Le titre ne peut dépasser ' . $nameLenght . ' caractères.';
         }
@@ -82,6 +93,7 @@ class ArtworksAdminController extends AbstractController
             foreach ($_POST as $key => $value) {
                 $artwork[$key] = trim($value);
             }
+            $artwork['year']=$artwork['date'];
             $artwork['date'] = $artwork['date'] . '-01-01';
             if (isset($artwork['carousel'])) {
                 $artwork['carousel'] = true;
@@ -91,7 +103,7 @@ class ArtworksAdminController extends AbstractController
             $messages = $this->validData($artwork, $categories);
             if (empty($messages)) {
                 $artworkManager->updateArtwork($artwork);
-                header('location:/ArtworksAdmin/index/?update=valid');
+                header('location:/ArtworksAdmin/index/?validation=update');
             } else {
                 return $this->twig->render('/ArtworksAdmin/update.html.twig', [
                     'active' => self::ACTIVE,
@@ -125,23 +137,29 @@ class ArtworksAdminController extends AbstractController
             $artworkManager->deleteArtwork($idArtwork);
             unlink('assets/upload/' . $artwork['image']);
 
-            header('location:/ArtworksAdmin/index');
+            header('location:/ArtworksAdmin/index/?validation=delete');
         }
     }
-    public function verifDataAdd($artwork, $categories):array
+
+
+    public function verifData($artwork, $categories):array
     {
         $errorMessages = [];
         $typeFileAllowed=['image/jpg','image/jpeg','image/png','image/gif'];
-        if ($_FILES['image']['size']>1000000) {
-            $errorMessages[]="La taille maximal du fichier ne doit pas dépasser 1Mo.";
-            echo "taille";
+        if ($_FILES['image']['size']>1000000 || !in_array($_FILES['image']['type'], $typeFileAllowed)) {
+            $errorMessages[]="Seules les images .jpg, .jpeg, .png et .gif sont autorisées.<br>
+             La taille maximal de celles-ci ne doit pas dépasser 1Mo.";
         }
-        if (!in_array($_FILES['image']['type'], $typeFileAllowed)) {
-            $errorMessages[]="Seuls les images .jpg, .jpeg, .png, .gif sont autorisés.";
+
+        $startYear=1917;
+        $endYear=1995;
+
+        if ($artwork['year'] < $startYear || $artwork['year'] > $endYear) {
+            $errorMessages[]='L\'année de la création de l\'oeuvre doit être comprise entre 1918 et 1994';
         }
         if (empty($artwork['name']) || empty($artwork['date'])
-            || empty($artwork['category_id']) || empty($artwork['description'])) {
-            $errorMessages[] = 'Les champs nom, date, categorie et description sont obligatoires.';
+            || empty($artwork['description'])) {
+            $errorMessages[] = 'Les champs nom, date et description sont obligatoires.';
         }
         if (!in_array($artwork['category_id'], array_column($categories, 'id'))) {
             $errorMessages[] = 'La catégorie renseignée n\'est pas valide';
@@ -151,14 +169,16 @@ class ArtworksAdminController extends AbstractController
     public function add():string
     {
         $errorMessages=[];
+        $artwork=[];
         // récupération des catégories
         $categoryManager = new CategoryManager();
         $categories = $categoryManager->selectAllCategories();
         if (isset($_FILES['image']) && isset($_POST['name'])) {
             $artwork = $_POST;
+            $artwork['year'] = intval($artwork['date']);
             $artwork['date'] = $artwork['date'] . '-01-01';
             $uploadDir = 'assets/upload/';
-            $errorMessages = $this->verifDataAdd($artwork, $categories);
+            $errorMessages = $this->verifData($artwork, $categories);
 
             if (empty($errorMessages)) {
                 $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -170,11 +190,14 @@ class ArtworksAdminController extends AbstractController
                 $artworkManager = new ArtworkManager();
                 $artworkManager->addArtwork($artwork);
                 $errorMessages[]='L\'ajout de l\'oeuvre a bien été effectué.';
+
+                header('location:/ArtworksAdmin/index/?validation=add');
             }
         }
 
         return $this->twig->render('/ArtworksAdmin/add.html.twig', [
             'active' => self::ACTIVE,
+            'artwork' => $artwork,
             'categories'=>$categories,
             'messages'=>$errorMessages
         ]);
