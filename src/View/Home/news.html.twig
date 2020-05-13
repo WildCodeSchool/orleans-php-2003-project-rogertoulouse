@@ -2,13 +2,18 @@
     <h1>Actualités</h1>
 </div>
 <div class="news">
-    <div class="card text-center mb-3">
-        <div class="card-body">
-            {% for new in news %}
-                <div class="card-title">{{ new.title }}</div>
-            <p class="card-text">{{ new.desc }}</p>
-            <a href="{{ new.button_link }}" class="btn btn-primary card-btn" target="_blank">{{ new.button }}</a>
-            {% endfor %}
+    <div class="mb-3 row">
+        <div class="col-3">
+            <div class="card-deck">
+                <div class="card-body">
+                    {% for new in news %}
+                        <div class="card-title">{{ new.title }}</div>
+                        <p class="card-text">{{ new.desc }}</p>
+                        <a href="{{ new.button_link }}" class="btn btn-primary card-btn"
+                           target="_blank">{{ new.button }}</a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
