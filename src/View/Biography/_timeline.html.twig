@@ -9,8 +9,8 @@
                             <img class="picture" src="assets/upload/{{ biography.image }}" alt="{{ biography.category ~ ' : ' ~ biography.name }}">
                         </a>
                     {% endif %}
-                    <p class="info">{{ biography.name }}{{ biography.info }}</p>
-                    <p class="description">{{ biography.description }}</p>
+                    <p class="info">{{ biography.name|nl2br }}{{ biography.info|nl2br }}</p>
+                    <p class="description">{{ biography.description|nl2br }}</p>
                 </li>
             </ul>
         {% endfor %}
