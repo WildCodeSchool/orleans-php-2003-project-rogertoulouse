@@ -9,6 +9,7 @@
 
 namespace App\Controller;
 
+use App\Model\ArtworkManager;
 use App\Model\NewsManager;
 
 /**
@@ -66,6 +67,7 @@ class HomeAdminController extends AbstractController
 
         return $errors ?? [];
     }
+
     public function edit(int $id): string
     {
         $newsManager = new NewsManager();
@@ -84,5 +86,18 @@ class HomeAdminController extends AbstractController
             'data' => $data ?? [],
             'errors' => $errors ?? []
         ]);
+    }
+
+    public function delete()
+    {
+        $newsManager = new NewsManager();
+
+        if (!empty($_POST['id'])) {
+            $id = intval($_POST['id']);
+            // suppression de la news
+            $newsManager->deleteNews($id);
+
+            header('location:/HomeAdmin/index');
+        }
     }
 }

@@ -131,3 +131,33 @@ form {
     color: var(--color-light);
     text-align: start;
 }
+.text-admin{
+text-align: center;
+}
+.update-btn{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+.update-btn a {
+    background: var(--color-main);
+}
+.admin-top{
+    margin-top: 30px;
+}
+.admin-bottom h2{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.card-admin{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+}
