@@ -55,10 +55,6 @@ a{
     color: var(--color-light);
     text-decoration: none;
 }
-a:hover{
-    font-weight: 700;
-
-}
 td.admArtLink{
     flex-wrap: wrap;
     align-content: space-around;
