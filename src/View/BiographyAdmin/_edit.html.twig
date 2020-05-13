@@ -2,8 +2,8 @@
 {% block AditionalContent %}
     <tr></tr>
     <form action="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}" method="post" id="formEdit"></form>
-    <tr class="cell" id="{{ biography.id }}">
-        <td class="yearValue"><form id="formEdit"><label for="year" hidden></label><input type="number" name="year" id="year" value="{{ year }}" form="formEdit"></form></td>
+    <tr class="cell">
+        <td class="yearValue"><form id="formEdit"><label for="year" hidden></label><input type="number" name="year" id="year" value="{{ year }}" form="formEdit"></form><span class="anchor" id="{{ biography.id }}"></span></td>
         <td><form class="cellinfo" id="formEdit"><label for="biography" hidden></label><textarea name="biography" id="biography" form="formEdit">{{ biography.info }}</textarea></form></td>
         <td class="admArtLink">
             <input type="hidden" name="control" value="add" id="add">
