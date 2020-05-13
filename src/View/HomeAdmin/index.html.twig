@@ -5,11 +5,7 @@
         <table>
             <thead>
             <tr>
-                <td class="id">ID</td>
                 <td>Titre</td>
-                <td>Desc</td>
-                <td>Desc. Bouton</td>
-                <td>Lien Bouton</td>
                 <td>
                     <a class="btn" href="/HomeAdmin/add/">
                         <i class="fas fa-plus"></i>
@@ -20,11 +16,7 @@
             <tbody>
             {% for new in news %}
                 <tr>
-                    <td class="id">{{ new.id }}</td>
                     <td>{{ new.title }}</td>
-                    <td>{{ new.desc }}</td>
-                    <td>{{ new.button }}</td>
-                    <td>{{ new.button_link }}</td>
                     <td>
                         <a class="btn" href="/HomeAdmin/edit/{{ new.id }}">
                             <i class="fas fa-edit"></i>
