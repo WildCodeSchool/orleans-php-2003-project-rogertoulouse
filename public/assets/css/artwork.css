@@ -204,18 +204,6 @@ Page single - une oeuvre seule.
 .descr_detail img {
     padding-right: 15px;
 }
-.sort_img_label img{
-    padding-left: 3px;
-    padding-right: 3px;
-}
-.sort_img_label a{
-    border-radius: 0;
-    border-style: none;
-}
-.sort_img_label a:hover{
-     border-radius: 0;
-     border-style: none;
-}
 .info{
     font-size: 14px;
     font-weight: 700;
