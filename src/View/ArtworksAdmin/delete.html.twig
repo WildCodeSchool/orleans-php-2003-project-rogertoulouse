@@ -1,0 +1,13 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    <div class="updateArtworks">
+        <div>{{ artwork.name }}</div>
+        <div><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></div>
+        <form action="/ArtworksAdmin/delete/" method="post">
+            <input name="action" value="pre_delete" hidden>
+            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
+            <input type="submit" value="CONFIRMATION" class="btn">
+        </form>
+        <a class="btn">RETOUR</a>
+    </div>
+{% endblock %}

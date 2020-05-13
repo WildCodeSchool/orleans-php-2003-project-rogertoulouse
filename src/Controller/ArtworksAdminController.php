@@ -113,7 +113,20 @@ class ArtworksAdminController extends AbstractController
             ]);
         }
     }
-
+    public function preDelete()
+    {
+        if (isset($_POST['idArtwork'])) {
+            $idArtwork = intval(trim($_POST['idArtwork']));
+            $artworkManager = new ArtworkManager();
+            $artwork = $artworkManager->selectArtwork($idArtwork);
+            return $this->twig->render('/ArtworksAdmin/delete.html.twig', [
+                'active' => self::ACTIVE,
+                'artwork' => $artwork
+            ]);
+        } else {
+            header('location:/adminArtwork/index');
+        }
+    }
     public function delete()
     {
         $artworkManager = new ArtworkManager();
@@ -125,7 +138,7 @@ class ArtworksAdminController extends AbstractController
             $artworkManager->deleteArtwork($idArtwork);
             unlink('assets/upload/' . $artwork['image']);
 
-            header('location:/ArtworksAdmin/index');
+            header('location:/ArtworksAdmin/index?validation=delete');
         }
     }
     public function verifDataAdd($artwork, $categories):array
