@@ -167,7 +167,7 @@ class BiographyAdminController extends AbstractController
         if ($year != '') {
             $userDate = '01-01-' . $year;
             $startDate = new DateTime('01-01-1916');
-            $nowDate = new DateTime(date('m-d-Y'));
+            $nowDate = new DateTime();
             $userDate = new DateTime($userDate);
             if ((strtotime($year)) === false) {
                 $errors['year'][] = 'L\'année n\'est pas valide.';
