@@ -1,3 +1,36 @@
 {% extends 'Admin/index.html.twig' %}
 {% block admin %}
+
+    {% block stylesheet %}
+        <link rel="stylesheet" href="/assets/css/association.css">
+    {% endblock %}
+
+    <div class="container">
+        <div class="row admin-top justify-content-around">
+            <div class="card col-md-3">
+                <div class="card-body card-admin contact-card">
+                    <h3 class="card-title  contact-roger">contact</h3>
+                    <p class="card-text"><i class="fas fa-phone"></i> {{ association.numberphone }}</p>
+                    <p class="card-text"><i class="fas fa-at"></i> {{ association.email }}</p>
+                    <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ association.address }}</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <img src="/assets/upload/{{ association.image }}" class="card-img-top"
+                     alt="Photo de Roger toulouse">
+            </div>
+
+        </div>
+        <div class="row ">
+            <div><p>Titre: {{ association.title }}</p></div>
+            <div class="admin-bottom"><h2>Description</h2>
+                <p class="text-admin">{{ association.text }}</p>
+            </div>
+
+        </div>
+        <div class="update-btn">
+            <a href="/AssociationAdmin/update">MODIFIER</a>
+        </div>
+    </div>
+
 {% endblock %}
