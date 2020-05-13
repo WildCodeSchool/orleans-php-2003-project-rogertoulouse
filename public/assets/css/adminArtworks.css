@@ -149,3 +149,7 @@ td form input{
 .updateArtworks label{
     padding-top: 8px;
 }
+.delete h2{
+    background-color: var(--color-error);
+    color: var(--color-light);
+}
