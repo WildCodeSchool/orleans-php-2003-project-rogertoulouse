@@ -1,18 +1,14 @@
 {% extends 'Admin/index.html.twig' %}
 
 {% block admin %}
-    <div class="adminNews">
+    <div class="adminNews container">
         <table>
             <thead>
             <tr>
-                <td class="id">ID</td>
                 <td>Titre</td>
-                <td>Desc</td>
-                <td>Desc. Bouton</td>
-                <td>Lien Bouton</td>
                 <td>
-                    <a href="/HomeAdmin/add/">
-                        <div class="btn">AJOUTER</div>
+                    <a class="btn" href="/HomeAdmin/add/">
+                        <i class="fas fa-plus"></i>
                     </a>
                 </td>
             </tr>
@@ -20,11 +16,7 @@
             <tbody>
             {% for new in news %}
                 <tr>
-                    <td class="id">{{ new.id }}</td>
                     <td>{{ new.title }}</td>
-                    <td>{{ new.desc }}</td>
-                    <td>{{ new.button }}</td>
-                    <td>{{ new.button_link }}</td>
                     <td>
                         <form action="/HomeAdmin/edit/{{ new.id }}" method="post">
                             <input type="submit" value="EDITER" class="btn">
