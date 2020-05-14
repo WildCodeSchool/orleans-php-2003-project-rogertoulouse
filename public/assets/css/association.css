@@ -64,7 +64,7 @@ h2{
 }
 .assoc_text {
     font-family: var(--font-text);
-    font-size: 10pt;
+    font-size: var(--sizeText);
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
@@ -107,7 +107,7 @@ h2{
     border: none;
 }
 .card h3{
-    font-size: var(--sizeText);
+    font-size: calc(var(--sizeText) * 1.5);
     font-family: var(--font-title);
 }
 .contact_title{
@@ -143,7 +143,8 @@ form {
     text-align: start;
 }
 .text-admin{
-text-align: center;
+text-align: left;
+    font-family: var(--font-text);
 }
 .update-btn{
     display: flex;
@@ -235,4 +236,10 @@ text-align: center;
 }
 .label-admin{
     font-family: var(--font-text);
+}
+.subhead{
+    font-size:var(--sizeIntermediate);
+}
+.row h2{
+    margin-bottom: 50px;
 }
