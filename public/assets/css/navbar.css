@@ -1,7 +1,7 @@
 a h1 {
     color: var(--color-light);
     font-family: var(--font-title);
-    font-size: calc(var(--sizeTitle));
+    font-size: 4vmax;
     margin-top: -30px;
     margin-bottom: -30px;
 }
