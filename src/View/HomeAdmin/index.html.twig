@@ -1,13 +1,13 @@
 {% extends 'Admin/index.html.twig' %}
 
 {% block admin %}
-        <div class="adminNews container d-flex justify-content-center mt-5">
+    <div class="adminNews container d-flex justify-content-center mt-5">
         <table>
             <thead>
             <tr>
                 <td>Titre</td>
                 <td>Description</td>
-                <td>
+                <td class="d-flex justify-content-end">
                     <a class="btn" href="/HomeAdmin/add/">
                         <i class="fas fa-plus"></i>
                     </a>
@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ new.title }}</td>
                     <td>{{ new.desc }}</td>
-                    <td>
+                    <td class="d-flex justify-content-end">
                         <a class="btn" href="/HomeAdmin/edit/{{ new.id }}">
                             <i class="fas fa-edit"></i>
                         </a>
