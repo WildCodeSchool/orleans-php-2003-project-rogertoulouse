@@ -51,7 +51,7 @@ h2{
     background: var(--color-main);
     color: var(--color-light);
     width: 100%;
-    font-size: var(--font-text);
+    font-size: var(--sizeText);
 }
 .card-img-top{
     background-color: var(--color-main);
@@ -107,7 +107,7 @@ h2{
     border: none;
 }
 .card h3{
-    font-size: var(--sizeText);
+    font-size: var(--sizeIntermediate-two );
     font-family: var(--font-title);
 }
 .contact_title{
