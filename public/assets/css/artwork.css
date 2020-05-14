@@ -29,6 +29,7 @@
     align-items: inherit;
     justify-content: space-around;
     padding-bottom: 32px;
+    margin: 0;
 }
 .artwork .card_artwork:nth-child(even){
     flex-direction: column-reverse;
