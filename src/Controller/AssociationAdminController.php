@@ -67,6 +67,11 @@ class AssociationAdminController extends AbstractController
         $lengthNumber = 30;
         $errors = [];
 
+        foreach ($data as $key) {
+            if (empty($key)) {
+                $errors[] = " veuillez remplir tous les champs";
+            }
+        }
         if (strlen($data['title']) > $lengthTitle) {
             $errors[] = 'Le titre dépasse ' . $lengthTitle . ' caractères';
         }
