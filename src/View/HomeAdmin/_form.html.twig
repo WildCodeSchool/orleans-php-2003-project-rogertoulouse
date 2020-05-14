@@ -1,54 +1,28 @@
-<form method="post" class="adminNews d-flex text-center">
-    <div class="form-group">
-        <input type="hidden" value="{{ new.id }}" name="id">
-    </div>
-    <table>
-        <tr>
-            <thead>
-            <td>Titre</td>
-            <td>Description de l'actu</td>
-            <td>Description du bouton</td>
-            <td>Lien du bouton</td>
-            <td>Action</td>
-            </thead>
-        </tr>
-        <tr>
-            <td>
-                <label for="title"></label>
-                <input placeholder="ex: Expositions" type="text" value="{{ new.title }}" name="title" id="title">
-                {% if errors.title %}
-                    <div class="text-danger">{{ errors.title }}</div>
-                {% endif %}
-            </td>
-            <td>
-                <label for="desc"></label>
-                <input placeholder="ex : Les prochaines expositions seront ...." type="text" value="{{ new.desc }}"
-                       name="desc" id="desc">
-                {% if errors.desc %}
-                    <div class="text-danger">{{ errors.desc }}</div>
-                {% endif %}
-            </td>
-            <td>
-                <label for="button"></label>
-                <input placeholder="ex : Voir les prochaines expos" type="text" value="{{ new.button }}" name="button"
-                       id="button">
-                {% if errors.button %}
-                    <div class="text-danger">{{ errors.button }}</div>
-                {% endif %}
-            </td>
-            <td c>
-                <label for="button_link"></label>
-                <input placeholder="ex : http://www.orleans-metropole.fr/" type="text" value="{{ new.button_link }}"
-                       name="button_link" id="button_link">
-                {% if errors.button_link %}
-                    <div class="text-danger">{{ errors.button_link }}</div>
-                {% endif %}
-            </td>
-            <td>
-                <div>
-                    <input type="submit" value="Valider" class="">
-                </div>
-            </td>
-        </tr>
-    </table>
-</form>
+<div class="container">
+    {% for error in errors %}
+        <div><p class="text-danger alert alert-danger">{{ error }}</p></div>
+    {% endfor %}
+    <form method="POST" action="">
+        <div class="form-group">
+            <input hidden value="{{ new.id }}" name="id">
+            <label for="title">Titre</label>
+            <input type="text" name="title" value="{{ new.title }}" class="form-control" id="title" placeholder="ex :
+ Expositions">
+        </div>
+        <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea class="form-control" name="desc" id="desc" rows="3">{{ new.desc }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="button">Bouton</label>
+            <input type="text" name="button" id="button" value="{{ new.button }}" class="form-control"
+                   placeholder="ex : Expo Orléans">
+        </div>
+        <div class="form-group">
+            <label for="button_link">Lien Bouton</label>
+            <input type="text" name="button_link" value="{{ new.button_link }}" class="form-control" placeholder="ex :
+ www.google.fr" id="button_link">
+        </div>
+        <button class="btn">Valider</button>
+    </form>
+</div>

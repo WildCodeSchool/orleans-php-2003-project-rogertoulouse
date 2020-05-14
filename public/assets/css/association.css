@@ -233,3 +233,6 @@ text-align: center;
 .card-responsive-admin-top{
     margin-top: 30px;
 }
+.label-admin{
+    font-family: var(--font-text);
+}

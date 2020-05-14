@@ -24,9 +24,9 @@
                         {% block AditionalContent %}
                         {% endblock %}
                     {% else %}
-                        <tr class="cell" id="{{ biography.id }}">
-                            <td class="yearValue">{{ year }}</td>
-                            <td class="cellinfo">{{ biography.info|nl2br }}</td>
+                        <tr class="cell">
+                            <td class="yearValue">{{ year }}<span class="anchor" id="{{ biography.id }}"></span></td>
+                            <td class="cellinfo">{{ biography.info }}</td>
                             <td class="admArtLink">
                                 <a class="btn" href="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-edit"></i></a>
                                 <a class="btn" href="/BiographyAdmin/Delete/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-trash-alt"></i></a>
