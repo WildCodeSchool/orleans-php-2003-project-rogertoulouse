@@ -18,19 +18,17 @@
                 <th>Année</th>
                 <th>Carousel</th>
                 <th>Description</th>
-                <th>Infos+</th>
-                <th>Taille</th>
                 <th class="option end" scope="col">
                     <a class="more btn" href="/ArtworksAdmin/add"><i class="fas fa-plus"></i></a>
                 </th>
             </tr>
-        </thead>
+        </thead>git
         <tbody>
         {% for artwork in artworks %}
             <tr>
                 <td class="id">{{ artwork.idArtwork }}</td>
                 <td><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></td>
-                <td>{{ artwork.name }}</td>
+                <td class="text-center">{{ artwork.name }}</td>
                 <td>{{ artwork.category }}</td>
                 <td>{{ artwork.date|date("Y") }}</td>
                 <td>
@@ -39,12 +37,10 @@
                     {% endif %}
                 </td>
                 <td>
-                    <div class="relative">
-                        <div>{{ artwork.description }}</div>
-                    </div>
+                    <p class="td_description px-2">
+                        {{ artwork.description }}
+                    </p>
                 </td>
-                <td>{{ artwork.more_info }}</td>
-                <td>{{ artwork.size }}</td>
                 <td>
                     <a class="btn" href="/ArtworksAdmin/update/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
                     <a class="btn" href="/ArtworksAdmin/preDelete/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
