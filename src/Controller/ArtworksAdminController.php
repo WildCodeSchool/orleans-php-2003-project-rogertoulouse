@@ -78,7 +78,7 @@ class ArtworksAdminController extends AbstractController
     }
 
 
-    public function update($idArtwork=null)
+    public function update($idArtwork = null)
     {
         //recup categories
         $categoryManager = new CategoryManager();
