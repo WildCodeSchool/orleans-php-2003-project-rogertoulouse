@@ -67,7 +67,7 @@ class AssociationAdminController extends AbstractController
         $lengthNumber = 30;
         $errors = [];
 
-        foreach ($_POST as $key) {
+        foreach ($data as $key) {
             if (empty($key)) {
                 $errors[] = " veuillez remplir tous les champs";
             }
