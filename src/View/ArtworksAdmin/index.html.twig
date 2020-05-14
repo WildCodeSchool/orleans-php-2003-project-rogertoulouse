@@ -8,7 +8,6 @@
             </div>
         {% endfor %}
     {% endif %}
-    <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
@@ -46,24 +45,9 @@
                 </td>
                 <td>{{ artwork.more_info }}</td>
                 <td>{{ artwork.size }}</td>
-                <td class="admArtLink">
-                    <a class="btn" href="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-edit"></i></a>
-                    <a class="btn" href="/ArtworksAdmin/Delete/?idArtwork={{ artwork.id }}"><i class="fas fa-trash-alt"></i></a>
-                </td>
                 <td>
-                    <div>
-                        <form action="/ArtworksAdmin/update/" method="post">
-                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="MODIFIER" class="btn">
-                        </form>
-                    </div>
-                    <div>
-                        <form action="/ArtworksAdmin/delete/" method="post">
-                            <input name="action" value="delete" hidden>
-                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="SUPPRIMER" class="btn">
-                        </form>
-                    </div>
+                    <a class="btn" href="/ArtworksAdmin/update/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/preDelete/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% endfor %}

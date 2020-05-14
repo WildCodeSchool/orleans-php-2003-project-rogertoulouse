@@ -113,8 +113,8 @@ class ArtworksAdminController extends AbstractController
                 ]);
             }
         }
-        if (!empty($_POST['idArtwork'])) {
-            $idArtwork = intval($_POST['idArtwork']);
+        if (!empty($_GET['idArtwork'])) {
+            $idArtwork = intval($_GET['idArtwork']);
 
             $artwork = $artworkManager->selectArtwork($idArtwork);
             return $this->twig->render('/ArtworksAdmin/update.html.twig', [
