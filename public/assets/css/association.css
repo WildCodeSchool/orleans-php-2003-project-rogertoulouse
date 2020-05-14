@@ -64,7 +64,8 @@ h2{
 }
 .assoc_text {
     font-family: var(--font-text);
-    font-size: 10pt;
+    font-size: var(--sizeText);
+    line-height: 1.2;
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
