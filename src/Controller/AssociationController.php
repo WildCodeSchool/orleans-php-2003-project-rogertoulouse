@@ -41,7 +41,7 @@ class AssociationController extends AbstractController
             }
             if (!empty($errors) && $errors != '') {
                 return $this->twig->render('Association/index.html.twig', [
-                    'post' => $_POST,
+                    'post' => $data,
                     'errors' => $errors,
                     'association' => $association]);
             }
