@@ -8,7 +8,6 @@
             </div>
         {% endfor %}
     {% endif %}
-    <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
@@ -19,7 +18,9 @@
                 <th>Année</th>
                 <th>Carousel</th>
                 <th>Description</th>
-                <th>Action</th>
+                <th class="option end" scope="col">
+                    <a class="more btn" href="/ArtworksAdmin/add"><i class="fas fa-plus"></i></a>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -41,10 +42,8 @@
                     </p>
                 </td>
                 <td>
-                    <div>
-                        <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}">MODIFIER</a>
-                        <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}">SUPPRIMER</a>
-                    </div>
+                    <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% endfor %}

@@ -113,6 +113,7 @@ class ArtworksAdminController extends AbstractController
                 ]);
             }
         }
+
          $artwork = $artworkManager->selectArtwork($idArtwork);
         return $this->twig->render('/ArtworksAdmin/update.html.twig', [
             'active' => self::ACTIVE,

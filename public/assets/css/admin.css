@@ -83,9 +83,7 @@ td.admArtLink{
     color: var(--color-light);
     font-weight: bold;
     background-color: var(--color-main);
-    border-left: var(--color-main) 4px solid;
-    border-right: var(--color-main) 4px solid;
-    border-bottom: var(--color-main) 4px solid;
+    border-bottom: var(--color-secondary) 2px solid;
 }
 .deleter{
     border-top: var(--color-error) 4px solid;
