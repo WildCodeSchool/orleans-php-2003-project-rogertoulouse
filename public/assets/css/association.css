@@ -233,3 +233,16 @@ text-align: center;
 .card-responsive-admin-top{
     margin-top: 30px;
 }
+.success{
+    border-radius: var(--border-radius);
+    background-color: var(--color-success);
+    color: var(--color-light);
+    font-weight: 800;
+}
+.error{
+    margin-top: -2px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background-color: var(--color-error);
+    color: var(--color-light);
+    font-weight: 800;
+}

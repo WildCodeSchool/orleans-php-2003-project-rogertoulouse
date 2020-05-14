@@ -1,0 +1,41 @@
+{% extends 'Admin/index.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/admin.css">
+<link rel="stylesheet" href="/assets/css/MessagesAdmin.css">
+{% endblock %}
+{% block admin %}
+    <section class="container">
+        <table class="resp-table">
+            <thead class="thead-dark">
+            <tr>
+                <th class="mail" scope="col">Expéditeur</th>
+                <th class="object" scope="col">Objet</th>
+                <th class="content" scope="col">Message</th>
+                <th class="option end" scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% block add %}
+            {% endblock %}
+            {% for message in data %}
+                {% if message.id == id %}
+                    {% block AditionalContent %}
+                    {% endblock %}
+                {% else %}
+                    <tr class="cell" id="{{ message.id }}">
+                        <td class="mailValue">{{ message.mailer }}</td>
+                        <td class="objectValue">{{ message.object }}</td>
+                        <td class="contentValue">{{ message.message }}</td>
+                        <td class="admArtLink">
+                            <a class="btn" href="/MessagesAdmin/Delete/{{ message.id }}#{{ message.id }}"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
+
+
+
