@@ -42,17 +42,8 @@
                 </td>
                 <td>
                     <div>
-                        <form action="/ArtworksAdmin/update/" method="post">
-                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="MODIFIER" class="btn">
-                        </form>
-                    </div>
-                    <div>
-                        <form action="/ArtworksAdmin/delete/" method="post">
-                            <input name="action" value="delete" hidden>
-                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="SUPPRIMER" class="btn">
-                        </form>
+                        <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}">MODIFIER</a>
+                        <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}">SUPPRIMER</a>
                     </div>
                 </td>
             </tr>
@@ -61,3 +52,5 @@
     </table>
 </div>
 {% endblock %}
+
+
