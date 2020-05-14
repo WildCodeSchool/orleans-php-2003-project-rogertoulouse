@@ -1,9 +1,12 @@
 a h1 {
     color: var(--color-light);
     font-family: var(--font-title);
-    font-size: calc(var(--sizeTitle) * 1.5);
+    font-size: calc(var(--sizeTitle));
     margin-top: -30px;
     margin-bottom: -30px;
+}
+.nav-item{
+    list-style: none;
 }
 .navbar-collapse{
     flex-grow: 0.2;
@@ -15,11 +18,11 @@ a h1 {
     font-family: var(--font-title);
 }
 .navbar-dark .navbar-nav .nav-link {
-    font-size: calc(var(--sizeText) / 1.7);
+    font-size: calc(var(--sizeText) / 1.1);
     color: var(--color-light);
 }
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: var(--color-secondary);
+    color: var(--color-shadow);
 }
 .navbar-dark .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 228, 194, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
