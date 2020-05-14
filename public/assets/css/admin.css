@@ -56,10 +56,6 @@ a{
     color: var(--color-light);
     text-decoration: none;
 }
-a:hover{
-    font-weight: 700;
-
-}
 td.admArtLink{
     flex-wrap: wrap;
     align-content: space-around;
@@ -92,4 +88,10 @@ td.admArtLink{
     border-top: var(--color-error) 4px solid;
     border-left: var(--color-error) 4px solid;
     border-right: var(--color-error) 4px solid;
+}
+.anchor{
+    display: block;
+    height: 50vh; /* 50% viewport height */
+    margin-top: -50vh;
+    visibility: hidden;
 }
