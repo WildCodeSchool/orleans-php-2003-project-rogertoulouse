@@ -64,7 +64,7 @@ h2{
 }
 .assoc_text {
     font-family: var(--font-text);
-    font-size: 10pt;
+    font-size: var(--sizeText);
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
@@ -248,4 +248,10 @@ text-align: center;
 }
 .label-admin{
     font-family: var(--font-text);
+}
+.subhead{
+    font-size:var(--sizeIntermediate);
+}
+.row h2{
+    margin-bottom: 50px;
 }
