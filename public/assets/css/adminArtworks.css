@@ -37,14 +37,7 @@
     color: var(--color-light);
     text-decoration: none;
 }
-.adminArtworks a{
-    color: var(--color-light);
-    text-decoration: none;
-}
-.adminArtworks a:hover{
-    font-weight: 700;
 
-}
 .adminArtworks .admArtLink{
     display: flex;
     flex-wrap: wrap;

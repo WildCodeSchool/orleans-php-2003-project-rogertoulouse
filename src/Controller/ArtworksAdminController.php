@@ -127,8 +127,8 @@ class ArtworksAdminController extends AbstractController
     }
     public function preDelete()
     {
-        if (isset($_POST['idArtwork'])) {
-            $idArtwork = intval(trim($_POST['idArtwork']));
+        if (isset($_GET['idArtwork'])) {
+            $idArtwork = intval(trim($_GET['idArtwork']));
             $artworkManager = new ArtworkManager();
             $artwork = $artworkManager->selectArtwork($idArtwork);
             return $this->twig->render('/ArtworksAdmin/delete.html.twig', [
@@ -136,7 +136,7 @@ class ArtworksAdminController extends AbstractController
                 'artwork' => $artwork
             ]);
         } else {
-            header('location:/adminArtwork/index');
+            header('location:/ArtworksAdmin/index');
         }
     }
     public function delete()

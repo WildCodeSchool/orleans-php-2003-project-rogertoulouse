@@ -52,11 +52,8 @@
                         </form>
                     </div>
                     <div>
-                        <form action="/ArtworksAdmin/preDelete/" method="post">
-                            <input name="action" value="pre_delete" hidden>
-                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="SUPPRIMER" class="btn">
-                        </form>
+                        <a class="btn" href="/ArtworksAdmin/preDelete/?idArtwork={{ artwork.idArtwork }}">SUPPRIMER</a>
+
                     </div>
                 </td>
             </tr>
