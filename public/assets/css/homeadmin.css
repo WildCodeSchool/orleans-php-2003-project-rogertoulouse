@@ -3,3 +3,6 @@
     margin: auto;
     margin-top: 32px;
 }
+.description{
+    text-align: left !important;
+}

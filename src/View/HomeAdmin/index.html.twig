@@ -6,7 +6,7 @@
             <thead>
             <tr>
                 <td>Titre</td>
-                <td>Description</td>
+                <td class="description">Description</td>
                 <td class="d-flex justify-content-end">
                     <a class="btn" href="/HomeAdmin/add/">
                         <i class="fas fa-plus"></i>
@@ -17,7 +17,7 @@
             <tbody>
             {% for new in news %}
                 <tr>
-                    <td>{{ new.title }}</td>
+                    <td class="d-flex justify-content-center">{{ new.title }}</td>
                     <td>{{ new.desc }}</td>
                     <td class="d-flex justify-content-end">
                         <a class="btn" href="/HomeAdmin/edit/{{ new.id }}">
