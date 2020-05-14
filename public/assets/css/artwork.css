@@ -1,3 +1,16 @@
+.artwork {
+    padding-top: var(--padding-sm);
+    padding-bottom: var(--padding-sm);
+    background-color: var(--color-light-transparent);
+}
+
+.artwork h2{
+    font-size: calc(var(--sizeTitle) / 2);
+    font-family: var(--font-title);
+    text-align: center;
+    color: var(--color-main);
+}
+
 .artworks_errors{
     width: 100%;
     margin-top:32px;
@@ -16,6 +29,7 @@
     align-items: inherit;
     justify-content: space-around;
     padding-bottom: 32px;
+    margin: 0;
 }
 .artwork .card_artwork:nth-child(even){
     flex-direction: column-reverse;
@@ -30,6 +44,10 @@
     margin-top: 32px;
     margin-inline-start: 25px;
     margin-inline-end: 25px;
+}
+.card_artwork .picture {
+    overflow: hidden;
+    max-height: 350px;
 }
 
 .artwork .card-body{
@@ -204,19 +222,12 @@ Page single - une oeuvre seule.
 .descr_detail img {
     padding-right: 15px;
 }
-.sort_img_label img{
-    padding-left: 3px;
-    padding-right: 3px;
-}
-.sort_img_label a{
-    border-radius: 0;
-    border-style: none;
-}
-.sort_img_label a:hover{
-     border-radius: 0;
-     border-style: none;
-}
 .info{
     font-size: 14px;
     font-weight: 700;
+}
+
+.pictos{
+    font-size: 1.7em;
+    color: var(--color-main);
 }

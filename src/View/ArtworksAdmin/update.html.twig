@@ -3,12 +3,12 @@
     <div class="updateArtworks">
         {% if messages is not empty %}
             {% for message in messages %}
-                <div class="message">
+                <div class="error">
                     {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
-        <form id="updateArtwork" method="post" action="/ArtworksAdmin/update/">
+        <form id="updateArtwork" method="post" action="/ArtworksAdmin/update/{{ artwork.idArtwork }}">
             <input id="action" name="action" value="update" hidden>
             <input id="idArtwork" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
             <div class="upd_form_vertical">

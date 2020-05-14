@@ -1,13 +1,26 @@
 .carousel-homepage .slide-title{
     font-family: var(--font-title);
     font-size: var(--sizeTitle);
-    color: var(--color-light);
+    color: var(--color-main);
 }
 
 .carousel-homepage .slide-text{
     font-family: var(--font-text);
     font-size: var(--font-text);
-    color: var(--color-light);
+    color: var(--color-main);
+}
+.carousel-control-next-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.carousel-control-prev-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.carousel-homepage .desc{
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .news .card-header{
@@ -20,6 +33,12 @@
 .news .card-title{
     font-family: var(--font-text);
     font-size: var(--sizeText);
+    color: var(--color-main);
+    text-align: center;
+}
+
+.news .card-text{
+    color: var(--color-main);
 }
 
 .news .card-text{
@@ -31,6 +50,8 @@
     background-color: var(--color-main);
     color: var(--color-light);
     border: none;
+    display: flex;
+    justify-content: center;
 }
 
 .news .card-btn:hover{

@@ -22,7 +22,7 @@
                     <div class="card-body img-roger">
                         <h3 class="card-title">Roger Toulouse</h3>
                     </div>
-                    <img src="/assets/upload/{{ association.image }}" class="card-img-top"
+                    <img src="/assets/images/{{ association.image }}" class="card-img-top"
                          alt="Photo de Roger toulouse">
                 </div>
             </div>
@@ -31,39 +31,44 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <h2 class="contact_title">Contactez-nous</h2>
+            <h2 class="contact_title subhead" id="contact">Contactez-nous</h2>
         </div>
     </div>
     <div class="bottom-page container-fluid">
         <div class="row  justify-content-around ">
             <div class="card  col-md-3">
                 <div class="card-body contact-card">
-                    <h3 class="card-title contact-roger">contact</h3>
+                    <h3 class="card-title contact-roger">Contact</h3>
                     <p class="card-text"><i class="fas fa-phone"></i> {{ association.numberphone }}</p>
                     <p class="card-text"><i class="fas fa-at"></i> {{ association.email }}</p>
                     <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ association.address }}</p>
                 </div>
             </div>
             <div class="form col-md-4">
-                <form method="POST" action="">
+                <form method="POST" action="/Association/Index">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com" required>
+                               placeholder="name@example.com" value="{{ post is empty ? '' : post.email }}" required>
+                        <div class="error">{{ errors.emailEmpty is null ? '' : errors.emailEmpty }}</div>
+                        <div class="error">{{ errors.emailInvalid is null ? '' : errors.emailInvalid }}</div>
                     </div>
                     <div class="form-group">
                         <label for="object">Objet</label>
                         <input type="text" name="object" class="form-control" id="message"
-                               placeholder="Demande de renseignements "
+                               placeholder="Demande de renseignements " value="{{ post is empty ? '' : post.object }}"
                                required>
+                        <div class="error">{{ errors.object is null ? '' : errors.object }}</div>
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>
                         <textarea class="form-control" name="message" id="message" rows="3"
                                   required
-                                  placeholder="Quand aura lieu la prochaine exposition sur l'artiste "></textarea>
+                                  placeholder="Quand aura lieu la prochaine exposition sur l'artiste ">{{ post is empty ? '' : post.message|nl2br }}</textarea>
+                        <div class="error">{{ errors.message is null ? '' : errors.message }}</div>
                     </div>
-                    <button>Envoyer !</button>
+                    <button class="btn">Envoyer !</button>
+                    <div class="success">{{ get is null ? '' : 'Votre message a bien été transmit' }}</div>
                 </form>
             </div>
             <div id='map' class="col-md-3 map"></div>

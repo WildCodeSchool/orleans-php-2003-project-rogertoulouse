@@ -15,12 +15,14 @@
     --color-main : #423B32;
     --color-secondary : #CCB79B;
     --color-light : #ffe4c2;
+    --color-light-transparent : #ffe4c270;
     --color-shadow : #80623B;
     --color-text : #FFC375;
     --color-error : #cb2e2e;
-    /* Font Size : */
-    --sizeText : 16pt;
+    --color-success : #2ecb48;
+    /* Font Size : */    --sizeText : 16pt;
     --sizeTitle : calc(3 * var(--sizeText));
+    --sizeIntermediate: calc(2.5 * var(--sizeText));
     --sizeBanner : 8vmin;
     /* Border Radius */
     --border-radius : 8px;
@@ -38,11 +40,14 @@ html{
 }
 body {
     background-color: var(--color-secondary);
-}.container{
+}
+.container{
      font-family: var(--font-text);
+     margin-top: 32px;
+     margin-bottom: 50px;
  }
 .container h1{
-    font-size: calc(var(--sizeTitle));
+    font-size: calc(var(--sizeTitle) / 2);
     font-family: var(--font-title);
     text-align: center;
     color: var(--color-main);
@@ -105,6 +110,10 @@ h3{
     margin: 5px 0 5px 0;
     line-height: 24pt;
 }
+.btn i{
+    width: 24px;
+    height: 24px;
+}
 .btn:hover{
     outline: none;
     color: var(--color-light);
@@ -125,4 +134,10 @@ h3{
 }
 .leftNavBar a{
     max-height: 30px;
+}
+.more{
+    min-width: 94px;
+}
+.end{
+    margin-right: 10px;
 }

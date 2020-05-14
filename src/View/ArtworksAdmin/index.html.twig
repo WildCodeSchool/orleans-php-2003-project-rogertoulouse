@@ -8,20 +8,19 @@
             </div>
         {% endfor %}
     {% endif %}
-    <a href="/ArtworksAdmin/add"><div class="btn">AJOUTER UNE OEUVRE</div></a>
     <table>
         <thead>
             <tr>
-                <td class="id">ID</td>
-                <td>Image</td>
-                <td>Titre</td>
-                <td>Type</td>
-                <td>Année</td>
-                <td>Carousel</td>
-                <td>Description</td>
-                <td>Infos+</td>
-                <td>Taille</td>
-                <td>Action</td>
+                <th class="id">ID</th>
+                <th>Image</th>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Année</th>
+                <th>Carousel</th>
+                <th>Description</th>
+                <th class="option end" scope="col">
+                    <a class="more btn" href="/ArtworksAdmin/add"><i class="fas fa-plus"></i></a>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +28,7 @@
             <tr>
                 <td class="id">{{ artwork.idArtwork }}</td>
                 <td><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></td>
-                <td>{{ artwork.name }}</td>
+                <td class="text-center">{{ artwork.name }}</td>
                 <td>{{ artwork.category }}</td>
                 <td>{{ artwork.date|date("Y") }}</td>
                 <td>
@@ -38,26 +37,13 @@
                     {% endif %}
                 </td>
                 <td>
-                    <div class="relative">
-                        <div>{{ artwork.description }}</div>
-                    </div>
+                    <p class="td_description px-2">
+                        {{ artwork.description }}
+                    </p>
                 </td>
-                <td>{{ artwork.more_info }}</td>
-                <td>{{ artwork.size }}</td>
                 <td>
-                    <div>
-                        <form action="/ArtworksAdmin/update/" method="post">
-                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="MODIFIER" class="btn">
-                        </form>
-                    </div>
-                    <div>
-                        <form action="/ArtworksAdmin/delete/" method="post">
-                            <input name="action" value="delete" hidden>
-                            <input name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="SUPPRIMER" class="btn">
-                        </form>
-                    </div>
+                    <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% endfor %}
@@ -65,3 +51,5 @@
     </table>
 </div>
 {% endblock %}
+
+

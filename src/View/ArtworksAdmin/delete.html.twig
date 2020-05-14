@@ -1,0 +1,16 @@
+{% extends 'Admin/index.html.twig' %}
+{% block admin %}
+    <div class="delete mx-auto d-flex align-text-center align-items-center flex-column">
+        <div><h2 class="p-2 m-2">Souhaitez-vous supprimer " {{ artwork.name }} " des enregistrements ?</h2></div>
+        <div><img src="/assets/upload/{{ artwork.image }}" alt="{{ artwork.image }}"></div>
+        <div class="d-flex justify-content-center">
+            <form action="/ArtworksAdmin/delete/" method="post">
+                <input type="hidden" name="action" value="pre_delete">
+                <input type="hidden" name="idArtwork" value="{{ artwork.idArtwork }}">
+                <input type="submit" value="OUI" class="btn">
+            </form>
+            <a class="btn" href="/ArtworksAdmin">NON</a>
+        </div>
+
+    </div>
+{% endblock %}

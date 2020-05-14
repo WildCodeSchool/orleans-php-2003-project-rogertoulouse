@@ -31,16 +31,16 @@
                 </div>
                 <div class="champs">
                     <div>
-                        <input required type="text" name="name" id="name">
+                        <input required type="text" name="name" id="name" value="{% if artwork.name is defined %}{{ artwork.name }}{% endif %}">
                     </div>
                     <div>
-                        <input type="text" name="date" id="date" min="1916" max="{{ 'now'|date('Y') }}">
+                        <input type="text" name="date" id="date" min="1900" max="{{ 'now'|date('Y') }}"  value="{% if artwork.year is defined %}{{ artwork.year }}{% endif %}">
                     </div>
                     <div>
-                        <input type="text" name="size" id="size">
+                        <input type="text" name="size" id="size"  value="{% if artwork.size is defined %}{{ artwork.size }}{% endif %}">
                     </div>
                     <div>
-                        <input type="more_info" name="more_info" id="more_info">
+                        <input type="more_info" name="more_info" id="more_info"  value="{% if artwork.more_info is defined %}{{ artwork.more_info }}{% endif %}">
                     </div>
                     <div>
                         <input type="file"  name="image">
@@ -48,17 +48,17 @@
                     <div>
                         <select id="category_id" name="category_id" class="select">
                             {% for category in categories %}
-                                <option value="{{ category.id }}">{{ category.category|upper }}</option>
+                                <option value="{{ category.id }}" {% if category.id == artwork.category_id %} selected {% endif %}>{{ category.category|upper }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="description">
-                        <textarea name="description" id="description" rows="5" cols="40"></textarea>
+                        <textarea name="description" id="description" rows="5" cols="40">{% if artwork.description is defined %}{{ artwork.description }}{% endif %}</textarea>
                     </div>
                     <div>
                         <button class="btn btn-primary">Valider</button>
                     </div>
-                    <div>Les champs marqués d'une étoile (*) sont obligatoires.</div>
+                    <div class="mt-3">Les champs marqués d'une étoile (*) sont obligatoires.</div>
                 </div>
             </div>
         </form>
