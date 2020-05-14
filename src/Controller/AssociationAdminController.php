@@ -64,7 +64,7 @@ class AssociationAdminController extends AbstractController
         $lengthTitle = 30;
         $lengthText = 65535;
         $lengthEmail = $lengthAddress = 250;
-        $lengthNumber = 30;
+        $lengthNumber = 20;
         $errors = [];
 
         foreach ($data as $key) {

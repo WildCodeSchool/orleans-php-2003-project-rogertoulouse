@@ -43,6 +43,7 @@ body {
 .container{
      font-family: var(--font-text);
      margin-top: 32px;
+     margin-bottom: 50px;
  }
 .container h1{
     font-size: calc(var(--sizeTitle) / 2);
