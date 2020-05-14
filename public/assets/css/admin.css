@@ -4,6 +4,9 @@ table{
     border-color: var(--color-main);
     min-width: 100%;
 }
+.container{
+    margin-bottom: 50px;
+}
 .id{
     scroll-behavior: auto;
     scroll-snap-align: center;
