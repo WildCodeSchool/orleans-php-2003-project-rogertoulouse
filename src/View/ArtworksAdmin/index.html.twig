@@ -21,7 +21,9 @@
                 <th>Description</th>
                 <th>Infos+</th>
                 <th>Taille</th>
-                <th>Action</th>
+                <th class="option end" scope="col">
+                    <a class="more btn" href="/ArtworksAdmin/add"><i class="fas fa-plus"></i></a>
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +46,10 @@
                 </td>
                 <td>{{ artwork.more_info }}</td>
                 <td>{{ artwork.size }}</td>
+                <td class="admArtLink">
+                    <a class="btn" href="/BiographyAdmin/Edit/{{ biography.id }}#{{ biography.id }}"><i class="fas fa-edit"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/Delete/?idArtwork={{ artwork.id }}"><i class="fas fa-trash-alt"></i></a>
+                </td>
                 <td>
                     <div>
                         <form action="/ArtworksAdmin/update/" method="post">
