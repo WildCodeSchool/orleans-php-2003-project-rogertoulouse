@@ -46,13 +46,8 @@
                 <td>{{ artwork.size }}</td>
                 <td>
                     <div>
-                        <form action="/ArtworksAdmin/update/" method="post">
-                            <input type="text" name="idArtwork" value="{{ artwork.idArtwork }}" hidden>
-                            <input type="submit" value="MODIFIER" class="btn">
-                        </form>
-                    </div>
-                    <div>
-                        <a class="btn" href="/ArtworksAdmin/preDelete/?idArtwork={{ artwork.idArtwork }}">SUPPRIMER</a>
+                        <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}">MODIFIER</a>
+                        <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}">SUPPRIMER</a>
                     </div>
                 </td>
             </tr>
