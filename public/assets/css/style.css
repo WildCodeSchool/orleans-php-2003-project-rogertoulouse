@@ -19,6 +19,7 @@
     --color-shadow : #80623B;
     --color-text : #FFC375;
     --color-error : #cb2e2e;
+    --color-success : #2ecb48;
     /* Font Size : */    --sizeText : 16pt;
     --sizeTitle : calc(3 * var(--sizeText));
     --sizeIntermediate: calc(2.5 * var(--sizeText));
