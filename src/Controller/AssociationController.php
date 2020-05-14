@@ -46,7 +46,7 @@ class AssociationController extends AbstractController
                     'association' => $association]);
             }
             $messagesManager = new MessagesManager();
-            $messagesManager->insert($_POST['email'], $_POST['object'], $_POST['message']);
+            $messagesManager->insert($data['email'], $data['object'], $data['message']);
             header('Location:/Association/Index/?sending=success#contact');
         }
         if (isset($_GET['sending'])) {
