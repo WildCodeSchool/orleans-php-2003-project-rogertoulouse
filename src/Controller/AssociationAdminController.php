@@ -64,7 +64,7 @@ class AssociationAdminController extends AbstractController
         $lengthTitle = 30;
         $lengthText = 65535;
         $lengthEmail = $lengthAddress = 250;
-        $lengthNumber = 10;
+        $lengthNumber = 20;
         $errors = [];
 
         foreach ($data as $key) {
@@ -86,9 +86,6 @@ class AssociationAdminController extends AbstractController
         }
         if (strlen($data['numberphone']) > $lengthNumber) {
             $errors[] = 'Le numéro dépasse ' . $lengthNumber . ' caractères';
-        }
-        if (preg_match('`[0-9]{10}`', $data['numberphone'])) {
-            $errors[] = 'Veuiller entrer un numéro de téléphone valide.';
         }
         return $errors ?? [];
     }
