@@ -3,34 +3,34 @@
 
     <div class="container">
         {% for error in errors %}
-            <div><p class="text-danger">{{ error }}</p></div>
+            <div><p class="text-danger alert alert-danger">{{ error }}</p></div>
         {% endfor %}
         <form method="POST" action="">
             <div class="form-group">
                 <input hidden value="{{ association.id }}" name="id">
-                <label for="title">titre</label>
+                <label for="title" class ="label-admin">Titre</label>
                 <input type="text" name="title" value="{{ association.title }}" class="form-control" id="message"
                 >
             </div>
             <div class="form-group">
-                <label for="text">text</label>
+                <label for="text" class ="label-admin">Text</label>
                 <textarea class="form-control" name="text" id="text" rows="3"
                 >{{ association.text }}</textarea>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" class ="label-admin">Email</label>
                 <input type="email" name="email" value="{{ association.email }}" class="form-control"
                        id="exampleFormControlInput1"
                        placeholder="name@example.com">
             </div>
             <div class="form-group">
-                <label for="address">adresse</label>
+                <label for="address" class ="label-admin">Adresse</label>
                 <input type="text" name="address" value="{{ association.address }}" class="form-control"
                        id="exampleFormControlInput1"
                 >
             </div>
             <div class="form-group">
-                <label for="numberphone">numéro</label>
+                <label for="numberphone" class ="label-admin">Numéro</label>
                 <input type="text" name="numberphone" class="form-control" id="exampleFormControlInput1"
                        value="{{ association.numberphone }}">
             </div>

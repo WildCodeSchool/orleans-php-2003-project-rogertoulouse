@@ -89,3 +89,9 @@ td.admArtLink{
     border-left: var(--color-error) 4px solid;
     border-right: var(--color-error) 4px solid;
 }
+.anchor{
+    display: block;
+    height: 50vh; /* 50% viewport height */
+    margin-top: -50vh;
+    visibility: hidden;
+}
