@@ -3,11 +3,10 @@
     <form action="/BiographyAdmin/Delete/{{ id }}" method="post" id="formDelete">
         <input type="hidden" name="id" value="{{ id }}">
     </form>
-    <tr class="cell deleter" id="{{ biography.id }}">
+    <tr class="cell deleter" style="width:95%" id="{{ biography.id }}">
         <td class="yearValue">{{ year }}</td>
         <td class="cellinfo">{{ biography.info }}</td>
-        <td class="admArtLink">
-        </td>
+        <td class="admArtLink"></td>
     </tr>
     <tr class="error">
         <td colspan="4">Voulez-vous vraiment supprimer cette biographie ?</td>
