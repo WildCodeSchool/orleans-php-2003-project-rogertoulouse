@@ -65,6 +65,7 @@ h2{
 .assoc_text {
     font-family: var(--font-text);
     font-size: var(--sizeText);
+    line-height: 1.2;
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
@@ -143,7 +144,8 @@ form {
     text-align: start;
 }
 .text-admin{
-text-align: center;
+text-align: left;
+    font-family: var(--font-text);
 }
 .update-btn{
     display: flex;
