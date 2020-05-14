@@ -33,6 +33,7 @@ class AssociationAdminController extends AbstractController
         $assocAdminManager = new AssociationManager();
         $association = $assocAdminManager->selectFirst();
         return $this->twig->render('/AssociationAdmin/index.html.twig', [
+            'active' => self::ACTIVE,
             'association' => $association]);
     }
 
@@ -54,7 +55,9 @@ class AssociationAdminController extends AbstractController
             }
         }
         $association = $assocAdminManager->selectFirst();
-        return $this->twig->render('/AssociationAdmin/update.html.twig', ['data' => $data ?? [],
+        return $this->twig->render('/AssociationAdmin/update.html.twig', [
+            'active' => self::ACTIVE,
+            'data' => $data ?? [],
             'errors' => $errors ?? [],
             'association' => $association]);
     }
@@ -64,7 +67,7 @@ class AssociationAdminController extends AbstractController
         $lengthTitle = 30;
         $lengthText = 65535;
         $lengthEmail = $lengthAddress = 250;
-        $lengthNumber = 30;
+        $lengthNumber = 20;
         $errors = [];
 
         foreach ($data as $key) {

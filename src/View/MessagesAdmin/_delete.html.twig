@@ -1,0 +1,19 @@
+{% extends 'MessagesAdmin/index.html.twig' %}
+{% block AditionalContent %}
+    <form action="/MessagesAdmin/Delete/{{ id }}" method="post" id="formDelete">
+        <input type="hidden" name="id" value="{{ id }}">
+    </form>
+    <tr class="cell deleter" id="{{ biography.id }}">
+        <td class="mailValue">{{ message.mailer }}</td>
+        <td class="objectValue">{{ message.object }}</td>
+        <td class="contentValue">{{ message.message }}</td>
+        <td class="admArtLink">
+        </td>
+    </tr>
+    <tr class="error">
+        <td colspan="4">Voulez-vous vraiment supprimer ce message ?</td>
+    </tr>
+    <tr class="error">
+        <td colspan="4"><button class="btn" form="formDelete">OUI</button><a class="btn" href="/MessagesAdmin/Index">NON</a></td>
+    </tr>
+{% endblock %}

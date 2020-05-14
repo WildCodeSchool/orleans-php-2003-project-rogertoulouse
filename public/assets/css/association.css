@@ -64,7 +64,8 @@ h2{
 }
 .assoc_text {
     font-family: var(--font-text);
-    font-size: 10pt;
+    font-size: var(--sizeText);
+    line-height: 1.2;
     background: var(--color-light);
     color: var(--color-main);
     margin-left: 10px;
@@ -107,7 +108,7 @@ h2{
     border: none;
 }
 .card h3{
-    font-size: var(--sizeText);
+    font-size: calc(var(--sizeText) * 1.5);
     font-family: var(--font-title);
 }
 .contact_title{
@@ -143,7 +144,8 @@ form {
     text-align: start;
 }
 .text-admin{
-text-align: center;
+text-align: left;
+    font-family: var(--font-text);
 }
 .update-btn{
     display: flex;
@@ -176,7 +178,8 @@ text-align: center;
     margin-bottom: 30px;
 }
 .button{
-
+    margin-top: -20px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -233,6 +236,25 @@ text-align: center;
 .card-responsive-admin-top{
     margin-top: 30px;
 }
+.success{
+    border-radius: var(--border-radius);
+    background-color: var(--color-success);
+    color: var(--color-light);
+    font-weight: 800;
+}
+.error{
+    margin-top: -2px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    background-color: var(--color-error);
+    color: var(--color-light);
+    font-weight: 800;
+}
 .label-admin{
     font-family: var(--font-text);
+}
+.subhead{
+    font-size:var(--sizeIntermediate);
+}
+.row h2{
+    margin-bottom: 50px;
 }

@@ -58,6 +58,7 @@ class BiographyAdminController extends AbstractController
             if (!empty($errors) && $errors != '') {
                 return $this->twig->render('/BiographyAdmin/_add.html.twig', [
                     'active' => self::ACTIVE,
+                    'post' => $_POST,
                     'data' => $dataByYears,
                     'errors' => $errors]);
             }
@@ -68,6 +69,7 @@ class BiographyAdminController extends AbstractController
         }
         return $this->twig->render('/BiographyAdmin/_add.html.twig', [
             'active' => self::ACTIVE,
+            'post' => $_POST,
             'data' => $dataByYears]);
     }
 
@@ -92,6 +94,7 @@ class BiographyAdminController extends AbstractController
                 return $this->twig->render('/BiographyAdmin/_edit.html.twig', [
                     'active' => self::ACTIVE,
                     'id' => $id,
+                    'post' => $_POST,
                     'data' => $dataByYears,
                     'errors' => $errors]);
             }
@@ -104,6 +107,7 @@ class BiographyAdminController extends AbstractController
         return $this->twig->render('/BiographyAdmin/_edit.html.twig', [
             'active' => self::ACTIVE,
             'id' => $id,
+            'post' => $_POST,
             'data' => $dataByYears,
             'errors' => $errors]);
     }

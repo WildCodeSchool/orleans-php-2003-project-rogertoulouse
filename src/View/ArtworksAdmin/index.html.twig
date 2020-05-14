@@ -22,7 +22,7 @@
                     <a class="more btn" href="/ArtworksAdmin/add"><i class="fas fa-plus"></i></a>
                 </th>
             </tr>
-        </thead>git
+        </thead>
         <tbody>
         {% for artwork in artworks %}
             <tr>
@@ -42,8 +42,8 @@
                     </p>
                 </td>
                 <td>
-                    <a class="btn" href="/ArtworksAdmin/update/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
-                    <a class="btn" href="/ArtworksAdmin/preDelete/?idArtwork={{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/update/{{ artwork.idArtwork }}"><i class="fas fa-edit"></i></a>
+                    <a class="btn" href="/ArtworksAdmin/preDelete/{{ artwork.idArtwork }}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% endfor %}
@@ -51,3 +51,5 @@
     </table>
 </div>
 {% endblock %}
+
+

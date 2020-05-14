@@ -18,12 +18,16 @@ use App\Model\NewsManager;
  */
 class HomeAdminController extends AbstractController
 {
+    const ACTIVE = 'home';
+
     public function index()
     {
         $newsManager = new NewsManager();
         $news = $newsManager->selectNews();
 
-        return $this->twig->render('HomeAdmin/index.html.twig', ['news' => $news]);
+        return $this->twig->render('HomeAdmin/index.html.twig', [
+            'active' => self::ACTIVE,
+            'news' => $news]);
     }
 
     public function add()
@@ -39,6 +43,7 @@ class HomeAdminController extends AbstractController
             }
         }
         return $this->twig->render('HomeAdmin/add.html.twig', [
+            'active' => self::ACTIVE,
             'data' => $data ?? [],
             'errors' => $errors ?? []
         ]);
@@ -82,6 +87,7 @@ class HomeAdminController extends AbstractController
             }
         }
         return $this->twig->render('HomeAdmin/edit.html.twig', [
+            'active' => self::ACTIVE,
             'new' => $new,
             'data' => $data ?? [],
             'errors' => $errors ?? []

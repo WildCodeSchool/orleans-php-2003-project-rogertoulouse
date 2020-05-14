@@ -78,7 +78,7 @@ class ArtworksAdminController extends AbstractController
     }
 
 
-    public function update()
+    public function update($idArtwork = null)
     {
         //recup categories
         $categoryManager = new CategoryManager();
@@ -113,19 +113,29 @@ class ArtworksAdminController extends AbstractController
                 ]);
             }
         }
-        if (!empty($_GET['idArtwork'])) {
-            $idArtwork = intval($_GET['idArtwork']);
 
+         $artwork = $artworkManager->selectArtwork($idArtwork);
+        return $this->twig->render('/ArtworksAdmin/update.html.twig', [
+            'active' => self::ACTIVE,
+            'artwork' => $artwork,
+            'categories' => $categories,
+            'messages' => $messages
+        ]);
+    }
+    public function preDelete($idArtwork = null)
+    {
+        if (isset($idArtwork)) {
+            $idArtwork = intval(trim($idArtwork));
+            $artworkManager = new ArtworkManager();
             $artwork = $artworkManager->selectArtwork($idArtwork);
-            return $this->twig->render('/ArtworksAdmin/update.html.twig', [
+            return $this->twig->render('/ArtworksAdmin/delete.html.twig', [
                 'active' => self::ACTIVE,
-                'artwork' => $artwork,
-                'categories' => $categories,
-                'messages' => $messages
+                'artwork' => $artwork
             ]);
+        } else {
+            header('location:/ArtworksAdmin/index');
         }
     }
-
     public function delete()
     {
         $artworkManager = new ArtworkManager();
