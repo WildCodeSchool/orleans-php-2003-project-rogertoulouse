@@ -1,14 +1,14 @@
-.artwork h2{
-    color: var(--color-main);
+.artwork {
+    padding-top: var(--padding-sm);
+    padding-bottom: var(--padding-sm);
+    background-color: var(--color-light-transparent);
 }
-.artwork .d-flex{
-    background-color: var(--color-light);
-    padding-top: 16px;
-    padding-bottom: 16px;
-    margin: 0;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-width: 1px;
+
+.artwork h2{
+    font-size: calc(var(--sizeTitle) / 2);
+    font-family: var(--font-title);
+    text-align: center;
+    color: var(--color-main);
 }
 
 .artworks_errors{
