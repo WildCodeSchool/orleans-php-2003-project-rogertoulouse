@@ -107,7 +107,7 @@ h2{
     border: none;
 }
 .card h3{
-    font-size: var(--sizeText);
+    font-size: calc(var(--sizeText) * 1.5);
     font-family: var(--font-title);
 }
 .contact_title{
